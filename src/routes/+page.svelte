@@ -1,21 +1,8 @@
 <script>
-	import Todos from '../tutorial/Todos.svelte';
-	import Alert from '../tutorial/Alert.svelte';
-	import Slider from '../components/Slider.svelte';
-
-	import { todos } from '../stores.js';
-
-	import '../styles/global.css';
-
-	let sliderValue = 0;
-
-	function handleSliderChange(event) {
-		sliderValue = event.detail;
-	}
+	import { sliderValue, sliderMapping } from '../stores.js';
 </script>
 
-<Slider initialValue={sliderValue} on:change={handleSliderChange} />
-<p>Selected Value: {sliderValue}</p>
+<p>Selected Value: {sliderMapping[$sliderValue]}</p>
 
 testing for vercel
 
