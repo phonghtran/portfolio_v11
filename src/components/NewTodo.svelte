@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { createEventDispatcher } from 'svelte';
-	import { selectOnFocus } from './../actions.js';
+	import { selectOnFocus } from '../actions.js';
 
 	const dispatch = createEventDispatcher();
 

@@ -40,3 +40,6 @@ You can preview the production build with `npm run preview`.
 Vercel Deployment
 		"@sveltejs/adapter-static": "^3.0.1",
         For static build to folder "build"
+
+
+https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_stores#making_stores_reactive_with_the_reactive_store_syntax
