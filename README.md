@@ -43,3 +43,5 @@ Vercel Deployment
 
 
 https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_stores#making_stores_reactive_with_the_reactive_store_syntax
+
+https://stackoverflow.com/questions/75056422/how-to-use-vitepreprocess-with-global-scss-mixins-in-sveltekit
