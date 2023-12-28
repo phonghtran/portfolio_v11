@@ -6,3 +6,7 @@
 h2 {
     color: var(--color);
 }
+
+.videoContainer {
+    width: 200px;
+}

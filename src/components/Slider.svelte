@@ -1,24 +1,23 @@
 <script>
-	import { createEventDispatcher } from 'svelte';
+	import { languageConfig } from '../stores.js';
 
-	import { sliderValue, sliderMaxValue, sliderMapping } from '../stores.js';
+	export let targetSetting = '';
+	let settings = [];
 
-	export let maxValue = 6;
-
-	let value = $sliderValue;
-	const dispatch = createEventDispatcher();
+	let labels = $languageConfig[targetSetting]['labels'];
+	let value = $languageConfig[targetSetting]['value'];
 
 	function handleChange(event) {
-		console.log(event);
-		value = event.target.value;
-		dispatch('changeSlider', value);
-		// send up 0-4
+		value = parseInt(event.target.value);
+
+		$languageConfig[targetSetting]['value'] = value;
 	}
 </script>
 
 <div class="slider-container">
-	<input type="range" min="0" max={sliderMaxValue} {value} on:input={handleChange} />
-	<p>{sliderMapping[$sliderValue]}</p>
+	{value}
+	<input type="range" min="0" max={labels.length - 1} {value} on:input={handleChange} />
+	<p>{$languageConfig[targetSetting]['labels'][value]}</p>
 </div>
 
 <style>
