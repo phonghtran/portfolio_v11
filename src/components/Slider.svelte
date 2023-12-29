@@ -23,7 +23,7 @@
 <style>
 	.slider-container {
 		text-align: center;
-		margin: 20px;
+		margin: 0 20px;
 	}
 
 	input[type='range'] {
