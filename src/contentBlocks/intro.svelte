@@ -27,3 +27,20 @@
 		<p>else</p>
 	{/if}
 {/key}
+
+<p>
+	<a href="https://www.dropbox.com/s/spg5vtdhh66bno9/phonghtran_resume.pdf?dl=0" target="_blank"
+		>Resume/CV</a
+	>
+</p>
+logos
+
+<img class="logo" src="../assets/fis.png" alt="" />
+<img class="logo" src="../assets/826.png" alt="" />
+<img class="logo" src="../assets/csod.png" alt="" />
+<img class="logo" src="../assets/DroneIQ.png" alt="" />
+<img class="logo" src="../assets/fedex.png" alt="" />
+<img class="logo" src="../assets/gsk.png" alt="" />
+<img class="logo" src="../assets/mastercard.png" alt="" />
+<img class="logo" src="../assets/obviously.png" alt="" />
+<img class="logo" src="../assets/pnc.png" alt="" />

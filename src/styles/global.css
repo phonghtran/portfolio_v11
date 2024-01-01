@@ -10,3 +10,7 @@ h2 {
 .videoContainer {
     width: 200px;
 }
+
+img.logo {
+    width: 4rem;
+}

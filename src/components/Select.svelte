@@ -21,7 +21,7 @@
 	}
 </script>
 
-<div class="dropdown">
+<div class="select">
 	Audience: <select on:input={handleChange}>
 		{#each $languageConfig[0]['labels'] as option, index}
 			<option value={index}>{option}</option>

@@ -1,15 +1,14 @@
 <script>
 	import Slider from '../components/Slider.svelte';
-
 	import Select from './Select.svelte';
 	import Dropdown from './Dropdown.svelte';
 </script>
 
 <div class="nav">
 	<div class="center">
+		<Dropdown />
 		<Slider targetSetting="1" />
 		<Select />
-		<Dropdown />
 	</div>
 </div>
 
@@ -31,8 +30,5 @@
 		margin: 0 auto;
 		max-width: 800px;
 		width: 100%;
-	}
-
-	.center * {
 	}
 </style>
