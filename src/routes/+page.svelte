@@ -1,5 +1,5 @@
 <script>
-	import Intro from '../contentBlocks/Intro.svelte';
+	import Intro from './../contentBlocks/Intro.svelte';
 
 	import { languageConfig } from '../stores.js';
 </script>
