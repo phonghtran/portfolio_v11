@@ -18,3 +18,8 @@ export const languageConfig = writable(
         }
     ]
 )
+
+export const navItems = [
+    { name: 'Summary', url: "/" },
+    { name: 'About', url: "/about" }
+]
