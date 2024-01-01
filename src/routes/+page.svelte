@@ -1,8 +1,12 @@
 <script>
+	import Intro from './../contentBlocks/Intro.svelte';
+
 	import { languageConfig } from '../stores.js';
 </script>
 
-<div class="container">test</div>
+<div class="container">
+	<Intro />
+</div>
 
 <style>
 	.container {
