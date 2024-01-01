@@ -22,7 +22,7 @@
 			listIsActive = !listIsActive;
 		}}
 	>
-		<span>{selectedName}</span>
+		<div>{selectedName}</div>
 		<div>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -57,12 +57,12 @@
 	}
 
 	.dropdown-button {
-		align-content: space-between;
 		align-items: center;
 		background-color: orange;
 		border: 0;
 		cursor: pointer;
 		display: flex;
+		justify-content: space-between;
 		padding: 0.5rem 0.5rem;
 		width: 12rem;
 	}
@@ -82,6 +82,7 @@
 	}
 
 	.dropdown-list li a {
+		border: black 1px solid;
 		display: block;
 		padding: 0.5rem 0.5rem;
 		text-align: left;

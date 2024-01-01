@@ -16,19 +16,24 @@
 
 <style>
 	.nav {
-		background-color: lightgrey;
-		position: fixed;
+		margin-top: 0.5rem;
+
 		text-align: center;
-		top: 0;
-		width: 100%;
 	}
 
 	.center {
-		align-content: start;
 		align-items: center;
 		display: flex;
+		justify-content: start;
+		background-color: lightgrey;
+		border-radius: 1rem;
+
 		margin: 0 auto;
-		max-width: 800px;
-		width: 100%;
+		max-width: 80%;
+		padding: 0 2rem;
+		text-align: left;
+	}
+
+	.center span {
 	}
 </style>

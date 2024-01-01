@@ -28,6 +28,7 @@
 	{/if}
 {/key}
 
+<h1>header</h1>
 <p>
 	<a href="https://www.dropbox.com/s/spg5vtdhh66bno9/phonghtran_resume.pdf?dl=0" target="_blank"
 		>Resume/CV</a
@@ -44,3 +45,6 @@ logos
 <img class="logo" src="../assets/mastercard.png" alt="" />
 <img class="logo" src="../assets/obviously.png" alt="" />
 <img class="logo" src="../assets/pnc.png" alt="" />
+
+<style>
+</style>
