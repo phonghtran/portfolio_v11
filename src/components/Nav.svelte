@@ -33,7 +33,4 @@
 		padding: 0 2rem;
 		text-align: left;
 	}
-
-	.center span {
-	}
 </style>
