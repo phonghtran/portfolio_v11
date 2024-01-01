@@ -1,16 +1,13 @@
 <script>
 	import { languageConfig } from '../stores.js';
-
-	let targetAudienceValue = $languageConfig['targetAudience']['value'];
-	let verboseLevelValue = $languageConfig['verboseLevel']['value'];
 </script>
 
-<p>intro {$languageConfig['targetAudience']['value']}</p>
+<p>intro {$languageConfig[0]['value']}</p>
 
-{#key $languageConfig['targetAudience']['value']}
-	<p>{$languageConfig['targetAudience']['value']}</p>
+{#key $languageConfig[0]['value']}
+	<p>{$languageConfig[0]['value']}</p>
 
-	{#if $languageConfig['targetAudience']['value'] === 1}
+	{#if $languageConfig[0]['value'] === 1}
 		<p>in 1</p>
 		<div class="videoContainer">
 			<div style="padding:177.78% 0 0 0;position:relative;">
@@ -24,7 +21,7 @@
 			</div>
 			<script src="https://player.vimeo.com/api/player.js"></script>
 		</div>
-	{:else if $languageConfig['targetAudience']['value'] > 1}
+	{:else if $languageConfig[0]['value'] > 1}
 		<p>bigger than 1</p>
 	{:else}
 		<p>else</p>
