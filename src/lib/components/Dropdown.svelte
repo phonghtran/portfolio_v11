@@ -1,6 +1,6 @@
 <!-- Dropdown.svelte -->
 <script>
-	import { navItems } from '../stores.js';
+	import { navItems } from '../../stores.js';
 
 	export let options = navItems; // Array of options for the dropdown
 	console.log(navItems);

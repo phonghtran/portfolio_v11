@@ -1,5 +1,5 @@
 <script>
-	import Slider from '../components/Slider.svelte';
+	import Slider from './Slider.svelte';
 	import Select from './Select.svelte';
 	import Dropdown from './Dropdown.svelte';
 </script>

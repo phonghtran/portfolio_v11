@@ -2,7 +2,7 @@
 	import '../styles/reset.css';
 	import '../styles/global.css';
 
-	import Nav from '../components/Nav.svelte';
+	import Nav from '$lib/components/Nav.svelte';
 </script>
 
 <Nav />

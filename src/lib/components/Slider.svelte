@@ -1,5 +1,5 @@
 <script>
-	import { languageConfig } from '../stores.js';
+	import { languageConfig } from '../../stores.js';
 
 	export let targetSetting = '';
 	let settings = [];
