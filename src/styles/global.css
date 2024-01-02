@@ -29,6 +29,10 @@ h2 {
     width: 200px;
 }
 
+img {
+    width: 32rem;
+}
+
 img.logo {
     width: 4rem;
 }
