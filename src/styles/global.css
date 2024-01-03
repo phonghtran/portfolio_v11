@@ -21,8 +21,12 @@ h6 {
     font-weight: 700;
 }
 
-h2 {
+span.settingKeyword {
     color: var(--color);
+}
+
+span.seoHashtag::before {
+    content: '#';
 }
 
 .videoContainer {
