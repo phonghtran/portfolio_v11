@@ -3,7 +3,7 @@
 	import { navItems } from '../../stores.js';
 
 	export let options = navItems; // Array of options for the dropdown
-	console.log(navItems);
+
 	let selectedName = 'Summary'; // The currently selected option
 	let selectedUrl = '';
 	let listIsActive = false;
