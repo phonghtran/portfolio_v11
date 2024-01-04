@@ -9,7 +9,7 @@
 <h1>phonghtran</h1>
 <h2>{careerLength} year ux designer & occasional coder</h2>
 
-{#if $languageConfig[1]['value'] === 0}
+{#if $languageConfig[1]['value'] === 0 && $languageConfig[0]['value'] === 0}
 	<p>
 		Portfolio currently configured for <span class="settingKeyword">HR</span> with
 		<span class="settingKeyword">minimal</span> verbosity
@@ -41,7 +41,7 @@
 		<span class="seoHashtag">HTML</span>,
 		<span class="seoHashtag">JS</span>
 	</p>
-{:else if $languageConfig[1]['value'] === 1}
+{:else if $languageConfig[1]['value'] === 1 && $languageConfig[0]['value'] === 0}
 	<h3>Generated from ChatGPT AI:</h3>
 	<p>
 		A seasoned UX designer who codes with 15 years of experience brings a wealth of expertise to the
@@ -65,9 +65,22 @@
 		</div>
 		<script src="https://player.vimeo.com/api/player.js"></script>
 	</div>
-{:else if $languageConfig[1]['value'] === 2}
-	<p>verbose</p>
+{:else if $languageConfig[1]['value'] === 2 && $languageConfig[0]['value'] === 0}
+	<p>hr - verbose</p>
+{:else if $languageConfig[1]['value'] === 0 && $languageConfig[0]['value'] === 1}
+	minimal - design
+{:else if $languageConfig[1]['value'] === 1 && $languageConfig[0]['value'] === 1}
+	expressive - design
+{:else if $languageConfig[1]['value'] === 2 && $languageConfig[0]['value'] === 1}
+	verbose - design
+{:else if $languageConfig[1]['value'] === 0 && $languageConfig[0]['value'] === 2}
+	minimal - tech
+{:else if $languageConfig[1]['value'] === 1 && $languageConfig[0]['value'] === 2}
+	expressive - tech
+{:else if $languageConfig[1]['value'] === 2 && $languageConfig[0]['value'] === 2}
+	verbose - tech
 {:else}
+	{$languageConfig[1]['value']} - {$languageConfig[0]['value']}
 	<p>else</p>
 {/if}
 

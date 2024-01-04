@@ -7,8 +7,8 @@
 <div class="nav">
 	<div class="center">
 		<Dropdown />
-		<Slider targetSetting="1" />
 		<Select />
+		<Slider />
 	</div>
 </div>
 

@@ -22,9 +22,11 @@
 </script>
 
 <div class="select">
-	Audience: <select on:input={handleChange}>
+	<label for="form-select">Audience:</label>
+
+	<select on:input={handleChange} class="form-select">
 		{#each $languageConfig[0]['labels'] as option, index}
-			<option value={index}>{option}</option>
+			<option value={index} class="">{option}</option>
 		{/each}
 	</select>
 </div>

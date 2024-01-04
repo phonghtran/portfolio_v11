@@ -1,22 +1,19 @@
 <script>
 	import { languageConfig } from '../../stores.js';
 
-	export let targetSetting = '';
-	let settings = [];
-
-	let labels = $languageConfig[targetSetting]['labels'];
-	let value = $languageConfig[targetSetting]['value'];
+	let labels = $languageConfig[1]['labels'];
+	let value = $languageConfig[1]['value'];
 
 	function handleChange(event) {
 		value = parseInt(event.target.value);
 
-		$languageConfig[targetSetting]['value'] = value;
+		$languageConfig[1]['value'] = value;
 	}
 </script>
 
 <div class="slider-container">
 	<input type="range" min="0" max={labels.length - 1} {value} on:input={handleChange} />
-	<span class="sliderLabel">{$languageConfig[targetSetting]['labels'][value]}</span>
+	<span class="sliderLabel">{$languageConfig[1]['labels'][value]}</span>
 </div>
 
 <style>
@@ -55,8 +52,8 @@
 	}
 
 	input[type='range'] {
-		min-width: 300px;
 		margin: 10px 0;
+		width: 300px;
 	}
 
 	/* Change the color of the track */

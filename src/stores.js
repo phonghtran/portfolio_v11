@@ -4,12 +4,11 @@ export const languageConfig = writable(
     [
         {
             id: 1, name: 'targetAudience', value: 0, labels: [
-                'HR', 'Design', 'Tech', 'Business'
+                'HR', 'Design', 'Tech'
             ]
         },
         {
             id: 2, name: 'verboseLevel', value: 0, labels: [
-
                 'minimal',
                 'expressive',
                 'long-winded'
