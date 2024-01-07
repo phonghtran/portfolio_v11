@@ -38,22 +38,25 @@
 
 	.segmentedButtons button {
 		background-color: var(--gray0);
-		border: 1px solid black;
+		border: 1px solid #888;
 		border-radius: 0;
+		color: black;
 		flex: 1;
 		font-size: 1rem;
-		padding: 0.25rem 1rem;
+		padding: 0.325rem 1rem;
 	}
 
 	.segmentedButtons button:hover {
-		background-color: black;
-		color: white;
+		background-color: #ccc;
+		color: black;
 		cursor: pointer;
 	}
 	.segmentedButtons button.selected {
-		/* Styling for selected button */
-		background-color: var(--accentColor);
-		color: white;
+		background-color: #ccc;
+		box-shadow:
+			inset -4px -4px 8px rgb(255, 255, 255, 0.95),
+			inset 4px 4px 8px rgba(33, 33, 33, 0.25);
+		color: black;
 	}
 
 	.segmentedButtons button:first-child {

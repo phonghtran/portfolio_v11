@@ -66,21 +66,20 @@
 		<IntroLogos />
 		<IntroWork />
 
-			<div class="introCard">
-				<h6>phonghtran llc</h6>
-
-				<p>
-<a href="mailto:phong@phonghtran.com">phong@phonghtran.com</a> <br />
-				612-643-1555 <br />
-				<a href="https://www.linkedin.com/in/phonghtran/" target="_blank">LinkedIn</a> 
-						<a href="https://www.instagram.com/phonghtran/" target="_blank">Instagram</a>
-				</p>
-				
-					</div>
-			<!-- intro outro -->
+		<div class="introCard">
+			<h6>phonghtran llc</h6>
+			<ul class="contactList">
+				<li><a href="mailto:phong@phonghtran.com">phong@phonghtran.com</a></li>
+				<li>612-643-1555</li>
+				<li><a href="https://www.linkedin.com/in/phonghtran/" target="_blank">LinkedIn</a></li>
+				<li><a href="https://www.instagram.com/phonghtran/" target="_blank">Instagram</a></li>
+			</ul>
+		</div>
+		<!-- intro outro -->
 	</div>
 	<!-- container -->
 </div>
+
 <!-- wrapper -->
 
 <style>
@@ -106,7 +105,12 @@
 		margin: 2rem 0;
 	}
 
-	
+	.contactList {
+		margin-top: 1rem;
+	}
+	.contactList li {
+		margin: 0 0 0.25rem;
+	}
 
 	@media (min-width: 600px) {
 		.wrapper {
@@ -118,7 +122,5 @@
 			margin-top: 2rem;
 			padding: 2rem;
 		}
-
-
 	}
 </style>
