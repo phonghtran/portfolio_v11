@@ -83,6 +83,27 @@ i {
     width: 1rem;
 }
 
+.wrapperMaxWidth {
+    text-align: center;
+
+    width: 100%;
+}
+
+.containerMaxWidth {
+    margin: 0 auto;
+    max-width: 38rem;
+
+    text-align: left;
+}
+
+@media (min-width: 600px) {
+    .wrapperMaxWidth {
+        margin-bottom: 2rem;
+    }
+
+
+}
+
 .videoContainer {
     width: 200px;
 }

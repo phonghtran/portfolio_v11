@@ -3,8 +3,8 @@
 
 	import Select from '../components/Select.svelte';
 	import IntroLogos from '$lib/contentBlock/introLogos.svelte';
+	import IntroCaseStudies from '$lib/contentBlock/introCaseStudies.svelte';
 	import IntroWork from '$lib/contentBlock/introWork.svelte';
-
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
 	const careerLength = year - 2008;
@@ -17,8 +17,8 @@
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
-<div class="wrapper">
-	<div class="container">
+<div class="wrapperMaxWidth">
+	<div class="containerMaxWidth">
 		<div class="introCard">
 			<div>
 				<Select />
@@ -66,6 +66,7 @@
 		<!-- introCard -->
 
 		<IntroLogos />
+		<IntroCaseStudies />
 		<IntroWork />
 
 		<div class="introCard">
@@ -88,25 +89,12 @@
 		</div>
 		<!-- intro outro -->
 	</div>
-	<!-- container -->
+	<!-- containerMaxWidth -->
 </div>
 
-<!-- wrapper -->
+<!-- wrapperMaxWidth -->
 
 <style>
-	.wrapper {
-		text-align: center;
-
-		width: 100%;
-	}
-
-	.container {
-		margin: 0 auto;
-		max-width: 38rem;
-
-		text-align: left;
-	}
-
 	.introCard {
 		background-color: var(--gray0);
 
@@ -124,9 +112,6 @@
 	}
 
 	@media (min-width: 600px) {
-		.wrapper {
-			margin-bottom: 2rem;
-		}
 		.introCard {
 			background-color: var(--gray0);
 			border-radius: var(--borderRadius);
