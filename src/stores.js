@@ -9,9 +9,13 @@ export const languageConfig = writable(
         },
         {
             id: 2, name: 'verboseLevel', value: 1, labels: [
-                'Terse',
-                'Regular',
+                'Elevator',
+                'Interview',
                 'Insuffable'
+            ], icons: [
+                'fa-elevator',
+                'fa-user-tie',
+                'fa-skull'
             ]
 
         },

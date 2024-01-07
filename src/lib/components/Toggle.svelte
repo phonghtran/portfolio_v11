@@ -45,6 +45,7 @@
 				on:mouseenter={() => moveBackground(index)}
 				on:mouseleave={() => resetBackground(index)}
 			>
+				<i class="fa-solid {$languageConfig[1]['icons'][index]}"></i>
 				{option}
 			</button>
 		{/each}
@@ -59,6 +60,10 @@
 	:root {
 		--toggleBorderRadius: 2rem;
 		--transitionTiming: 500ms;
+	}
+
+	i {
+		display: none;
 	}
 
 	.wrapper {
@@ -117,10 +122,14 @@
 
 	@media (min-width: 600px) {
 		.segmentedButtons {
-			width: 28rem;
+			width: 32rem;
 		}
 		.segmentedButtons button {
 			padding: 1rem 2rem;
+		}
+
+		i {
+			display: inline-block;
 		}
 	}
 </style>
