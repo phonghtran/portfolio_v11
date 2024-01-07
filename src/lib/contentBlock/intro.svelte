@@ -7,22 +7,13 @@
 	const year = currentDate.getFullYear();
 	const careerLength = year - 2008;
 
-	import { onMount, onDestroy } from 'svelte';
-
-	let windowWidth = window.innerWidth;
-
-	function handleResize() {
-		windowWidth = window.innerWidth;
-	}
-
-	onMount(() => {
-		window.addEventListener('resize', handleResize);
-	});
-
-	onDestroy(() => {
-		window.removeEventListener('resize', handleResize);
-	});
+	$: outerWidth = 0;
+	$: innerWidth = 0;
+	$: outerHeight = 0;
+	$: innerHeight = 0;
 </script>
+
+<svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
 <div class="wrapper">
 	<div class="container">
@@ -67,7 +58,7 @@
 		<span>{careerLength}-year UX designer & occasional coder</span>
 
 		<div class="introLogos">
-			{#if windowWidth > 600}
+			{#if innerWidth > 600}
 				<div class="row">
 					<div><img class="logo" src="../logos/ibm.png" alt="logo of ibm" /></div>
 
