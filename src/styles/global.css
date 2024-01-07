@@ -54,7 +54,8 @@ h6 {
     line-height: 1.375rem
 }
 
-p {
+p,
+li {
     line-height: 1.325rem;
     margin: 1rem 0;
 }

@@ -2,7 +2,7 @@
 	import { languageConfig } from '../../stores.js';
 
 	import Select from '../components/Select.svelte';
-		import IntroLogos from '$lib/contentBlock/introLogos.svelte';
+	import IntroLogos from '$lib/contentBlock/introLogos.svelte';
 	import IntroWork from '$lib/contentBlock/introWork.svelte';
 
 	const currentDate = new Date();
@@ -19,7 +19,7 @@
 
 <div class="wrapper">
 	<div class="container">
-		<div class="introLetterWrapper">
+		<div class="introCard">
 			<div>
 				<Select />
 			</div>
@@ -51,7 +51,7 @@
 					</p>
 				{:else}
 					<p class="introLetter">
-						I make websites for the internet. Yeah, computer stuff. No, that cousin posts
+						I make websites for the internet. Yeah, computer stuff. No, that cousin posts her
 						illustrations to Instagram. We don&rsquo;t do the same thing.
 					</p>
 				{/if}
@@ -61,10 +61,23 @@
 			<h6>Phong Tran</h6>
 			<span>{careerLength}-year UX designer & occasional coder</span>
 		</div>
-		<!-- introLetterWrapper -->
+		<!-- introCard -->
 
 		<IntroLogos />
 		<IntroWork />
+
+			<div class="introCard">
+				<h6>phonghtran llc</h6>
+
+				<p>
+<a href="mailto:phong@phonghtran.com">phong@phonghtran.com</a> <br />
+				612-643-1555 <br />
+				<a href="https://www.linkedin.com/in/phonghtran/" target="_blank">LinkedIn</a> 
+						<a href="https://www.instagram.com/phonghtran/" target="_blank">Instagram</a>
+				</p>
+				
+					</div>
+			<!-- intro outro -->
 	</div>
 	<!-- container -->
 </div>
@@ -73,7 +86,7 @@
 <style>
 	.wrapper {
 		text-align: center;
-		margin-bottom: 6rem;
+
 		width: 100%;
 	}
 
@@ -84,7 +97,7 @@
 		text-align: left;
 	}
 
-	.introLetterWrapper {
+	.introCard {
 		background-color: var(--gray0);
 
 		padding: 2rem;
@@ -96,7 +109,10 @@
 	
 
 	@media (min-width: 600px) {
-		.introLetterWrapper {
+		.wrapper {
+			margin-bottom: 2rem;
+		}
+		.introCard {
 			background-color: var(--gray0);
 			border-radius: var(--borderRadius);
 			margin-top: 2rem;

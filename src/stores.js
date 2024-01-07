@@ -8,13 +8,14 @@ export const languageConfig = writable(
             ]
         },
         {
-            id: 2, name: 'verboseLevel', value: 0, labels: [
-                'minimal',
-                'expressive',
-                'long-winded'
+            id: 2, name: 'verboseLevel', value: 1, labels: [
+                'Terse',
+                'Regular',
+                'Insuffable'
             ]
 
-        }
+        },
+
     ]
 )
 
