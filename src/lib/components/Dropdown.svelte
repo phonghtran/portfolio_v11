@@ -1,8 +1,8 @@
 <!-- Dropdown.svelte -->
 <script>
-	import { navItems } from '../../stores.js';
+	import { caseStudies } from '../../stores.js';
 
-	export let options = navItems; // Array of options for the dropdown
+	export let options = caseStudies; // Array of options for the dropdown
 
 	let selectedName = 'Summary'; // The currently selected option
 	let selectedUrl = '';

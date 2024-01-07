@@ -1,8 +1,14 @@
 :root {
     --gray0: rgb(243, 243, 243);
+    --gray1: rgb(212, 211, 211);
     --accentColor: #EB0017;
+    --accentColor3: #eb001842;
+    --accentColor5: #eb00183f;
+
+
 
     --borderRadius: 0.5rem;
+    --toggleBorderRadius: 2rem;
 }
 
 /* 100, 300, 400, 700 */
@@ -68,10 +74,13 @@ small {
 
 a,
 a:visited {
-    color: var(--accentColor)
+    border-bottom: 1px solid var(--accentColor);
+    color: var(--accentColor);
+    text-decoration: none;
 }
 
 a:hover {
+    border-color: black;
     color: black;
 }
 

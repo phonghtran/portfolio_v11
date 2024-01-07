@@ -1,9 +1,14 @@
 <script>
-	import { languageConfig } from '../../stores.js';
+	import NavCaseStudy from '$lib/components/NavCaseStudy.svelte';
+
+	import { caseStudies } from '../../stores.js';
+
+	const currentPage = caseStudies[2]['name'];
 </script>
 
 <div class="wrapperMaxWidth">
 	<div class="containerMaxWidth">
+		<NavCaseStudy {currentPage} />
 		mastercard
 
 		<img src="../caseStudies/mastercard/mc_1.jpg" alt="" />

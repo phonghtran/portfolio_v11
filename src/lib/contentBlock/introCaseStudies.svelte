@@ -1,4 +1,5 @@
 <script>
+	import { caseStudies } from '../../stores.js';
 </script>
 
 <div class="introCaseStudies">
@@ -8,45 +9,21 @@
 	<!-- header -->
 
 	<div class="containerCaseStudies">
-		<div class="casestudy">
-			<div class="img">
-				<a href="/obviously"> <img src="../thumbnails/obv_influencer.jpeg" alt="" /></a>
-			</div>
-			<div class="text">
-				<div class="blurb">
-					<h4>Obviously</h4>
-					<p>Implementing design process at a mature startup.</p>
+		{#each caseStudies as option, index}
+			<div class="casestudy">
+				<div class="img">
+					<a href={option.url}> <img src={option.img} alt="" /></a>
 				</div>
-				<div class="cta"><a href="/obviously">View Work</a></div>
-			</div>
-		</div>
-		<!-- casestudy -->
-		<div class="casestudy">
-			<div class="img">
-				<img src="../thumbnails/fis.png" alt="" />
-			</div>
-			<div class="text">
-				<div class="blurb">
-					<h4>Worldpay (FIS)</h4>
-					<p>Using Design Thinking to consolidate duplicate products.</p>
+				<div class="text">
+					<div class="blurb">
+						<h4>{option.name}</h4>
+						<p>{option.desc}</p>
+					</div>
+					<div class="cta"><a href={option.url}>View Work</a></div>
 				</div>
-				<div class="cta"><a href="/obviously">View Work</a></div>
 			</div>
-		</div>
-		<!-- casestudy -->
-		<div class="casestudy">
-			<div class="img">
-				<img src="../thumbnails/mastercard.png" alt="" />
-			</div>
-			<div class="text">
-				<div class="blurb">
-					<h4>mastercard</h4>
-					<p>Translating business and data engineering into design speak.</p>
-				</div>
-				<div class="cta"><a href="/obviously">View Work</a></div>
-			</div>
-		</div>
-		<!-- casestudy -->
+			<!-- casestudy -->
+		{/each}
 	</div>
 	<!-- containerCaseStudies -->
 </div>
@@ -119,7 +96,7 @@
 			border-radius: 0 0 var(--borderRadius) var(--borderRadius);
 			flex: 1;
 			flex-direction: column;
-			padding-bottom: 0;
+			padding: 0;
 		}
 		.casestudy .img {
 			width: 100%;

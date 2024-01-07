@@ -58,7 +58,6 @@
 
 <style>
 	:root {
-		--toggleBorderRadius: 2rem;
 		--transitionTiming: 500ms;
 	}
 
@@ -74,7 +73,7 @@
 		width: 100%;
 	}
 	.segmentedButtons {
-		background-color: #eb001842;
+		background-color: var(--accentColor3);
 		border-radius: var(--toggleBorderRadius);
 		display: flex;
 		position: relative;
@@ -82,7 +81,7 @@
 		z-index: 1;
 	}
 	.selectedBackground {
-		background-color: #eb001865;
+		background-color: var(--accentColor5);
 		border-radius: var(--toggleBorderRadius);
 		height: 100%;
 		position: absolute;
