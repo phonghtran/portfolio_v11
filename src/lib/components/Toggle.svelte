@@ -37,6 +37,7 @@
 	}
 
 	.segmentedButtons button {
+		background-color: var(--gray0);
 		border: 1px solid black;
 		border-radius: 0;
 		flex: 1;
