@@ -9,7 +9,4 @@
 </div>
 
 <style>
-	.container {
-		margin-top: 4rem;
-	}
 </style>

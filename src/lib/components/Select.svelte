@@ -37,13 +37,13 @@
 	label,
 	select,
 	span {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		font-weight: 700;
 		line-height: 2.25rem;
 	}
 
 	select {
-		background-color: var(--gray0);
+		background-color: white;
 		border-radius: var(--borderRadius);
 		margin-left: 0.25rem;
 		padding: 0.25rem 0.5rem;

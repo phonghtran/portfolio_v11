@@ -1,5 +1,6 @@
 :root {
     --gray0: rgb(243, 243, 243);
+    --accentColor: #EB0017;
 
     --borderRadius: 0.5rem;
 }
@@ -54,10 +55,23 @@ h6 {
 }
 
 p {
-    line-height: 1.25rem;
+    line-height: 1.325rem;
     margin: 1rem 0;
 }
 
+small {
+    display: block;
+    font-size: .875rem;
+}
+
+a,
+a:visited {
+    color: var(--accentColor)
+}
+
+a:hover {
+    color: black;
+}
 
 .videoContainer {
     width: 200px;
