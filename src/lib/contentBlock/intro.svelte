@@ -39,16 +39,18 @@
 						engage with your brand.
 					</p>
 				{:else if $languageConfig[0]['value'] === 2}
-					<p class="introLetter">
-						My priority is always helping you solve business problems with design tools. I'll be
-						your partner from discovery to ideation to execution. I believe my work exists in both
-						Figma and the meeting room.
-					</p>
-					<p class="introLetter">
-						Ultimately, an idea not well translated to other teams is not an effective idea.
-						Business, product, design, and engineering are all different languages but often have
-						common goals. My skills can lead our teams towards those goals.
-					</p>
+					<span>
+						<p class="introLetter">
+							My priority is always helping you solve business problems with design tools. I'll be
+							your partner from discovery to ideation to execution. I believe my work exists in both
+							Figma and the meeting room.
+						</p>
+						<p class="introLetter">
+							Ultimately, an idea not well translated to other teams is not an effective idea.
+							Business, product, design, and engineering are all different languages but often have
+							common goals. My skills can lead our teams towards those goals.
+						</p></span
+					>
 				{:else}
 					<p class="introLetter">
 						I make websites for the internet. Yeah, computer stuff. No, that cousin posts her

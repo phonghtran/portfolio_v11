@@ -7,65 +7,109 @@
 	let dropdownActive = false;
 	let value = $languageConfig[1]['value'];
 
+	let backgroundOffset = value * 33.333 + '%';
+	let backgroundOffsetHover = '0%';
+	let backgroundHoverOpacity = '0%';
+
 	function handleChange(index) {
 		value = parseInt(index);
+		backgroundOffset = index * 33.333 + '%';
 
 		$languageConfig[1]['value'] = value;
+	}
+
+	function moveBackground(index) {
+		if (index != value) {
+			const rect = event.target.getBoundingClientRect();
+			let leftPosition = rect.left;
+
+			backgroundOffsetHover = backgroundOffset;
+			backgroundHoverOpacity = '100%';
+
+			backgroundOffset = index * 33.333 + '%';
+		}
+	}
+
+	function resetBackground() {
+		backgroundHoverOpacity = '0%';
+		backgroundOffset = value * 33.333 + '%';
 	}
 </script>
 
 <div class="wrapper">
 	<div class="segmentedButtons">
 		{#each $languageConfig[1]['labels'] as option, index}
-			<button class:selected={index === value} on:click={() => handleChange(index)}>
+			<button
+				class:selected={index === value}
+				on:click={() => handleChange(index)}
+				on:mouseenter={() => moveBackground(index)}
+				on:mouseleave={() => resetBackground(index)}
+			>
 				{option}
 			</button>
 		{/each}
+		<div
+			class="selectedBackground"
+			style="left: {backgroundOffset}; opacity: {backgroundHoverOpacity}"
+		></div>
 	</div>
 </div>
 
 <style>
+	:root {
+		--toggleBorderRadius: 2rem;
+		--transitionTiming: 500ms;
+	}
+
 	.wrapper {
 		display: flex;
 		justify-content: center;
 		margin: 2rem 0;
-
+		position: relative;
 		width: 100%;
 	}
 	.segmentedButtons {
+		background-color: #eb001842;
+		border-radius: var(--toggleBorderRadius);
 		display: flex;
+		position: relative;
+		z-index: 1;
+	}
+	.selectedBackground {
+		background-color: #eb001865;
+		border-radius: var(--toggleBorderRadius);
+		height: 100%;
+		position: absolute;
+		top: 0;
+		transition:
+			left var(--transitionTiming),
+			opacity var(--transitionTiming) var(--transitionTiming);
+
+		width: 33.333%;
+		z-index: -1;
 	}
 
 	.segmentedButtons button {
-		background-color: var(--gray0);
-		border: 1px solid #888;
-		border-radius: 0;
+		background-color: transparent;
+		border: 0;
+		border-radius: var(--toggleBorderRadius);
 		color: black;
-		flex: 1;
 		font-size: 1rem;
-		padding: 0.325rem 1rem;
+		padding: 1rem 2rem;
+		transition:
+			background-color var(--transitionTiming) ease-out,
+			opacity var(--transitionTiming) var(--transitionTiming) ease-out;
+
+		width: 33.333%;
 	}
 
 	.segmentedButtons button:hover {
-		background-color: #ccc;
-		color: black;
 		cursor: pointer;
 	}
 	.segmentedButtons button.selected {
-		background-color: #ccc;
-		box-shadow:
-			inset -4px -4px 8px rgb(255, 255, 255, 0.95),
-			inset 4px 4px 8px rgba(33, 33, 33, 0.25);
-		color: black;
-	}
+		background-color: var(--accentColor);
 
-	.segmentedButtons button:first-child {
-		border-radius: 0.25rem 0 0 0.25rem;
-		border-right: 0;
-	}
-
-	.segmentedButtons button:last-child {
-		border-radius: 0 0.25rem 0.25rem 0;
-		border-left: 0;
+		color: white;
+		transition: background-color var(--transitionTiming) var(--transitionTiming) ease-out;
 	}
 </style>
