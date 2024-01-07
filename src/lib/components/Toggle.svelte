@@ -73,6 +73,7 @@
 		border-radius: var(--toggleBorderRadius);
 		display: flex;
 		position: relative;
+		width: 100%;
 		z-index: 1;
 	}
 	.selectedBackground {
@@ -94,8 +95,9 @@
 		border: 0;
 		border-radius: var(--toggleBorderRadius);
 		color: black;
+
 		font-size: 1rem;
-		padding: 1rem 2rem;
+		padding: 1rem 1rem;
 		transition:
 			background-color var(--transitionTiming) ease-out,
 			opacity var(--transitionTiming) var(--transitionTiming) ease-out;
@@ -111,5 +113,14 @@
 
 		color: white;
 		transition: background-color var(--transitionTiming) var(--transitionTiming) ease-out;
+	}
+
+	@media (min-width: 600px) {
+		.segmentedButtons {
+			width: 28rem;
+		}
+		.segmentedButtons button {
+			padding: 1rem 2rem;
+		}
 	}
 </style>

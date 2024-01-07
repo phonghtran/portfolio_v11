@@ -71,10 +71,19 @@
 		<div class="introCard">
 			<h6>phonghtran llc</h6>
 			<ul class="contactList">
-				<li><a href="mailto:phong@phonghtran.com">phong@phonghtran.com</a></li>
-				<li>612-643-1555</li>
-				<li><a href="https://www.linkedin.com/in/phonghtran/" target="_blank">LinkedIn</a></li>
-				<li><a href="https://www.instagram.com/phonghtran/" target="_blank">Instagram</a></li>
+				<li>
+					<i class="fa-regular fa-envelope"></i>
+					<a href="mailto:phong@phonghtran.com">phong@phonghtran.com</a>
+				</li>
+				<li><i class="fa-solid fa-mobile-retro"></i> 612-643-1555</li>
+				<li>
+					<i class="fa-brands fa-linkedin"></i>
+					<a href="https://www.linkedin.com/in/phonghtran/" target="_blank">LinkedIn</a>
+				</li>
+				<li>
+					<i class="fa-brands fa-instagram"></i>
+					<a href="https://www.instagram.com/phonghtran/" target="_blank">Instagram</a>
+				</li>
 			</ul>
 		</div>
 		<!-- intro outro -->

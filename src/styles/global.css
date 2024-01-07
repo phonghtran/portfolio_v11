@@ -75,6 +75,14 @@ a:hover {
     color: black;
 }
 
+i {
+    color: black;
+    display: inline-block;
+    padding-right: .25rem;
+    text-align: center;
+    width: 1rem;
+}
+
 .videoContainer {
     width: 200px;
 }
