@@ -3,8 +3,8 @@ import { writable } from "svelte/store";
 export const languageConfig = writable(
     [
         {
-            id: 1, name: 'targetAudience', value: 0, labels: [
-                'HR', 'Design', 'Tech'
+            id: 1, name: 'targetAudience', value: 1, labels: [
+                'Mom', 'HR', 'Colleague'
             ]
         },
         {

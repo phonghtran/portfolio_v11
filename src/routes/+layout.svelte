@@ -5,7 +5,7 @@
 	import Nav from '$lib/components/Nav.svelte';
 </script>
 
-<Nav />
+<!-- <Nav /> -->
 <!-- slot start -->
 <slot />
 <!-- slot end -->
