@@ -105,12 +105,18 @@ i {
     text-align: left;
 }
 
+.wrapperCasestudy {
+    padding: 0 1rem;
+}
+
 @media (min-width: 600px) {
     .wrapperMaxWidth {
         margin-bottom: 2rem;
     }
 
-
+    .wrapperCasestudy {
+        padding: 0 0;
+    }
 }
 
 .videoContainer {

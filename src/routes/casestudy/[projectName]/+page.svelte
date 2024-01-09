@@ -15,23 +15,20 @@
 <div class="wrapperMaxWidth">
 	<div class="containerMaxWidth">
 		<NavCaseStudy {projectName} />
-
-		<h1>{projectName}</h1>
-
-		{#if projectName === 'obviously'}
-			<Obviously />
-		{:else if projectName === 'worldpay'}
-			<Worldpay />
-		{:else if projectName === 'mastercard'}
-			<Mastercard />
-		{:else}
-			<p>Page Not Found</p>
-		{/if}
 	</div>
 	<!-- containerMaxWidth -->
 </div>
 
 <!-- wrapperMaxWidth -->
+{#if projectName === 'obviously'}
+	<Obviously />
+{:else if projectName === 'worldpay'}
+	<Worldpay />
+{:else if projectName === 'mastercard'}
+	<Mastercard />
+{:else}
+	<p>Page Not Found</p>
+{/if}
 
 <style>
 </style>
