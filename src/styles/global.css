@@ -132,6 +132,10 @@ ol li {
     padding: 0 1rem;
 }
 
+.wrapperCasestudy small {
+    font-style: italic;
+}
+
 .imageGrid {
     background-color: #111;
     color: white;
@@ -164,6 +168,10 @@ ol li {
         display: grid;
         grid-template-columns: repeat(12, [col-start] 1fr);
         row-gap: 1rem;
+    }
+
+    .imageGrid .headline {
+        display: none;
     }
 }
 
