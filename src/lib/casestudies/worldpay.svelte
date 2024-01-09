@@ -39,34 +39,66 @@
 <div class="imageGrid">
 	<!-- <h3 id="header">Images</h3> -->
 	<h4 id="headline1" class="headline">Timeline</h4>
-	<img id="img1" src="../caseStudies/worldpay/slides1.jpeg " alt="" />
+	<img id="img1" src="../caseStudies/worldpay/slides1.jpeg " alt="project timeline" />
 	<h4 id="headline2" class="headline">Personas</h4>
 
-	<img id="img2" src="../caseStudies/worldpay/slides2.jpeg " alt="" />
-	<img id="img3" src="../caseStudies/worldpay/slides3.jpeg " alt="" />
-	<img id="img4" src="../caseStudies/worldpay/slides4.jpeg" alt="" />
+	<img
+		id="img2"
+		src="../caseStudies/worldpay/slides2.jpeg "
+		alt="persona 1 with description, characteristics and needs"
+	/>
+	<img id="img3" src="../caseStudies/worldpay/slides3.jpeg " alt="persona 2" />
+	<img id="img4" src="../caseStudies/worldpay/slides4.jpeg" alt="persona 3" />
 
 	<h4 id="headline3" class="headline">Virtual Collaboration</h4>
 
 	<img
 		id="img5"
 		src="../caseStudies/worldpay/Screen Shot 2020-04-07 at 3.09.35 PM (2).png"
-		alt=""
+		alt="miro virtual meeting about mapping the developer experience"
 	/>
-	<img id="img7" src="../caseStudies/worldpay/Screen Shot 2020-05-19 at 4.01.47 PM.png" alt="" />
+	<img
+		id="img7"
+		src="../caseStudies/worldpay/Screen Shot 2020-05-19 at 4.01.47 PM.png"
+		alt="virtual meeting with wireframes"
+	/>
 
-	<img id="img6" src="../caseStudies/worldpay/Screen Shot 2020-04-16 at 1.29.16 PM.png" alt="" />
+	<img
+		id="img6"
+		src="../caseStudies/worldpay/Screen Shot 2020-04-16 at 1.29.16 PM.png"
+		alt="group workshop with client team members grouping problems and solutions"
+	/>
 
-	<img id="img8" src="../caseStudies/worldpay/wp_4.png" alt="" />
-	<img id="img9" src="../caseStudies/worldpay/wp_5.png" alt="" />
+	<img id="img8" src="../caseStudies/worldpay/wp_4.png" alt="wireframe of the new portal" />
+	<img
+		id="img9"
+		src="../caseStudies/worldpay/wp_5.png"
+		alt="miro board of ideas grouped by categories of themes"
+	/>
 
 	<h4 id="headline4" class="headline">Coding</h4>
-	<img id="img12" src="../caseStudies/worldpay/wp_2.png" alt="" />
+	<img
+		id="img12"
+		src="../caseStudies/worldpay/wp_2.png"
+		alt="styleguide portal of components I coded"
+	/>
 
-	<img id="img10" src="../caseStudies/worldpay/Screen Shot 2020-06-03 at 10.43.12 AM.png" alt="" />
-	<img id="img11" src="../caseStudies/worldpay/wp_1.png" alt="" />
+	<img
+		id="img10"
+		src="../caseStudies/worldpay/Screen Shot 2020-06-03 at 10.43.12 AM.png"
+		alt="IDE editor with code shown"
+	/>
+	<img
+		id="img11"
+		src="../caseStudies/worldpay/wp_1.png"
+		alt="global typography definitions of the styleguide"
+	/>
 
-	<img id="img13" src="../caseStudies/worldpay/wp_3.png" alt="" />
+	<img
+		id="img13"
+		src="../caseStudies/worldpay/wp_3.png"
+		alt="in the styleguide portal, i left a page of special code and considerations for the developers"
+	/>
 </div>
 
 <!-- <img id="img14" src="../caseStudies/worldpay/wp_6.png" alt="" /> -->
