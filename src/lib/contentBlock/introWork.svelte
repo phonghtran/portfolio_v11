@@ -263,15 +263,6 @@
 	.jobWrapper {
 		margin-top: 2rem;
 	}
-	.jobKPIList {
-		list-style: disc;
-		margin-left: 1rem;
-	}
-
-	.jobKPIList .jobKPI {
-		padding-left: 0.5rem;
-		margin-bottom: 0.25rem;
-	}
 
 	@media (min-width: 600px) {
 		.introWork {

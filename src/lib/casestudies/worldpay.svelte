@@ -105,41 +105,9 @@
 
 <!-- imageGrid -->
 <style>
-	img {
-		margin: 0 0 1rem 0;
-		width: 100%;
-	}
-
-	.imageGrid {
-		background-color: #111;
-		color: white;
-
-		padding: 1rem;
-	}
-	.headline {
-		display: block;
-		margin: 2rem 0 1rem;
-		text-align: center;
-	}
-
 	@media (min-width: 600px) {
-		.imageGrid {
-			column-gap: 1rem;
-			display: grid;
-			grid-template-columns: repeat(12, [col-start] 1fr);
-			row-gap: 1rem;
-		}
-
 		.headline {
 			display: none;
-		}
-
-		#header {
-			grid-column: col-start 1 / span 12;
-			/* grid-column-end: 12; */
-			grid-row: 1;
-			/* grid-row-end: ; */
-			text-align: center;
 		}
 
 		#headline1 {

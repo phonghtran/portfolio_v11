@@ -31,6 +31,9 @@
 <!-- introWork -->
 
 <style>
+	h4 {
+		margin-top: 0;
+	}
 	.introCaseStudies {
 		margin: 4rem 0;
 		padding: 0 1rem;
