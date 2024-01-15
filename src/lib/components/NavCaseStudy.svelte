@@ -15,13 +15,9 @@
 	<div class="casestudies">
 		{#each options as option, index}
 			{#if option.label === projectName}
-				<a class="casestudy selected" on:click={() => selectOption(option)} href={option.url}
-					><span class="text">{option.name}</span>
-				</a>
+				<a class="casestudy selected" href={option.url}><span class="text">{option.name}</span> </a>
 			{:else}
-				<a class="casestudy" on:click={() => selectOption(option)} href={option.url}
-					><span class="text">{option.name}</span>
-				</a>
+				<a class="casestudy" href={option.url}><span class="text">{option.name}</span> </a>
 			{/if}
 		{/each}
 	</div>
