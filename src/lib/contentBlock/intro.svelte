@@ -105,10 +105,12 @@
 	}
 
 	.contactList {
-		margin-top: 1rem;
+		margin: 1rem 0 0 0;
 	}
 	.contactList li {
-		margin: 0 0 0.25rem;
+		list-style: none;
+		margin: 0 0 0.25rem 0;
+		padding-left: 0;
 	}
 
 	@media (min-width: 600px) {
