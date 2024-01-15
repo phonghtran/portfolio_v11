@@ -48,6 +48,6 @@ https://stackoverflow.com/questions/75056422/how-to-use-vitepreprocess-with-glob
 
 https://fontawesome.com
 
-https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery#customizing_your_media_player
+https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player
 
 https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video
