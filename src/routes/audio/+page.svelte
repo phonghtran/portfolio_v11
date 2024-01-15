@@ -111,10 +111,37 @@
 		progress.value = video.currentTime;
 	}
 
+	function jumpToCue(event, index) {
+		const startTime = event.srcElement.dataset.startTime;
+		const progress = document.getElementById('progress' + index);
+
+		const videoElements = document.getElementsByTagName('video');
+
+		for (let i = 0; i < videoElements.length; i++) {
+			videoElements[i].pause();
+		}
+
+		const video = document.getElementById('video' + index);
+		isPlaying = index;
+		video.currentTime = startTime;
+		progress.value = startTime;
+		video.play();
+	}
+
 	function addTextToScript(event, index, metadataTrack) {
 		if (metadataTrack.activeCues.length > 0) {
 			const containerScript = document.getElementById('containerScript' + index);
-			containerScript.innerHTML += metadataTrack.activeCues[0].text + ' ';
+
+			console.log(metadataTrack.activeCues[0]);
+
+			let fragment = document.createElement('div');
+
+			fragment.classList.add('cueFragment');
+			fragment.dataset.startTime = metadataTrack.activeCues[0].startTime;
+			fragment.innerHTML = metadataTrack.activeCues[0].text;
+			fragment.addEventListener('click', (event) => jumpToCue(event, index));
+
+			containerScript.append(fragment);
 		}
 	}
 
@@ -126,6 +153,8 @@
 
 			let metadataTrack = video.textTracks[0];
 
+			console.log(metadataTrack);
+
 			video.loop = false;
 			video.controls = false;
 
@@ -133,9 +162,23 @@
 
 			video.addEventListener('timeupdate', (event) => updateProgress(event, i, video));
 
-			metadataTrack.addEventListener('cuechange', (event) =>
-				addTextToScript(event, i, metadataTrack)
-			);
+			// metadataTrack.addEventListener('cuechange', (event) =>
+			// 	addTextToScript(event, i, metadataTrack)
+			// );
+			const containerScript = document.getElementById('containerScript' + i);
+
+			for (let j = 0; j < metadataTrack.cues.length; j++) {
+				let fragment = document.createElement('div');
+				let cue = metadataTrack.cues[j];
+
+				fragment.classList.add('cueFragment');
+				fragment.dataset.startTime = cue.startTime;
+				fragment.dataset.endTime = cue.endTime;
+				fragment.innerHTML = cue.text;
+				fragment.addEventListener('click', (event) => jumpToCue(event, i));
+
+				containerScript.append(fragment);
+			}
 		}
 		// for
 	});
