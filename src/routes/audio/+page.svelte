@@ -43,8 +43,8 @@
 		t_captions.kind = 'captions';
 		t_captions.src = audioFiles[id]['subtitles'];
 
-		if (video) {
-			video.remove();
+		while (video.firstChild) {
+			video.removeChild(video.firstChild);
 		}
 
 		video = document.createElement('video');
@@ -76,7 +76,7 @@
 
 		containerScript.innerHTML = audioFiles[id]['label'];
 
-		video.play();
+		// video.play();
 	}
 
 	onMount(() => {
@@ -87,7 +87,7 @@
 
 			video = document.getElementById('video');
 
-			console.log(video1.childNodes);
+			console.log(video.childNodes);
 
 			playpause.addEventListener('click', (e) => {
 				if (video.paused || video.ended) {
