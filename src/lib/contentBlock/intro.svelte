@@ -5,6 +5,8 @@
 	import IntroLogos from '$lib/contentBlock/introLogos.svelte';
 	import IntroCaseStudies from '$lib/contentBlock/introCaseStudies.svelte';
 	import IntroWork from '$lib/contentBlock/introWork.svelte';
+	import IntroTechDemos from '$lib/contentBlock/introTechDemos.svelte';
+
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
 	const careerLength = year - 2008;
@@ -67,6 +69,7 @@
 
 		<IntroLogos />
 		<IntroCaseStudies />
+		<IntroTechDemos />
 		<IntroWork />
 
 		<div class="introCard">
