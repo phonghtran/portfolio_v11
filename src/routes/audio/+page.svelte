@@ -71,38 +71,48 @@
 
 	/** @param {MouseEvent} event */
 	function pauseAudio(index) {
-		const video = document.getElementById('video' + index);
-
-		// console.log('clicked', index, isPlaying);
+		console.log('clicked play pause', index, isPlaying);
 
 		if (isPlaying === index) {
 			// is currently playing
 			// console.log('pausing the current track');
-
+			const video = document.getElementById('video' + index);
 			video.pause();
 			isPlaying = -1;
-		} else if (isPlaying === -1) {
-			// nothing is playing
-			// console.log('resuming current track');
-			video.play();
-			isPlaying = index;
 		} else {
-			// different track is playing
-			// console.log('pausing current track and starting new track');
+			if (isPlaying > -1) {
+				const currentVideo = document.getElementById('video' + isPlaying);
+				currentVideo.pause();
+			}
 
-			const currentVideo = document.getElementById('video' + isPlaying);
-
-			currentVideo.pause();
-			video.play();
-			isPlaying = index;
+			playVideo(index);
 		}
 
 		// console.log('wrapping', index, isPlaying);
 	}
 
+	async function playVideo(index, startTime = 0) {
+		const video = document.getElementById('video' + index);
+
+		isPlaying = index;
+
+		video.currentTime = startTime;
+
+		try {
+			await video.play();
+		} catch (error) {
+			console.log(error);
+			isPlaying = -1;
+		} finally {
+			const video = document.getElementById('video' + index);
+
+			video.muted = false;
+			console.log('playing from promise 2');
+		}
+	}
+
 	function setProgressDuration(event, index, video) {
-		// const progress = document.getElementById('progress' + index);
-		// progress.setAttribute('max', video.duration);
+		console.log('loading meta');
 
 		const containerTime = document.getElementById('containerTime' + index);
 
@@ -142,10 +152,7 @@
 		// containerScript.style.backgroundImage = `linear-gradient(to bottom, var(--accentColor3) 0, var(--accentColor3) ${percentage}, white ${percentage}, white 100%)`;
 	}
 
-	function jumpToCue(e) {
-		const startTime = e.startTime;
-		const index = e.index;
-
+	function resetAllPlaying() {
 		const videoElements = document.getElementsByTagName('video');
 
 		for (let i = 0; i < videoElements.length; i++) {
@@ -153,14 +160,18 @@
 		}
 
 		isPlaying = -1;
+	}
 
-		isPlaying = index;
-		videoElements[index].currentTime = startTime;
+	function jumpToCue(e) {
+		const startTime = e.startTime;
+		const index = e.index;
+		resetAllPlaying();
 
-		videoElements[index].play();
+		playVideo(index, startTime);
 	}
 
 	function addTextToScript(event, index, metadataTrack) {
+		console.log('adding script');
 		if (metadataTrack.activeCues.length > 0) {
 			console.log(metadataTrack);
 
@@ -175,7 +186,7 @@
 
 				let isUnique = true;
 				for (let i = 0; i < cue.length; i++) {
-					console.log('inside loop', cue[i]);
+					// console.log('inside loop', cue[i]);
 					if (cue[i]['startTime'] === entry.startTime && cue[i]['endTime'] === entry.endTime) {
 						isUnique = false;
 						break;
@@ -202,14 +213,20 @@
 		const videoElements = document.getElementsByTagName('video');
 
 		for (let i = 0; i < videoElements.length; i++) {
+			console.log('loading from onmount');
 			const video = videoElements[i];
 
 			video.loop = false;
 			video.controls = false;
 
-			video.addEventListener('loadedmetadata', (event) => setProgressDuration(event, i, video));
+			// video.addEventListener('loadedmetadata', (event) => setProgressDuration(event, i, video));
 			video.addEventListener('timeupdate', (event) => updateProgress(event, i, video));
 			video.addEventListener('ended', (event) => videoEnded(event));
+
+			const metadataTrack = video.textTracks[0];
+			metadataTrack.addEventListener('cuechange', (event) =>
+				addTextToScript(event, i, metadataTrack)
+			);
 		}
 		// for
 	});
@@ -249,17 +266,9 @@
 				</div>
 
 				<CueTrack {cueBank} {index} on:jumpToCue={(e) => jumpToCue(e.detail)} />
-				<div id="containerScript{index}" class="containerScript"></div>
-				<!-- containerScript -->
 
 				<!-- svelte-ignore a11y-media-has-caption -->
-				<video
-					id="video{index}"
-					data-index={index}
-					controls="false"
-					preload="metadata"
-					style="display:none"
-				>
+				<video id="video{index}" data-index={index} preload="metadata" muted>
 					<source src={track.ogg} type="video/ogg" />
 					<source src={track.mp3} type="video/mp3" />
 					<track label="English" kind="subtitles" srclang="en" src={track.subtitles} default />
@@ -286,9 +295,6 @@
 
 	h6 {
 		margin: 0;
-	}
-	video {
-		display: none;
 	}
 
 	.containerAudio {
@@ -341,13 +347,24 @@
 		border: 0;
 		background-color: var(--accentColor);
 		border-radius: var(--toggleBorderRadius);
+		cursor: pointer;
 		height: 2rem;
 		margin-left: 0.5rem;
 		text-align: center;
 		width: 2rem;
 	}
 
+	button.play:hover {
+		background-color: black;
+	}
+	button.play:hover i {
+		color: white;
+	}
 	button.play i {
 		padding: 0.325rem 0 0 0.025rem;
+	}
+
+	video {
+		display: none;
 	}
 </style>
