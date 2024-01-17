@@ -45,7 +45,7 @@ export const techDemos = [
     {
         id: 3,
         name: 'Music Tracker',
-        desc: 'Vue & Php'
+        desc: 'Vue & PHP'
     },
     {
         id: 4,
