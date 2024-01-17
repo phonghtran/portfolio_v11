@@ -55,7 +55,7 @@
 		display: flex;
 
 		justify-content: flex-start;
-		margin-bottom: 1rem;
+		margin-bottom: 0.5rem;
 		padding: 1rem;
 	}
 

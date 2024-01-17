@@ -34,20 +34,22 @@ export const caseStudies = [
 export const techDemos = [
     {
         id: 1,
-        name: 'Sales Prototype',
-        desc: 'React & Firebase',
-        img: "../thumbnails/fis.png"
+        name: 'Current Portfolio',
+        desc: 'Svelte & Vercel'
     },
     {
         id: 2,
-        name: 'Music Tracker',
-        desc: 'Vue & Php',
-        img: "../thumbnails/fis.png"
+        name: 'Sales Prototype',
+        desc: 'React & Firebase'
     },
     {
         id: 3,
+        name: 'Music Tracker',
+        desc: 'Vue & Php'
+    },
+    {
+        id: 4,
         name: 'Worldpay UI Components',
-        desc: 'Angular & Firebase',
-        img: "../thumbnails/fis.png"
+        desc: 'Angular & Firebase'
     }
 ]
