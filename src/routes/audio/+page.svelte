@@ -3,6 +3,9 @@
 
 	import { onMount } from 'svelte';
 
+	import CueTrack from '$lib/components/CueTrack.svelte';
+	import AudioBg from '$lib/components/AudioBg.svelte';
+
 	let isPlaying = -1;
 
 	let audioFiles = [
@@ -64,26 +67,28 @@
 		}
 	];
 
+	let cueBank = {};
+
 	/** @param {MouseEvent} event */
 	function pauseAudio(index) {
 		const video = document.getElementById('video' + index);
 
-		console.log('clicked', index, isPlaying);
+		// console.log('clicked', index, isPlaying);
 
 		if (isPlaying === index) {
 			// is currently playing
-			console.log('pausing the current track');
+			// console.log('pausing the current track');
 
 			video.pause();
 			isPlaying = -1;
 		} else if (isPlaying === -1) {
 			// nothing is playing
-			console.log('resuming current track');
+			// console.log('resuming current track');
 			video.play();
 			isPlaying = index;
 		} else {
 			// different track is playing
-			console.log('pausing current track and starting new track');
+			// console.log('pausing current track and starting new track');
 
 			const currentVideo = document.getElementById('video' + isPlaying);
 
@@ -92,28 +97,54 @@
 			isPlaying = index;
 		}
 
-		console.log('wrapping', index, isPlaying);
+		// console.log('wrapping', index, isPlaying);
 	}
 
 	function setProgressDuration(event, index, video) {
-		const progress = document.getElementById('progress' + index);
+		// const progress = document.getElementById('progress' + index);
+		// progress.setAttribute('max', video.duration);
 
-		progress.setAttribute('max', video.duration);
+		const containerTime = document.getElementById('containerTime' + index);
+
+		if (video.textTracks.length > 0) {
+			const metadataTrack = video.textTracks[0];
+
+			metadataTrack.addEventListener('cuechange', (event) =>
+				addTextToScript(event, index, metadataTrack)
+			);
+		}
+
+		containerTime.innerHTML = `${formatDuration(video.duration)}`;
+	}
+
+	function formatDuration(seconds) {
+		const minutes = Math.floor(seconds / 60);
+		const remainingSeconds = Math.floor(seconds % 60);
+		const formattedMinutes = String(minutes).padStart(2, '0');
+		const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+		return `${formattedMinutes}:${formattedSeconds}`;
 	}
 
 	function updateProgress(event, index, video) {
-		const progress = document.getElementById('progress' + index);
+		const progressBarMarker = document.getElementById('progressBarMarker' + index);
+		const containerScript = document.getElementById('containerScript' + index);
+		const containerTime = document.getElementById('containerTime' + index);
 
-		if (!progress.getAttribute('max')) {
-			progress.setAttribute('max', video.duration);
-			progress.value = video.currentTime;
-		}
-		progress.value = video.currentTime;
+		let value = Math.floor((video.currentTime * 100) / video.duration) + 6;
+		value = value > 100 ? 100 : value;
+		value = value < 0 ? 0 : value;
+		const percentage = `${value}%`;
+
+		progressBarMarker.style.height = percentage;
+
+		containerTime.innerHTML = `${formatDuration(video.duration - video.currentTime)}`;
+		// console.log(percentage, containerScript);
+		// containerScript.style.backgroundImage = `linear-gradient(to bottom, var(--accentColor3) 0, var(--accentColor3) ${percentage}, white ${percentage}, white 100%)`;
 	}
 
-	function jumpToCue(event, index) {
-		const startTime = event.srcElement.dataset.startTime;
-		const progress = document.getElementById('progress' + index);
+	function jumpToCue(e) {
+		const startTime = e.startTime;
+		const index = e.index;
 
 		const videoElements = document.getElementsByTagName('video');
 
@@ -121,28 +152,50 @@
 			videoElements[i].pause();
 		}
 
-		const video = document.getElementById('video' + index);
+		isPlaying = -1;
+
 		isPlaying = index;
-		video.currentTime = startTime;
-		progress.value = startTime;
-		video.play();
+		videoElements[index].currentTime = startTime;
+
+		videoElements[index].play();
 	}
 
 	function addTextToScript(event, index, metadataTrack) {
 		if (metadataTrack.activeCues.length > 0) {
-			const containerScript = document.getElementById('containerScript' + index);
+			console.log(metadataTrack);
 
-			console.log(metadataTrack.activeCues[0]);
+			const entry = {
+				text: metadataTrack.activeCues[0].text,
+				startTime: metadataTrack.activeCues[0].startTime,
+				endTime: metadataTrack.activeCues[0].endTime
+			};
 
-			let fragment = document.createElement('div');
+			if (cueBank[index]) {
+				let cue = cueBank[index];
 
-			fragment.classList.add('cueFragment');
-			fragment.dataset.startTime = metadataTrack.activeCues[0].startTime;
-			fragment.innerHTML = metadataTrack.activeCues[0].text;
-			fragment.addEventListener('click', (event) => jumpToCue(event, index));
+				let isUnique = true;
+				for (let i = 0; i < cue.length; i++) {
+					console.log('inside loop', cue[i]);
+					if (cue[i]['startTime'] === entry.startTime && cue[i]['endTime'] === entry.endTime) {
+						isUnique = false;
+						break;
+					}
+				}
 
-			containerScript.append(fragment);
+				if (isUnique === true) {
+					cue.push(entry);
+				}
+
+				cueBank[index] = cue;
+			} else {
+				// empty json
+				cueBank[index] = [entry];
+			} // check for cuebank empty or not
 		}
+	}
+
+	function videoEnded(event) {
+		isPlaying = -1;
 	}
 
 	onMount(() => {
@@ -151,75 +204,68 @@
 		for (let i = 0; i < videoElements.length; i++) {
 			const video = videoElements[i];
 
-			let metadataTrack = video.textTracks[0];
-
-			console.log(metadataTrack);
-
 			video.loop = false;
 			video.controls = false;
 
 			video.addEventListener('loadedmetadata', (event) => setProgressDuration(event, i, video));
-
 			video.addEventListener('timeupdate', (event) => updateProgress(event, i, video));
-
-			// metadataTrack.addEventListener('cuechange', (event) =>
-			// 	addTextToScript(event, i, metadataTrack)
-			// );
-			const containerScript = document.getElementById('containerScript' + i);
-
-			for (let j = 0; j < metadataTrack.cues.length; j++) {
-				let fragment = document.createElement('div');
-				let cue = metadataTrack.cues[j];
-
-				fragment.classList.add('cueFragment');
-				fragment.dataset.startTime = cue.startTime;
-				fragment.dataset.endTime = cue.endTime;
-				fragment.innerHTML = cue.text;
-				fragment.addEventListener('click', (event) => jumpToCue(event, i));
-
-				containerScript.append(fragment);
-			}
+			video.addEventListener('ended', (event) => videoEnded(event));
 		}
 		// for
 	});
 </script>
 
+<AudioBg />
+
 <div class="containerControls" id="containerControls">
 	{#each audioFiles as track, index}
 		<div id="containerAudio{index}" class="containerAudio">
-			<h6>{track.label}</h6>
+			<div class="progressBar" id="progressBar{index}">
+				<div class="progressBarMarker" id="progressBarMarker{index}"></div>
+			</div>
+			<div class="mainBody">
+				<div class="header">
+					<h6>{track.label}</h6>
 
-			<button
-				class="play"
-				id="buttonLoadAudio{index}"
-				on:click={() => {
-					pauseAudio(index);
-				}}
-			>
-				{#if isPlaying === index}
-					<i class="fa-solid fa-pause"></i>
-				{:else}
-					<i class="fa-solid fa-play"></i>
-				{/if}
-			</button>
+					<div class="headerCTA">
+						<div id="containerTime{index}" class="containerTime"></div>
+						<!-- containerTime -->
 
-			<progress id="progress{index}" value="0" min="0"> </progress>
+						<button
+							class="play"
+							id="buttonLoadAudio{index}"
+							on:click={() => {
+								pauseAudio(index);
+							}}
+						>
+							{#if isPlaying === index}
+								<i class="fa-solid fa-pause"></i>
+							{:else}
+								<i class="fa-solid fa-play"></i>
+							{/if}
+						</button>
+					</div>
+					<!-- cta -->
+				</div>
 
-			<div id="containerScript{index}"></div>
-			<!-- containerScript -->
+				<CueTrack {cueBank} {index} on:jumpToCue={(e) => jumpToCue(e.detail)} />
+				<div id="containerScript{index}" class="containerScript"></div>
+				<!-- containerScript -->
 
-			<!-- svelte-ignore a11y-media-has-caption -->
-			<video
-				id="video{index}"
-				data-index={index}
-				controls="false"
-				preload="metadata"
-				style="display:none"
-			>
-				<source src={track.ogg} type="video/ogg" />
-				<source src={track.mp3} type="video/mp3" />
-				<track label="English" kind="subtitles" srclang="en" src={track.subtitles} default />
-			</video>
+				<!-- svelte-ignore a11y-media-has-caption -->
+				<video
+					id="video{index}"
+					data-index={index}
+					controls="false"
+					preload="metadata"
+					style="display:none"
+				>
+					<source src={track.ogg} type="video/ogg" />
+					<source src={track.mp3} type="video/mp3" />
+					<track label="English" kind="subtitles" srclang="en" src={track.subtitles} default />
+				</video>
+			</div>
+			<!-- mainBody -->
 		</div>
 		<!-- containerAudio -->
 	{/each}
@@ -228,7 +274,9 @@
 <!-- container -->
 <style>
 	#containerControls {
-		height: 90vh;
+		background-color: white;
+		border-radius: var(--borderRadius);
+		max-height: 80vh;
 		left: 5vh;
 		overflow: auto;
 		position: absolute;
@@ -239,14 +287,54 @@
 	h6 {
 		margin: 0;
 	}
-	#video {
+	video {
 		display: none;
 	}
 
 	.containerAudio {
-		border: 1px solid black;
+		align-items: stretch;
+		border-bottom: 1px solid black;
+		display: flex;
+		/* padding: 1rem; */
+		position: relative;
+	}
 
+	.containerAudio:last-child {
+		border: 0;
+	}
+
+	.progressBar {
+		background-color: var(--accentColor3);
+		position: relative;
+		width: 1rem;
+	}
+
+	.progressBarMarker {
+		background-color: var(--accentColor);
+		height: 0%;
+		width: 100%;
+	}
+
+	.mainBody {
+		flex: 1;
 		padding: 1rem;
+	}
+
+	.header {
+		align-items: center;
+
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 1rem;
+	}
+
+	.header h6 {
+		flex: 1;
+	}
+
+	.headerCTA {
+		align-items: center;
+		display: flex;
 	}
 
 	button.play {
@@ -254,6 +342,7 @@
 		background-color: var(--accentColor);
 		border-radius: var(--toggleBorderRadius);
 		height: 2rem;
+		margin-left: 0.5rem;
 		text-align: center;
 		width: 2rem;
 	}
