@@ -23,6 +23,7 @@
 		column-gap: 1rem;
 		display: grid;
 		grid-template-columns: repeat(12, [col-start] 1fr);
+		margin-top: 4rem;
 		padding: 0 2rem;
 		row-gap: 0rem;
 	}
