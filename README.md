@@ -51,3 +51,6 @@ https://fontawesome.com
 https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player
 
 https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video
+
+audio % for f in ./*.mp3; do ffmpeg -i "$f" -c:a libvorbis -q:a 4 "${f/%mp3/ogg}"; done
+ffmpeg -i 001_background-history.mp3 -c:a aac -b:a 192k 001_background-history.m4a

@@ -34,10 +34,16 @@
 			<figcaption>Listen to the T-Rex:</figcaption>
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<audio controls>
-				<source src={track.ogg} type="video/ogg" />
-				<source src={track.mp3} type="video/mp3" />
+				<!-- <source src={track.ogg} type="video/ogg" /> -->
+				<!-- <source src={track.mp3} type="video/mp3" /> -->
+				<source
+					src="https://www.phonghtran.com/audio/001_background-history.mp3"
+					type="video/mp3"
+				/>
+
+				<!-- <source src={track.m4a} type="video/m4a" /> -->
 			</audio>
-			<a href={track.mp3}> Download audio </a>
+			<a href={track.m4a}> Download audio </a>
 		</figure>
 	{/each}
 </div>
