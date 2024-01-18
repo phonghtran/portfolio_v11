@@ -84,6 +84,7 @@
 
 	@media (min-width: 600px) {
 		.introCaseStudies {
+			margin-bottom: 2rem;
 			margin-top: 4rem;
 			padding: 0;
 		}

@@ -46,4 +46,8 @@ https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_Jav
 
 https://stackoverflow.com/questions/75056422/how-to-use-vitepreprocess-with-global-scss-mixins-in-sveltekit
 
-https://heroicons.com/micro
+https://fontawesome.com
+
+https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player
+
+https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video

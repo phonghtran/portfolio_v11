@@ -264,6 +264,10 @@
 		margin-top: 2rem;
 	}
 
+	h3 {
+		margin-top: 0;
+	}
+
 	@media (min-width: 600px) {
 		.introWork {
 			margin-top: 4rem;

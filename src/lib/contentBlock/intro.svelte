@@ -6,6 +6,8 @@
 	import IntroAudio from '$lib/contentBlock/introAudio.svelte';
 	import IntroCaseStudies from '$lib/contentBlock/introCaseStudies.svelte';
 	import IntroWork from '$lib/contentBlock/introWork.svelte';
+	import IntroTechDemos from '$lib/contentBlock/introTechDemos.svelte';
+
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
 	const careerLength = year - 2008;
@@ -69,6 +71,7 @@
 		<IntroLogos />
 		<IntroAudio />
 		<IntroCaseStudies />
+		<IntroTechDemos />
 		<IntroWork />
 
 		<div class="introCard">
@@ -107,10 +110,12 @@
 	}
 
 	.contactList {
-		margin-top: 1rem;
+		margin: 1rem 0 0 0;
 	}
 	.contactList li {
-		margin: 0 0 0.25rem;
+		list-style: none;
+		margin: 0 0 0.25rem 0;
+		padding-left: 0;
 	}
 
 	@media (min-width: 600px) {
