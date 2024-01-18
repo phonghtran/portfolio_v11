@@ -3,6 +3,7 @@
 
 	import Select from '../components/Select.svelte';
 	import IntroLogos from '$lib/contentBlock/introLogos.svelte';
+	import IntroAudio from '$lib/contentBlock/introAudio.svelte';
 	import IntroCaseStudies from '$lib/contentBlock/introCaseStudies.svelte';
 	import IntroWork from '$lib/contentBlock/introWork.svelte';
 	const currentDate = new Date();
@@ -66,6 +67,7 @@
 		<!-- introCard -->
 
 		<IntroLogos />
+		<IntroAudio />
 		<IntroCaseStudies />
 		<IntroWork />
 
