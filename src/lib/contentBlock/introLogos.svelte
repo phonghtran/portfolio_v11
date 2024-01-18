@@ -1,138 +1,160 @@
 <script>
-	$: outerWidth = 0;
-	$: innerWidth = 0;
-	$: outerHeight = 0;
-	$: innerHeight = 0;
 </script>
 
-<svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
-
 <div class="introLogos">
-	{#if innerWidth > 600}
-		<div class="row">
-			<div><img class="logo" src="../logos/ibm.png" alt="logo of ibm" /></div>
-
-			<div><img class="logo" src="../logos/pnc.png" alt="logo of pnc" /></div>
-			<div><img class="logo" src="../logos/fedex.png" alt="logo of fedex" /></div>
-			<div><img class="logo horz" src="../logos/DroneIQ.png" alt="logo of drone IQ " /></div>
-			<div><img class="logo" src="../logos/fis.png" alt="logo of fis worldpay" /></div>
-			<div><img class="logo" src="../logos/mastercard.png" alt="logo of mastercard" /></div>
-		</div>
-		<!-- row -->
-		<div class="row">
-			<div class="-s">
-				<img class="logo -s" src="../logos/826.png" alt="logo of 826 non-profit org" />
-			</div>
-			<div class="-xl">
-				<img class="logo" src="../logos/csod.png" alt="logo of cornerstone ondemand" />
-			</div>
-
-			<div class="-xl">
-				<img class="logo" src="../logos/obviously.png" alt="logo of obviously" />
-			</div>
-			<div class="-xl">
-				<img class="logo" src="../logos/designit.png" alt="logo of designit" />
-			</div>
-			<div class="-s">
-				<img class="logo" src="../logos/hrcloud.png" alt="logo of hr cloud" />
-			</div>
-			<div class="-s"><img class="logo -s" src="../logos/gsk.png" alt="logo of gsk" /></div>
-		</div>
-		<!-- row -->
-	{:else}<div class="row">
-			<div><img class="logo" src="../logos/ibm.png" alt="logo of ibm" /></div>
-			<div><img class="logo" src="../logos/fedex.png" alt="logo of fedex" /></div>
-
-			<div><img class="logo" src="../logos/mastercard.png" alt="logo of mastercard" /></div>
-		</div>
-		<!-- row -->
-		<div class="row">
-			<div class="-xl">
-				<img class="logo" src="../logos/designit.png" alt="logo of designit" />
-			</div>
-			<div class="-xl">
-				<img class="logo" src="../logos/csod.png" alt="logo of cornerstone ondemand" />
-			</div>
-
-			<div class="-xl">
-				<img class="logo" src="../logos/obviously.png" alt="logo of obviously" />
-			</div>
-		</div>
-		<!-- row -->
-		<div class="row">
-			<div><img class="logo" src="../logos/pnc.png" alt="logo of pnc" /></div>
-			<div class="-s">
-				<img class="logo" src="../logos/fis.png" alt="logo of fis worldpay" />
-			</div>
-			<div><img class="logo horz" src="../logos/DroneIQ.png" alt="logo of drone IQ " /></div>
-		</div>
-		<!-- row -->
-
-		<div class="row">
-			<div class="-s">
-				<img class="logo -s" src="../logos/826.png" alt="logo of 826 non-profit org" />
-			</div>
-			<div class="-s">
-				<img class="logo" src="../logos/hrcloud.png" alt="logo of hr cloud" />
-			</div>
-			<div class="-s"><img class="logo -s" src="../logos/gsk.png" alt="logo of gsk" /></div>
-		</div>
-		<!-- row -->
-	{/if}
+	<img id="img1" class="logo" src="../logos/ibm.png" alt="logo of ibm" />
+	<img id="img2" class="logo" src="../logos/pnc.png" alt="logo of pnc" />
+	<img id="img3" class="logo" src="../logos/fedex.png" alt="logo of fedex" />
+	<img id="img4" class="logo" src="../logos/DroneIQ.png" alt="logo of drone IQ " />
+	<img id="img5" class="logo" src="../logos/fis.png" alt="logo of fis worldpay" />
+	<img id="img6" class="logo" src="../logos/mastercard.png" alt="logo of mastercard" />
+	<img id="img7" class="logo" src="../logos/826.png" alt="logo of 826 non-profit org" />
+	<img id="img8" class="logo" src="../logos/csod.png" alt="logo of cornerstone ondemand" />
+	<img id="img9" class="logo" src="../logos/obviously.png" alt="logo of obviously" />
+	<img id="img10" class="logo" src="../logos/designit.png" alt="logo of designit" />
+	<img id="img11" class="logo" src="../logos/hrcloud.png" alt="logo of hr cloud" />
+	<img id="img12" class="logo" src="../logos/gsk.png" alt="logo of gsk" />
 </div>
 
 <!-- introLogos -->
 
 <style>
 	.introLogos {
-		margin: 2rem 0;
+		column-gap: 1rem;
+		display: grid;
+		grid-template-columns: repeat(12, [col-start] 1fr);
+		margin-top: 4rem;
 		padding: 0 2rem;
+		row-gap: 0rem;
 	}
 
-	div.introLogos div.row {
-		align-items: center;
-		display: flex;
-		flex: 1;
-		flex-direction: row;
-		flex-wrap: wrap;
-
-		gap: 1rem;
-		margin-top: -2.5rem;
+	img {
+		width: 100%;
 	}
 
-	div.introLogos div.row:first-child {
-		margin-top: 0;
-	}
-	div.introLogos div.row:last-child {
-		margin-top: -1rem;
+	#img1 {
+		grid-column: col-start 1 / span 4;
+		grid-row: 1;
 	}
 
-	div.row > div {
-		flex: 1; /* fg:1, fs:1, fb:0 */
+	#img2 {
+		grid-column: col-start 5 / span 4;
+		grid-row: 1;
 	}
 
-	div.row > div.-s {
-		flex: 0.75;
+	#img6 {
+		grid-column: col-start 9 / span 4;
+		grid-row: 1;
 	}
 
-	div.row > div.-xl {
-		flex: 1.25;
+	#img4 {
+		grid-column: col-start 1 / span 4;
+		grid-row: 2;
 	}
 
-	div.row div img {
-		max-height: 100%;
-		max-width: 100%;
-		object-fit: scale-down;
+	#img5 {
+		grid-column: col-start 5 / span 4;
+		grid-row: 2;
+	}
+
+	#img3 {
+		grid-column: col-start 9 / span 4;
+		grid-row: 2;
+	}
+
+	#img10 {
+		grid-column: col-start 1 / span 4;
+		grid-row: 3;
+	}
+
+	#img8 {
+		grid-column: col-start 5 / span 4;
+		grid-row: 3;
+	}
+
+	#img9 {
+		grid-column: col-start 9 / span 4;
+		grid-row: 3;
+	}
+
+	#img7 {
+		grid-column: col-start 1 / span 4;
+		grid-row: 4;
+	}
+
+	#img11 {
+		grid-column: col-start 5 / span 4;
+		grid-row: 4;
+	}
+
+	#img12 {
+		grid-column: col-start 9 / span 4;
+		grid-row: 4;
 	}
 
 	@media (min-width: 600px) {
-		div.introLogos div.row:last-child {
-			margin-top: -1.5rem;
+		.introLogos {
+			padding: 0;
 		}
 
-		.introLogos {
-			margin: 4rem 0;
-			padding: 0;
+		#img1 {
+			grid-column: col-start 1 / span 2;
+			grid-row: 1;
+		}
+
+		#img2 {
+			grid-column: col-start 3 / span 2;
+			grid-row: 1;
+		}
+
+		#img3 {
+			grid-column: col-start 5 / span 2;
+			grid-row: 1;
+		}
+
+		#img4 {
+			grid-column: col-start 7 / span 2;
+			grid-row: 1;
+		}
+
+		#img5 {
+			grid-column: col-start 9 / span 2;
+			grid-row: 1;
+		}
+
+		#img6 {
+			grid-column: col-start 11 / span 2;
+			grid-row: 1;
+		}
+
+		#img7 {
+			grid-column: col-start 1 / span 2;
+			grid-row: 2;
+		}
+
+		#img8 {
+			grid-column: col-start 3 / span 2;
+			grid-row: 2;
+		}
+
+		#img9 {
+			grid-column: col-start 5 / span 2;
+			grid-row: 2;
+		}
+
+		#img10 {
+			grid-column: col-start 7 / span 2;
+			grid-row: 2;
+		}
+
+		#img11 {
+			grid-column: col-start 9 / span 2;
+			grid-row: 2;
+		}
+
+		#img12 {
+			grid-column: col-start 11 / span 2;
+			grid-row: 2;
 		}
 	}
 </style>
