@@ -69,7 +69,7 @@
 		<!-- introCard -->
 
 		<IntroLogos />
-		<IntroAudio />
+
 		<IntroCaseStudies />
 		<IntroTechDemos />
 		<IntroWork />
