@@ -14,6 +14,7 @@ export const languageConfig = writable(
                 'Insuffable'
             ], icons: [
                 'fa-elevator',
+                'fa-user-tie',
                 'fa-skull'
             ]
 

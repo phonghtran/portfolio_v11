@@ -52,17 +52,20 @@
 		align-items: center;
 		background-color: var(--gray0);
 		border-radius: var(--borderRadius);
-		display: flex;
 
 		justify-content: flex-start;
 		margin-bottom: 0.5rem;
 		padding: 1rem;
 	}
 
+	.techdemo * {
+		display: inline-block;
+	}
+
 	.techdemo p {
 		font-size: 0.875rem;
 		line-height: 1.125rem;
-		margin: 0 0 0 0.5rem;
+		margin: 0;
 	}
 
 	@media (min-width: 600px) {
