@@ -118,6 +118,10 @@
 		padding-left: 0;
 	}
 
+	.introCard h6 {
+		margin-top: 0;
+	}
+
 	@media (min-width: 600px) {
 		.introCard {
 			background-color: var(--gray0);
