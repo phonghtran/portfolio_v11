@@ -11,12 +11,15 @@
 	let cueBank = {};
 
 	/** @param {MouseEvent} event */
-	function pauseAudio(index) {
-		console.log('clicked play pause', index, isPlaying);
+	function toggleAudio(index) {
+		console.log('in toggleAudio');
+		console.log('index btn:', index, 'isplaying:', isPlaying);
 
 		if (isPlaying === index) {
 			// is currently playing
-			// console.log('pausing the current track');
+
+			console.log('pausing');
+
 			const video = realtimeContent[isPlaying]['video'];
 			video.pause();
 			isPlaying = -1;
@@ -29,11 +32,10 @@
 
 			playVideo(index);
 		}
-
-		// console.log('wrapping', index, isPlaying);
 	}
 
 	async function playVideo(index, startTime = 0) {
+		console.log('in playVideo');
 		const video = realtimeContent[index]['video'];
 
 		isPlaying = index;
@@ -97,44 +99,45 @@
 	}
 
 	function addTextToScript(event) {
-		console.log('adding script', event);
+		if (isPlaying > -1) {
+			const metadataTrack = realtimeContent[isPlaying]['video']['textTracks'][0];
 
-		const metadataTrack = realtimeContent[isPlaying]['video']['textTracks'][0];
+			if (metadataTrack.activeCues.length > 0) {
+				console.log(metadataTrack);
 
-		if (metadataTrack.activeCues.length > 0) {
-			console.log(metadataTrack);
+				const entry = {
+					text: metadataTrack.activeCues[0].text,
+					startTime: metadataTrack.activeCues[0].startTime,
+					endTime: metadataTrack.activeCues[0].endTime
+				};
 
-			const entry = {
-				text: metadataTrack.activeCues[0].text,
-				startTime: metadataTrack.activeCues[0].startTime,
-				endTime: metadataTrack.activeCues[0].endTime
-			};
+				if (cueBank[isPlaying]) {
+					let cue = cueBank[isPlaying];
 
-			if (cueBank[isPlaying]) {
-				let cue = cueBank[isPlaying];
-
-				let isUnique = true;
-				for (let i = 0; i < cue.length; i++) {
-					// console.log('inside loop', cue[i]);
-					if (cue[i]['startTime'] === entry.startTime && cue[i]['endTime'] === entry.endTime) {
-						isUnique = false;
-						break;
+					let isUnique = true;
+					for (let i = 0; i < cue.length; i++) {
+						// console.log('inside loop', cue[i]);
+						if (cue[i]['startTime'] === entry.startTime && cue[i]['endTime'] === entry.endTime) {
+							isUnique = false;
+							break;
+						}
 					}
-				}
 
-				if (isUnique === true) {
-					cue.push(entry);
-				}
+					if (isUnique === true) {
+						cue.push(entry);
+					}
 
-				cueBank[isPlaying] = cue;
-			} else {
-				// empty json
-				cueBank[isPlaying] = [entry];
-			} // check for cuebank empty or not
+					cueBank[isPlaying] = cue;
+				} else {
+					// empty json
+					cueBank[isPlaying] = [entry];
+				} // check for cuebank empty or not
+			}
 		}
 	}
 
 	function videoEnded(event) {
+		console.log('finished playing');
 		isPlaying = -1;
 	}
 
@@ -153,11 +156,10 @@
 			track.src = audioFiles[i]['subtitles'];
 			track.srclang = 'en';
 			track.default = 'true';
-			// track.addEventListener('cuechange', (event) => addTextToScript(event));
+			// // track.addEventListener('cuechange', (event) => addTextToScript(event));
 
 			video.append(track);
 
-			// video.addEventListener('loadedmetadata', (event) => setProgressDuration(event, i, video));
 			video.addEventListener('timeupdate', (event) => updateProgress(event));
 			video.addEventListener('ended', (event) => videoEnded(event));
 
@@ -196,7 +198,7 @@
 							class="play"
 							id="buttonLoadAudio{index}"
 							on:click={() => {
-								pauseAudio(index);
+								toggleAudio(index);
 							}}
 						>
 							{#if isPlaying === index}
