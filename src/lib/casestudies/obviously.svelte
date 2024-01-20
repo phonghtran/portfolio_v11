@@ -5,6 +5,7 @@
 <div class="wrapperMaxWidth wrapperCasestudy">
 	<div class="containerMaxWidth">
 		<h2>Obviously</h2>
+		<h3>Building a Design Foundation</h3>
 		<p>
 			Starting in 2020, I was Obviously’s first UX designer hire. The nine-year startup focused in
 			influencer marketing campaigns and supporting its custom SASS platform to facilitate these

@@ -4,6 +4,7 @@
 	import { caseStudies } from '../../../stores.js';
 
 	import Obviously from '$lib/casestudies/obviously.svelte';
+	import ObviouslyEfficiency from '$lib/casestudies/obviouslyEfficiency.svelte';
 	import Worldpay from '$lib/casestudies/worldpay.svelte';
 	import Mastercard from '$lib/casestudies/mastercard.svelte';
 
@@ -22,6 +23,8 @@
 <!-- wrapperMaxWidth -->
 {#if projectName === 'obviously'}
 	<Obviously />
+{:else if projectName === 'obviouslyEfficiency'}
+	<ObviouslyEfficiency />
 {:else if projectName === 'worldpay'}
 	<Worldpay />
 {:else if projectName === 'mastercard'}
