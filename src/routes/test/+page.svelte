@@ -26,7 +26,7 @@
 		for (var i = 0; i < audioFiles.length; i++) {
 			console.log(audioFiles[i]['mp3']);
 			var audioObj = new Audio(audioFiles[i]['mp3']);
-
+			console.log(audioObj);
 			realtimeAudioObj[i] = {
 				id: i,
 				audio: audioObj
@@ -41,7 +41,7 @@
 	<!-- <button on:click={playPauseAudio}>play</button> -->
 
 	{#each audioFiles as track, index}
-		<p><button on:click={playPauseAudio(index)}>play {index}</button></p>
+		<p><button on:click={() => playPauseAudio(index)}>play {index}</button></p>
 	{/each}
 </div>
 

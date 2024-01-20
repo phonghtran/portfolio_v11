@@ -150,6 +150,8 @@
 		isPlaying = -1;
 	}
 
+	let realtimeContent = [];
+
 	onMount(() => {
 		const videoElements = document.getElementsByTagName('video');
 
