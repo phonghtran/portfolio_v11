@@ -2,8 +2,8 @@
 	import NavTechDemo from '$lib/components/NavTechDemo.svelte';
 </script>
 
-<NavTechDemo />
 <div class="wrapper">
+	<NavTechDemo />
 	<div class="containerFlex">
 		<div class="project">
 			<h4>Project #1</h4>

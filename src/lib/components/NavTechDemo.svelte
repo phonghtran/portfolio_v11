@@ -4,24 +4,21 @@
 	let options = caseStudies; // Array of options for the dropdown
 </script>
 
-<div class="wrapperMaxWidth wrapperCasestudy">
-	<div class="containerMaxWidth">
-		<div class="nav">
-			<div class="home">
-				<a class="casestudy" href="/"
-					><i class="fa-solid fa-house"></i> <span class="text">Home</span></a
-				>
-			</div>
+<div class="wrapperNav">
+	<div class="nav">
+		<div class="home">
+			<a class="casestudy" href="/"
+				><i class="fa-solid fa-house"></i> <span class="text">Home</span></a
+			>
+		</div>
 
-			<div class="casestudies">
-				<a class="casestudy selected" href="/techdemos"><span class="text">Tech Demos</span> </a>
-			</div>
+		<div class="casestudies">
+			<a class="casestudy selected" href="/techdemos"><span class="text">Tech Demos</span> </a>
 		</div>
 	</div>
-	<!-- containerMaxWidth -->
 </div>
 
-<!-- wrapperMaxWidth -->
+<!-- wrapperNav -->
 <!-- nav -->
 
 <style>
@@ -33,8 +30,9 @@
 		flex-direction: row;
 		font-size: 0.675rem;
 		justify-content: space-between;
+		margin: 1rem 2rem 2rem;
+
 		padding: 0;
-		margin: 1rem 1rem 2rem;
 	}
 
 	.nav > div {
@@ -87,7 +85,7 @@
 	@media (min-width: 600px) {
 		.nav {
 			font-size: 1rem;
-			margin: 1rem 0 2rem;
+			margin: 1rem 2rem 2rem;
 		}
 
 		.nav > div {
