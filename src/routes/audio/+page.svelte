@@ -17,12 +17,13 @@
 		if (isPlaying === index) {
 			// is currently playing
 			// console.log('pausing the current track');
-			const video = document.getElementById('video' + index);
+			const video = realtimeContent[isPlaying]['video'];
 			video.pause();
 			isPlaying = -1;
 		} else {
 			if (isPlaying > -1) {
-				const currentVideo = document.getElementById('video' + isPlaying);
+				const currentVideo = realtimeContent[isPlaying]['video'];
+
 				currentVideo.pause();
 			}
 
@@ -33,7 +34,7 @@
 	}
 
 	async function playVideo(index, startTime = 0) {
-		const video = document.getElementById('video' + index);
+		const video = realtimeContent[index]['video'];
 
 		isPlaying = index;
 
@@ -45,27 +46,11 @@
 			console.log(error);
 			isPlaying = -1;
 		} finally {
-			const video = document.getElementById('video' + index);
+			const video = realtimeContent[index]['video'];
 
 			video.muted = false;
 			console.log('playing from promise 2');
 		}
-	}
-
-	function setProgressDuration(event, index, video) {
-		console.log('loading meta');
-
-		const containerTime = document.getElementById('containerTime' + index);
-
-		if (video.textTracks.length > 0) {
-			const metadataTrack = video.textTracks[0];
-
-			metadataTrack.addEventListener('cuechange', (event) =>
-				addTextToScript(event, index, metadataTrack)
-			);
-		}
-
-		containerTime.innerHTML = `${formatDuration(video.duration)}`;
 	}
 
 	function formatDuration(seconds) {
@@ -76,28 +61,28 @@
 		return `${formattedMinutes}:${formattedSeconds}`;
 	}
 
-	function updateProgress(event, index, video) {
-		const progressBarMarker = document.getElementById('progressBarMarker' + index);
-		const containerScript = document.getElementById('containerScript' + index);
-		const containerTime = document.getElementById('containerTime' + index);
+	function updateProgress(event) {
+		if (isPlaying > -1) {
+			const progressBarMarker = document.getElementById('progressBarMarker' + isPlaying);
+			const containerScript = document.getElementById('containerScript' + isPlaying);
+			const containerTime = document.getElementById('containerTime' + isPlaying);
 
-		let value = Math.floor((video.currentTime * 100) / video.duration) + 6;
-		value = value > 100 ? 100 : value;
-		value = value < 0 ? 0 : value;
-		const percentage = `${value}%`;
+			const video = realtimeContent[isPlaying]['video'];
 
-		progressBarMarker.style.height = percentage;
+			let value = Math.floor((video.currentTime * 100) / video.duration) + 6;
+			value = value > 100 ? 100 : value;
+			value = value < 0 ? 0 : value;
+			const percentage = `${value}%`;
 
-		containerTime.innerHTML = `${formatDuration(video.duration - video.currentTime)}`;
-		// console.log(percentage, containerScript);
-		// containerScript.style.backgroundImage = `linear-gradient(to bottom, var(--accentColor3) 0, var(--accentColor3) ${percentage}, white ${percentage}, white 100%)`;
+			progressBarMarker.style.height = percentage;
+
+			containerTime.innerHTML = `${formatDuration(video.duration - video.currentTime)}`;
+		}
 	}
 
 	function resetAllPlaying() {
-		const videoElements = document.getElementsByTagName('video');
-
-		for (let i = 0; i < videoElements.length; i++) {
-			videoElements[i].pause();
+		for (let i = 0; i < realtimeContent.length; i++) {
+			realtimeContent[i]['video'].pause();
 		}
 
 		isPlaying = -1;
@@ -111,8 +96,11 @@
 		playVideo(index, startTime);
 	}
 
-	function addTextToScript(event, index, metadataTrack) {
-		console.log('adding script');
+	function addTextToScript(event) {
+		console.log('adding script', event);
+
+		const metadataTrack = realtimeContent[isPlaying]['video']['textTracks'][0];
+
 		if (metadataTrack.activeCues.length > 0) {
 			console.log(metadataTrack);
 
@@ -122,8 +110,8 @@
 				endTime: metadataTrack.activeCues[0].endTime
 			};
 
-			if (cueBank[index]) {
-				let cue = cueBank[index];
+			if (cueBank[isPlaying]) {
+				let cue = cueBank[isPlaying];
 
 				let isUnique = true;
 				for (let i = 0; i < cue.length; i++) {
@@ -138,10 +126,10 @@
 					cue.push(entry);
 				}
 
-				cueBank[index] = cue;
+				cueBank[isPlaying] = cue;
 			} else {
 				// empty json
-				cueBank[index] = [entry];
+				cueBank[isPlaying] = [entry];
 			} // check for cuebank empty or not
 		}
 	}
@@ -153,24 +141,37 @@
 	let realtimeContent = [];
 
 	onMount(() => {
-		const videoElements = document.getElementsByTagName('video');
-
-		for (let i = 0; i < videoElements.length; i++) {
-			console.log('loading from onmount');
-			const video = videoElements[i];
+		for (var i = 0; i < audioFiles.length; i++) {
+			var video = document.createElement('video');
+			video.src = audioFiles[i]['mp3'];
 
 			video.loop = false;
 			video.controls = false;
 
+			const track = document.createElement('track');
+			track.kind = 'subtitles';
+			track.src = audioFiles[i]['subtitles'];
+			track.srclang = 'en';
+			track.default = 'true';
+			// track.addEventListener('cuechange', (event) => addTextToScript(event));
+
+			video.append(track);
+
 			// video.addEventListener('loadedmetadata', (event) => setProgressDuration(event, i, video));
-			video.addEventListener('timeupdate', (event) => updateProgress(event, i, video));
+			video.addEventListener('timeupdate', (event) => updateProgress(event));
 			video.addEventListener('ended', (event) => videoEnded(event));
 
 			const metadataTrack = video.textTracks[0];
-			metadataTrack.addEventListener('cuechange', (event) =>
-				addTextToScript(event, i, metadataTrack)
-			);
+			console.log(metadataTrack);
+			metadataTrack.addEventListener('cuechange', (event) => addTextToScript(event));
+
+			console.log(i, video);
+			realtimeContent[i] = {
+				id: i,
+				video: video
+			};
 		}
+
 		// for
 	});
 </script>
@@ -209,13 +210,6 @@
 				</div>
 
 				<CueTrack {cueBank} {index} on:jumpToCue={(e) => jumpToCue(e.detail)} />
-
-				<!-- svelte-ignore a11y-media-has-caption -->
-				<video id="video{index}" data-index={index} preload="metadata" muted>
-					<source src={track.ogg} type="video/ogg" />
-					<source src={track.mp3} type="video/mp3" />
-					<track label="English" kind="subtitles" srclang="en" src={track.subtitles} default />
-				</video>
 			</div>
 			<!-- mainBody -->
 		</div>
