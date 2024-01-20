@@ -14,7 +14,6 @@ export const languageConfig = writable(
                 'Insuffable'
             ], icons: [
                 'fa-elevator',
-                'fa-user-tie',
                 'fa-skull'
             ]
 
@@ -25,10 +24,14 @@ export const languageConfig = writable(
 
 export const caseStudies = [
 
-    { id: 1, name: 'Obviously', label: 'obviously', url: "/casestudy/obviously", desc: "Implementing design process at a mature startup.", img: "../thumbnails/obv_influencer.jpeg" },
+    { id: 1, name: 'Obviously #1', label: 'obviously', url: "/casestudy/obviously", desc: "Implementing design process at a startup.", img: "../thumbnails/obv_influencer.jpeg" },
+    { id: 2, name: 'Obviously #2', label: 'obviouslyAttributes', url: "/casestudy/obviouslyAttributes", desc: "Flexing a rigid codebase.", img: "../thumbnails/tracker.png" },
 
-    { id: 2, name: 'mastercard', label: 'mastercard', url: "/casestudy/mastercard", desc: "Translating business and data engineering into design speak.", img: "../thumbnails/mastercard.png" },
-    { id: 3, name: 'Worldpay (FIS)', label: 'worldpay', url: "/casestudy/worldpay", desc: "Using Design Thinking to consolidate duplicate products.", img: "../thumbnails/fis.png" }
+    { id: 3, name: 'Obviously #3', label: 'obviouslyEfficiency', url: "/casestudy/obviouslyEfficiency", desc: "Pivoting to efficiency post-acquistion.", img: "../thumbnails/workshop.png" },
+
+
+    { id: 4, name: 'mastercard', label: 'mastercard', url: "/casestudy/mastercard", desc: "Translating business and data engineering into design speak.", img: "../thumbnails/mastercard.png" },
+    { id: 5, name: 'Worldpay (FIS)', label: 'worldpay', url: "/casestudy/worldpay", desc: "Using Design Thinking to consolidate duplicate products.", img: "../thumbnails/fis.png" }
 
 ]
 

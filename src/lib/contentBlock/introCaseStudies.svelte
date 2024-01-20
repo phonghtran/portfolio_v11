@@ -10,7 +10,7 @@
 
 	<div class="containerCaseStudies">
 		{#each caseStudies as option, index}
-			<div class="casestudy">
+			<div class="casestudy" id="casestudy{index}">
 				<div class="img">
 					<a href={option.url}> <img src={option.img} alt="" /></a>
 				</div>
@@ -90,19 +90,61 @@
 		}
 
 		.containerCaseStudies {
-			display: flex;
-			gap: 1rem;
+			column-gap: 1rem;
+			display: grid;
+			grid-template-columns: repeat(12, [col-start] 1fr);
+			row-gap: 0rem;
 		}
 
 		.casestudy {
-			align-items: center;
-
+			/* align-items: center; */
 			border-radius: 0 0 var(--borderRadius) var(--borderRadius);
-			flex: 1;
+			/* flex: 1; */
 			flex-direction: column;
 			padding: 0;
 		}
+
+		#casestudy0 {
+			grid-column: col-start 1 / span 4;
+			grid-row: 1;
+		}
+
+		#casestudy1 {
+			grid-column: col-start 5 / span 4;
+			grid-row: 1;
+		}
+
+		#casestudy2 {
+			grid-column: col-start 9 / span 4;
+			grid-row: 1;
+		}
+
+		#casestudy3 {
+			flex-direction: row;
+			grid-column: col-start 1 / span 12;
+			grid-row: 2;
+		}
+
+		#casestudy4 {
+			flex-direction: row;
+			grid-column: col-start 1 / span 12;
+			grid-row: 3;
+		}
+
+		#casestudy3,
+		#casestudy4 {
+			border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
+		}
+
 		.casestudy .img {
+			overflow: hidden;
+			height: 7rem;
+			width: 7rem;
+		}
+
+		#casestudy0 .img,
+		#casestudy1 .img,
+		#casestudy2 .img {
 			width: 100%;
 		}
 

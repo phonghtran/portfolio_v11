@@ -1,4 +1,3 @@
-<script>
 	import ImageSlider from '../components/ImageSlider.svelte';
 </script>
 

@@ -88,7 +88,7 @@
 	@media (min-width: 600px) {
 		.nav {
 			font-size: 1rem;
-			margin: 1rem 0 2rem;
+			margin: 1rem 2rem 2rem;
 		}
 
 		.nav > div {

@@ -173,10 +173,6 @@
 		width: 100%;
 	}
 
-	h3 {
-		margin-top: 1rem;
-	}
-
 	@media (min-width: 600px) {
 		#headline1 {
 			grid-column: col-start 1 / span 3;

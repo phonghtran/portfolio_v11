@@ -5,6 +5,8 @@
 
 	import Obviously from '$lib/casestudies/obviously.svelte';
 	import ObviouslyEfficiency from '$lib/casestudies/obviouslyEfficiency.svelte';
+	import ObviouslyAttributes from '$lib/casestudies/obviouslyAttributes.svelte';
+
 	import Worldpay from '$lib/casestudies/worldpay.svelte';
 	import Mastercard from '$lib/casestudies/mastercard.svelte';
 
@@ -13,16 +15,11 @@
 	$: projectName = data.projectName;
 </script>
 
-<div class="wrapperMaxWidth">
-	<div class="containerMaxWidth">
-		<NavCaseStudy {projectName} />
-	</div>
-	<!-- containerMaxWidth -->
-</div>
-
-<!-- wrapperMaxWidth -->
+<NavCaseStudy {projectName} />
 {#if projectName === 'obviously'}
 	<Obviously />
+{:else if projectName === 'obviouslyAttributes'}
+	<ObviouslyAttributes />
 {:else if projectName === 'obviouslyEfficiency'}
 	<ObviouslyEfficiency />
 {:else if projectName === 'worldpay'}
