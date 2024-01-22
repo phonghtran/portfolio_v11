@@ -39,10 +39,6 @@
 		margin-top: 0;
 	}
 
-	#introTechDemos {
-		margin: 2rem 0;
-		padding: 0 1rem;
-	}
 	.containerTechDemos {
 		margin-top: 1rem;
 		flex-direction: column;
@@ -69,11 +65,6 @@
 	}
 
 	@media (min-width: 600px) {
-		#introTechDemos {
-			margin-top: 2rem;
-			padding: 0;
-		}
-
 		.containerTechDemos {
 			align-items: stretch;
 			display: flex;

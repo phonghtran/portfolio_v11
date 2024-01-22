@@ -15,7 +15,8 @@
 	function updateToggle(toggleSection) {
 		toggleSections[toggleSection.id] = toggleSection;
 
-		if (toggleSection.isVisible) {
+		if (toggleSection.isVisible && innerWidth > 600) {
+			console.log(innerWidth);
 			setTimeout(() => {
 				const elem = document.getElementById(toggleSection.div);
 				elem.scrollIntoView({

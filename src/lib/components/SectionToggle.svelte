@@ -10,9 +10,9 @@
 	let showMenu = true;
 
 	function toggleSectionDispatch(event, toggleSection) {
-		const checked = event.srcElement.checked;
+		// const checked = event.srcElement.checked;
 
-		toggleSection.isVisible = checked;
+		toggleSection.isVisible = !toggleSection.isVisible;
 
 		dispatch('update', toggleSection);
 	}
@@ -34,6 +34,17 @@
 									toggleSectionDispatch(e, toggleSection);
 								}}
 							/>
+
+							<button
+								class="toggleSetting"
+								class:isVisible={toggleSections[index].isVisible}
+								on:click={(e) => {
+									toggleSectionDispatch(e, toggleSection);
+								}}
+							>
+								<i class="fa-solid"></i>
+							</button>
+
 							<label for="checkbox{index}">{toggleSection.label}</label>
 						</p>
 					{/if}
@@ -87,6 +98,52 @@
 		margin: 1rem 0;
 	}
 
+	p {
+		align-items: center;
+		display: flex;
+	}
+	input {
+		display: none;
+	}
+
+	.toggleSetting {
+		background-color: var(--gray1);
+		border: 0;
+		border-radius: var(--toggleBorderRadius);
+		box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25) inset;
+		cursor: pointer;
+		height: 1.5rem;
+		margin-right: 0.5rem;
+		padding: 0.25rem;
+		position: relative;
+		transition: background-color 250ms ease-in-out;
+		width: 2.5rem;
+	}
+
+	.toggleSetting.isVisible {
+		background-color: var(--accentColor3);
+	}
+
+	.toggleSetting i {
+		background-color: black;
+		border-radius: var(--toggleBorderRadius);
+		display: block;
+		font-size: 0.75rem;
+		height: 1.25rem;
+		left: 0.25rem;
+		position: absolute;
+		top: 0.125rem;
+		transition:
+			background-color 250ms ease-in-out,
+			left 250ms ease-in-out;
+		width: 1rem;
+	}
+
+	.toggleSetting.isVisible i {
+		background-color: var(--accentColor);
+		left: 1rem;
+	}
+
 	@media (min-width: 600px) {
 		#componentSectionToggle {
 			align-items: flex-start;
@@ -118,6 +175,7 @@
 			cursor: pointer;
 			display: block;
 			margin: 1rem 0 0 0;
+			transition: background-color 250ms ease-in-out;
 			z-index: 1;
 		}
 
@@ -125,6 +183,10 @@
 			animation: none;
 			background-color: var(--gray1);
 			box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+		}
+
+		#componentSectionToggle.showMenu #toggleMenu:hover {
+			background-color: var(--accentColor3);
 		}
 
 		#toggleMenu i {
@@ -143,7 +205,7 @@
 			border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
 			box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.25);
 			margin: 0;
-			padding: 1rem;
+			padding: 1.5rem;
 			transition: max-width 1s;
 			z-index: 2;
 		}
@@ -152,6 +214,9 @@
 			min-width: max-content;
 		}
 
+		h6 {
+			margin-top: 0;
+		}
 		p {
 			font-size: 0.875rem;
 			margin: 0 0 0.5rem;
