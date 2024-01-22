@@ -93,7 +93,7 @@
 		x: 50,
 		y: 50,
 		r: 5,
-		dotOffset: 25
+		dotOffset: 20
 	};
 
 	function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
