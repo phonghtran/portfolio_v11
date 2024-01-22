@@ -28,7 +28,7 @@ export const caseStudies = [
     { id: 1, name: 'Obviously #1', label: 'obviously', url: "/casestudy/obviously", desc: "Implementing design process at a startup.", img: "../thumbnails/obv_influencer.jpeg" },
     { id: 2, name: 'Obviously #2', label: 'obviouslyAttributes', url: "/casestudy/obviouslyAttributes", desc: "Flexing a rigid codebase.", img: "../thumbnails/tracker.png" },
 
-    { id: 3, name: 'Obviously #3', label: 'obviouslyEfficiency', url: "/casestudy/obviouslyEfficiency", desc: "Pivoting to efficiency post-acquistion.", img: "../thumbnails/workshop.png" },
+    { id: 3, name: 'Obviously #3', label: 'obviouslyEfficiency', url: "/casestudy/obviouslyEfficiency", desc: "Pivoting to efficiency post-merger with AI/ML.", img: "../thumbnails/workshop.png" },
 
 
     { id: 4, name: 'mastercard', label: 'mastercard', url: "/casestudy/mastercard", desc: "Translating business and data engineering into design speak.", img: "../thumbnails/mastercard.png" },

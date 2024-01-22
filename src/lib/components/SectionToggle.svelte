@@ -108,18 +108,26 @@
 			box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.25);
 			cursor: pointer;
 			display: block;
-			margin-top: 1rem;
-			padding: 0.5rem 0.5rem 0.325rem;
-			width: 2rem;
-			z-index: 2;
+			margin: 1rem 0 0 0;
+			z-index: 1;
 		}
 
 		#componentSectionToggle.showMenu #toggleMenu {
 			animation: none;
+			background-color: var(--accentColor5);
+			box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
 		}
 
 		#toggleMenu i {
-			font-size: 1rem;
+			animation: 5s ease-in-out infinite alternate-reverse rotateObject;
+			display: block;
+			font-size: 1.25rem;
+			padding: 0.75rem 0.5rem 0.75rem 0.325rem;
+			width: 1.25rem;
+		}
+
+		#componentSectionToggle.showMenu #toggleMenu i {
+			animation: none;
 		}
 
 		#menu {
@@ -127,7 +135,8 @@
 			box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.25);
 			display: none;
 			margin: 0;
-			z-index: 1;
+			padding: 1rem;
+			z-index: 2;
 		}
 
 		#componentSectionToggle.showMenu #menu {
@@ -135,7 +144,7 @@
 		}
 
 		p {
-			font-size: 0.75rem;
+			font-size: 0.875rem;
 			margin: 0 0 0.5rem;
 		}
 	}

@@ -222,21 +222,12 @@
 <!-- introSkills -->
 
 <style>
-	@keyframes rotateGraph {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
-	}
-
 	#introSkills {
 		margin: 4rem 1rem 2rem;
 	}
 
 	#svgMain {
-		animation: 360s linear infinite rotateGraph;
+		animation: 360s linear infinite rotateObject;
 	}
 	#wavyPath {
 		fill: var(--accentColor3);
