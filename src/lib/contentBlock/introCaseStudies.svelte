@@ -2,7 +2,7 @@
 	import { caseStudies } from '../../stores.js';
 </script>
 
-<div id="introCaseStudies">
+<div id="introCaseStudies" class="introSectionPadding">
 	<div class="header">
 		<h3>Case Studies</h3>
 	</div>
@@ -34,10 +34,7 @@
 	h4 {
 		margin-top: 0;
 	}
-	#introCaseStudies {
-		margin: 4rem 0;
-		padding: 0 1rem;
-	}
+
 	.containerCaseStudies {
 		margin-top: 1rem;
 	}
@@ -83,12 +80,6 @@
 	}
 
 	@media (min-width: 600px) {
-		#introCaseStudies {
-			margin-bottom: 2rem;
-			margin-top: 4rem;
-			padding: 0;
-		}
-
 		.containerCaseStudies {
 			column-gap: 1rem;
 			display: grid;

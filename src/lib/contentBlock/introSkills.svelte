@@ -157,7 +157,7 @@
 	});
 </script>
 
-<div id="introSkills">
+<div id="introSkills" class="introSectionPadding">
 	<h3>Self-Rated Skill Assessment</h3>
 
 	<blockquote>
@@ -222,10 +222,6 @@
 <!-- introSkills -->
 
 <style>
-	#introSkills {
-		margin: 4rem 1rem 2rem;
-	}
-
 	#svgMain {
 		animation: 360s linear infinite rotateObject;
 	}
@@ -269,10 +265,6 @@
 		#containerSVG {
 			margin-left: 20%;
 			width: 60%;
-		}
-
-		#introSkills {
-			margin: 4rem 0 2rem;
 		}
 	}
 </style>

@@ -1,5 +1,5 @@
 <script>
-	import { languageConfig } from '../../stores.js';
+	import { languageConfig, toggleSections } from '../../stores.js';
 
 	import Select from '../components/Select.svelte';
 	import SectionToggle from '../components/SectionToggle.svelte';
@@ -11,57 +11,6 @@
 	import IntroTechDemos from '$lib/contentBlock/introTechDemos.svelte';
 	import IntroSocial from '$lib/contentBlock/introSocial.svelte';
 	import IntroSkills from '$lib/contentBlock/introSkills.svelte';
-
-	let toggleSections = [
-		{
-			id: 0,
-			label: 'Introduction',
-			div: 'introLetter',
-			isVisible: true
-		},
-		{
-			id: 1,
-			label: 'Logos',
-			div: 'introLogos',
-			isVisible: true
-		},
-		{
-			id: 2,
-			label: 'Audio-Based Mock Interview',
-			div: 'introAudio',
-			isVisible: false
-		},
-		{
-			id: 3,
-			label: 'Skills Assessment',
-			div: 'introSkills',
-			isVisible: false
-		},
-		{
-			id: 4,
-			label: 'Work Style Compatibility',
-			div: 'introSocial',
-			isVisible: false
-		},
-		{
-			id: 5,
-			label: 'Case Studies',
-			div: 'introCaseStudies',
-			isVisible: true
-		},
-		{
-			id: 6,
-			label: 'Tech Demos',
-			div: 'introTechDemos',
-			isVisible: true
-		},
-		{
-			id: 7,
-			label: 'Recent Work History',
-			div: 'introWork',
-			isVisible: true
-		}
-	];
 
 	function updateToggle(toggleSection) {
 		toggleSections[toggleSection.id] = toggleSection;

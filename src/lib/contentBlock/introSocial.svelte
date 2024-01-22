@@ -1,8 +1,8 @@
 <script>
 </script>
 
-<div id="introSocial">
-	<h3>Work Style Compatibility</h3>
+<div id="introSocial" class="introSectionPadding">
+	<h3>Work Style</h3>
 
 	<blockquote>
 		Phong encourages me to expand my horizons, potentially grow the team, and take charge of all
@@ -74,17 +74,7 @@
 <!-- introSocial -->
 
 <style>
-	#introSocial {
-		margin: 4rem 1rem 2rem;
-	}
-
 	h6 {
 		margin-top: 1rem;
-	}
-
-	@media (min-width: 600px) {
-		#introSocial {
-			margin: 4rem 0 2rem;
-		}
 	}
 </style>

@@ -2,7 +2,7 @@
 	import { techDemos } from '../../stores.js';
 </script>
 
-<div id="introTechDemos">
+<div id="introTechDemos" class="introSectionPadding">
 	<div class="header">
 		<h3>Tech Demos</h3>
 

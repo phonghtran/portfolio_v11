@@ -118,3 +118,54 @@ export let audioFiles = [
         subtitles: '../audio/008_leadership-style.vtt'
     }
 ];
+
+export let toggleSections = [
+    {
+        id: 0,
+        label: 'Introduction',
+        div: 'introLetter',
+        isVisible: true
+    },
+    {
+        id: 1,
+        label: 'Logos',
+        div: 'introLogos',
+        isVisible: true
+    },
+    {
+        id: 2,
+        label: 'Audio-Based Mock Interview',
+        div: 'introAudio',
+        isVisible: false
+    },
+    {
+        id: 3,
+        label: 'Skills Assessment',
+        div: 'introSkills',
+        isVisible: false
+    },
+    {
+        id: 4,
+        label: 'Work Style',
+        div: 'introSocial',
+        isVisible: false
+    },
+    {
+        id: 5,
+        label: 'Case Studies',
+        div: 'introCaseStudies',
+        isVisible: true
+    },
+    {
+        id: 6,
+        label: 'Tech Demos',
+        div: 'introTechDemos',
+        isVisible: true
+    },
+    {
+        id: 7,
+        label: 'Work History',
+        div: 'introWork',
+        isVisible: true
+    }
+];

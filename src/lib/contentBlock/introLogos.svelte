@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div id="introLogos">
+<div id="introLogos" class="introSectionPadding">
 	<img id="img1" class="logo" src="../logos/ibm.png" alt="logo of ibm" />
 	<img id="img2" class="logo" src="../logos/pnc.png" alt="logo of pnc" />
 	<img id="img3" class="logo" src="../logos/fedex.png" alt="logo of fedex" />
@@ -23,8 +23,9 @@
 		column-gap: 1rem;
 		display: grid;
 		grid-template-columns: repeat(12, [col-start] 1fr);
-		margin-top: 4rem;
-		padding: 0 2rem;
+
+		padding-left: 2rem;
+		padding-right: 2rem;
 		row-gap: 0rem;
 	}
 
@@ -94,7 +95,8 @@
 
 	@media (min-width: 600px) {
 		#introLogos {
-			padding: 0;
+			padding-left: 0;
+			padding-right: 0;
 		}
 
 		#img1 {

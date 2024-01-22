@@ -1,10 +1,13 @@
 <script>
 	export let toggleSections;
 
+	import { slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	let showMenu = false;
+	let showMenu = true;
 
 	function toggleSectionDispatch(event, toggleSection) {
 		const checked = event.srcElement.checked;
@@ -16,24 +19,30 @@
 </script>
 
 <div id="componentSectionToggle" class:showMenu>
-	<div id="menu">
-		<h6>Content Configuation</h6>
-		{#each toggleSections as toggleSection, index}
-			{#if toggleSection.id !== 0 && toggleSection.id !== 2}
-				<p>
-					<input
-						type="checkbox"
-						id="checkbox{index}"
-						checked={toggleSection.isVisible}
-						on:click={(e) => {
-							toggleSectionDispatch(e, toggleSection);
-						}}
-					/>
-					<label for="checkbox{index}">{toggleSection.label}</label>
-				</p>
-			{/if}
-		{/each}
-	</div>
+	{#if showMenu}
+		<div id="menu" transition:slide={{ delay: 0, duration: 500, easing: quintOut, axis: 'x' }}>
+			<div id="content">
+				<h6>Content Configuation</h6>
+				{#each toggleSections as toggleSection, index}
+					{#if toggleSection.id !== 0 && toggleSection.id !== 2}
+						<p>
+							<input
+								type="checkbox"
+								id="checkbox{index}"
+								checked={toggleSection.isVisible}
+								on:click={(e) => {
+									toggleSectionDispatch(e, toggleSection);
+								}}
+							/>
+							<label for="checkbox{index}">{toggleSection.label}</label>
+						</p>
+					{/if}
+				{/each}
+			</div>
+			<!-- content -->
+		</div>
+		<!-- menu -->
+	{/if}
 
 	<button
 		id="toggleMenu"
@@ -55,7 +64,7 @@
 	#menu {
 		background-color: var(--gray0);
 		border-radius: var(--borderRadius);
-		margin: 1rem;
+		margin: 6rem 1rem 0;
 		padding: 1rem 2rem;
 	}
 
@@ -114,7 +123,7 @@
 
 		#componentSectionToggle.showMenu #toggleMenu {
 			animation: none;
-			background-color: var(--accentColor5);
+			background-color: var(--gray1);
 			box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
 		}
 
@@ -133,14 +142,14 @@
 		#menu {
 			border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
 			box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.25);
-			display: none;
 			margin: 0;
 			padding: 1rem;
+			transition: max-width 1s;
 			z-index: 2;
 		}
 
-		#componentSectionToggle.showMenu #menu {
-			display: block;
+		#menu #content {
+			min-width: max-content;
 		}
 
 		p {

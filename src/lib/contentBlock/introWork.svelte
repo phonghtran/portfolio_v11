@@ -8,9 +8,9 @@
 	// let kpis = true;
 </script>
 
-<div id="introWork">
+<div id="introWork" class="introSectionPadding">
 	<div class="header">
-		<h3>Recent Work Experiences</h3>
+		<h3>Recent Work History</h3>
 		<p>
 			<a href="https://www.dropbox.com/s/spg5vtdhh66bno9/phonghtran_resume.pdf?dl=0" target="_blank"
 				>Resume/CV</a
@@ -251,11 +251,6 @@
 <!-- introWork -->
 
 <style>
-	#introWork {
-		margin: 4rem 0;
-		padding: 0 1rem;
-	}
-
 	#introWork .header p {
 		margin-top: 0;
 	}
@@ -269,11 +264,6 @@
 	}
 
 	@media (min-width: 600px) {
-		#introWork {
-			margin-top: 4rem;
-			padding: 0;
-		}
-
 		#introWork .header {
 			align-items: center;
 			display: flex;
