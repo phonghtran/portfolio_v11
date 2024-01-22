@@ -188,7 +188,7 @@
 				{/each}
 
 				{#each svgTextArcs as svgTextArc, index}
-					<path id="arc{index}" fill="none" stroke="none" stroke-width="0" d={svgTextArc.d} />
+					<path id="arc{index}" fill="none" stroke="#554455" stroke-width="0" d={svgTextArc.d} />
 				{/each}
 
 				{#each svgTextArcs as svgTextArc, index}
@@ -196,7 +196,7 @@
 						<textPath
 							class="svgText"
 							xlink:href="#arc{index}"
-							startOffset="1rem"
+							startOffset="50%"
 							spacing="auto"
 							lengthAdjust="spacingAndGlyphs">{svgTextArc.label}</textPath
 						>
@@ -276,8 +276,8 @@
 
 	@media (min-width: 600px) {
 		#containerSVG {
-			margin-left: 25%;
-			width: 50%;
+			margin-left: 20%;
+			width: 60%;
 		}
 
 		#introSkills {

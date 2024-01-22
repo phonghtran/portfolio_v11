@@ -16,15 +16,6 @@
 </script>
 
 <div id="componentSectionToggle" class:showMenu>
-	<button
-		id="toggleMenu"
-		on:click={() => {
-			showMenu = !showMenu;
-		}}
-	>
-		<i class="fa-solid" class:fa-gear={!showMenu} class:fa-circle-xmark={showMenu}></i>
-	</button>
-
 	<div id="menu">
 		<h6>Content Configuation</h6>
 		{#each toggleSections as toggleSection, index}
@@ -43,6 +34,15 @@
 			{/if}
 		{/each}
 	</div>
+
+	<button
+		id="toggleMenu"
+		on:click={() => {
+			showMenu = !showMenu;
+		}}
+	>
+		<i class="fa-solid" class:fa-gear={!showMenu} class:fa-circle-xmark={showMenu}></i>
+	</button>
 </div>
 
 <!-- componentSectionToggle -->
@@ -84,7 +84,7 @@
 			display: flex;
 			position: fixed;
 			margin: 0;
-			right: 0;
+			left: 0;
 			top: 2rem;
 		}
 
@@ -104,8 +104,8 @@
 			animation: morph 10s linear infinite alternate-reverse;
 			background-color: var(--gray0);
 			border: 0;
-			border-radius: var(--borderRadius) 0 0 var(--borderRadius);
-			box-shadow: -1px 0 4px 0 rgba(0, 0, 0, 0.25);
+			border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
+			box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.25);
 			cursor: pointer;
 			display: block;
 			margin-top: 1rem;
@@ -123,8 +123,8 @@
 		}
 
 		#menu {
-			border-radius: var(--borderRadius) 0 0 var(--borderRadius);
-			box-shadow: -1px 0 8px 0 rgba(0, 0, 0, 0.25);
+			border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
+			box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.25);
 			display: none;
 			margin: 0;
 			z-index: 1;
