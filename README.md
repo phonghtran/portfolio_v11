@@ -54,3 +54,8 @@ https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/Addi
 
 audio % for f in ./*.mp3; do ffmpeg -i "$f" -c:a libvorbis -q:a 4 "${f/%mp3/ogg}"; done
 ffmpeg -i 001_background-history.mp3 -c:a aac -b:a 192k 001_background-history.m4a
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animateMotion
+
+https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animateTransform
+

@@ -7,6 +7,7 @@
 	import IntroCaseStudies from '$lib/contentBlock/introCaseStudies.svelte';
 	import IntroWork from '$lib/contentBlock/introWork.svelte';
 	import IntroTechDemos from '$lib/contentBlock/introTechDemos.svelte';
+	import IntroSocial from '$lib/contentBlock/introSocial.svelte';
 
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
@@ -69,7 +70,7 @@
 		<!-- introCard -->
 
 		<IntroLogos />
-
+		<IntroSocial />
 		<IntroCaseStudies />
 		<IntroTechDemos />
 		<IntroWork />
