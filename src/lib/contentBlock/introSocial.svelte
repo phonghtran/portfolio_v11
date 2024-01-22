@@ -4,22 +4,12 @@
 
 	let svgCircles = [1, 5, 10, 15, 20, 25, 30, 35, 40];
 
-	let svgDots = [
-		{ id: 1, cx: 20, cy: 34 },
-		{ id: 2, cx: 30, cy: 20 },
-		{ id: 3, cx: 100, cy: 40 },
-		{ id: 4, cx: 40, cy: 100 },
-		{ id: 5, cx: 50, cy: 70 },
-		{ id: 6, cx: 60, cy: 50 },
-		{ id: 7, cx: 70, cy: 34 },
-		{ id: 8, cx: 80, cy: 0 },
-		{ id: 9, cx: 70, cy: 70 }
-	];
+	let wavyPath = '';
 
 	let svgTextArcs = [
 		{
 			id: 0,
-			d: 'M 78.92544243589427 15.52800005964599 A 45 45 0 0 0 50 5',
+			d: '',
 			label: 'Prototyping',
 			value: 8,
 			dotCoors: {
@@ -29,7 +19,7 @@
 		},
 		{
 			id: 1,
-			d: 'M 94.31634888554936 42.185832004988136 A 45 45 0 0 0 78.92544243589427 15.52800005964599',
+			d: '',
 			label: 'Research',
 			value: 6,
 			dotCoors: {
@@ -38,8 +28,8 @@
 			}
 		},
 		{
-			id: 5,
-			d: 'M 11.02885682970026 72.5 A 45 45 0 0 0 34.60909355034491 92.28616793536588',
+			id: 2,
+			d: '',
 			label: 'Workshops',
 			value: 9,
 			dotCoors: {
@@ -48,8 +38,8 @@
 			}
 		},
 		{
-			id: 2,
-			d: 'M 88.97114317029974 72.5 A 45 45 0 0 0 94.31634888554936 42.185832004988136',
+			id: 3,
+			d: '',
 			label: 'Visual',
 			value: 5,
 			dotCoors: {
@@ -59,8 +49,8 @@
 		},
 
 		{
-			id: 6,
-			d: 'M 5.68365111445064 42.18583200498813 A 45 45 0 0 0 11.02885682970026 72.5',
+			id: 4,
+			d: '',
 			label: 'Strategy',
 			value: 9,
 			dotCoors: {
@@ -69,8 +59,8 @@
 			}
 		},
 		{
-			id: 7,
-			d: 'M 5.68365111445064 42.18583200498813 A 45 45 0 0 0 11.02885682970026 72.5',
+			id: 5,
+			d: '',
 			label: 'Leadership',
 			value: 7,
 			dotCoors: {
@@ -80,8 +70,8 @@
 		},
 
 		{
-			id: 8,
-			d: 'M 49.99999999999999 5 A 45 45 0 0 0 21.074557564105724 15.528000059645997',
+			id: 6,
+			d: '',
 			label: 'Coding',
 			value: 7,
 			dotCoors: {
@@ -95,9 +85,9 @@
 	const coordinateMathOffsets = {
 		x: 50,
 		y: 50,
-		r: 5
+		r: 5,
+		dotOffset: 25
 	};
-	//𝑟cos(𝜃),𝑟sin(𝜃)
 
 	function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
 		var angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
@@ -121,6 +111,8 @@
 		return d;
 	}
 
+	let prevCoor = '';
+
 	function textArcs() {
 		for (var i = 0; i < svgTextArcs.length; i++) {
 			svgTextArcs[i]['d'] = describeArc(
@@ -131,21 +123,53 @@
 				(i + 1) * circleSegmentsAngle
 			);
 
-			const dotOffset = 25;
+			//Q x1 y1, x y
+
 			svgTextArcs[i]['dotCoors'] = polarToCartesian(
 				coordinateMathOffsets.x,
 				coordinateMathOffsets.y,
 				svgTextArcs[i]['value'] * 4,
-				i * circleSegmentsAngle + dotOffset,
-				(i + 1) * circleSegmentsAngle + dotOffset
+				i * circleSegmentsAngle + coordinateMathOffsets.dotOffset,
+				(i + 1) * circleSegmentsAngle + coordinateMathOffsets.dotOffset
 			);
+
+			if (i > 1) {
+				wavyPath +=
+					'T ' + svgTextArcs[i]['dotCoors']['x'] + ' ' + svgTextArcs[i]['dotCoors']['y'] + ' ';
+			}
+
+			prevCoor = svgTextArcs[i]['dotCoors'];
 		}
+
+		wavyPath += ' Z';
 	}
 
 	onMount(() => {
 		for (var i = 1; i < 11; i++) {
 			svgCircles[i] = 4 * i;
 		}
+
+		//Q x1 y1, x y
+		let prevCoor = polarToCartesian(
+			coordinateMathOffsets.x,
+			coordinateMathOffsets.y,
+			svgTextArcs[0]['value'] * 4,
+			coordinateMathOffsets.dotOffset,
+			circleSegmentsAngle + coordinateMathOffsets.dotOffset
+		);
+
+		wavyPath = 'M ' + prevCoor.x + ' ' + prevCoor.y + ', ';
+		wavyPath += 'Q ' + prevCoor.x + ' ' + prevCoor.y + ', ';
+
+		prevCoor = polarToCartesian(
+			coordinateMathOffsets.x,
+			coordinateMathOffsets.y,
+			svgTextArcs[1]['value'] * 4,
+			circleSegmentsAngle + coordinateMathOffsets.dotOffset,
+			2 * circleSegmentsAngle + coordinateMathOffsets.dotOffset
+		);
+
+		wavyPath += prevCoor.x + ' ' + prevCoor.y + ' ';
 
 		textArcs();
 	});
@@ -157,6 +181,8 @@
 			{#each svgCircles as svgCircle, index}
 				<circle cx="50" cy="50" r={svgCircle} class="svgCircle" />
 			{/each}
+
+			<path id="wavyPath" fill="rgba(100,100,0,0.5" stroke="none" stroke-width="0" d={wavyPath} />
 
 			{#each svgTextArcs as svgTextArc, index}
 				<circle
