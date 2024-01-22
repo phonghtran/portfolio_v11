@@ -143,10 +143,6 @@
 			margin: 1rem 2rem 2rem;
 		}
 
-		.nav > div {
-			padding: 1rem 0;
-		}
-
 		.home {
 			display: block;
 		}
@@ -160,6 +156,7 @@
 			border-radius: var(--toggleBorderRadius);
 			display: block;
 			margin-top: 0;
+			padding: 1.125rem 0;
 			position: relative;
 			right: 0;
 		}
