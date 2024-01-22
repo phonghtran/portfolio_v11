@@ -226,6 +226,7 @@
 		animation: 360s linear infinite rotateObject;
 	}
 	#wavyPath {
+		animation: bgMorph 10s linear infinite alternate-reverse;
 		fill: var(--accentColor3);
 	}
 	.svgCircle {

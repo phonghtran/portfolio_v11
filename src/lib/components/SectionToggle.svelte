@@ -154,20 +154,8 @@
 			top: 2rem;
 		}
 
-		@keyframes morph {
-			0% {
-				background-color: var(--accentColor3);
-			}
-			50% {
-				background-color: var(--accentColor);
-			}
-			100% {
-				background-color: var(--accentColor5);
-			}
-		}
-
 		#toggleMenu {
-			animation: morph 10s linear infinite alternate-reverse;
+			animation: bgMorph 10s linear infinite alternate-reverse;
 			background-color: var(--gray0);
 			border: 0;
 			border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
