@@ -194,11 +194,10 @@
 <!-- imageGrid -->
 <style>
 	.containerFlex {
-		margin: 2rem 1rem;
+		margin: 2rem 0;
 	}
 	.project {
 		background-color: var(--gray0);
-		border-radius: var(--toggleBorderRadius);
 		flex: 1 1 0px;
 		margin: 0 auto 2rem;
 		max-width: 34rem;
@@ -263,6 +262,9 @@
 			grid-row: 1;
 		}
 
+		.project {
+			border-radius: var(--toggleBorderRadius);
+		}
 		#img1 {
 			grid-column: col-start 1 / span 6;
 			grid-row: row-start 1 / span 2;

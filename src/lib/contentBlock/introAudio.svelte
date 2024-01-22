@@ -28,7 +28,7 @@
 	});
 </script>
 
-<div class="introAudio">
+<div id="introAudio">
 	{#each audioFiles as track, index}
 		<figure>
 			<figcaption>Listen to the T-Rex:</figcaption>

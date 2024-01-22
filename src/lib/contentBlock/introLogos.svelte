@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div class="introLogos">
+<div id="introLogos">
 	<img id="img1" class="logo" src="../logos/ibm.png" alt="logo of ibm" />
 	<img id="img2" class="logo" src="../logos/pnc.png" alt="logo of pnc" />
 	<img id="img3" class="logo" src="../logos/fedex.png" alt="logo of fedex" />
@@ -19,7 +19,7 @@
 <!-- introLogos -->
 
 <style>
-	.introLogos {
+	#introLogos {
 		column-gap: 1rem;
 		display: grid;
 		grid-template-columns: repeat(12, [col-start] 1fr);
@@ -93,7 +93,7 @@
 	}
 
 	@media (min-width: 600px) {
-		.introLogos {
+		#introLogos {
 			padding: 0;
 		}
 

@@ -8,7 +8,7 @@
 	// let kpis = true;
 </script>
 
-<div class="introWork">
+<div id="introWork">
 	<div class="header">
 		<h3>Recent Work Experiences</h3>
 		<p>
@@ -251,12 +251,12 @@
 <!-- introWork -->
 
 <style>
-	.introWork {
+	#introWork {
 		margin: 4rem 0;
 		padding: 0 1rem;
 	}
 
-	.introWork .header p {
+	#introWork .header p {
 		margin-top: 0;
 	}
 
@@ -269,12 +269,12 @@
 	}
 
 	@media (min-width: 600px) {
-		.introWork {
+		#introWork {
 			margin-top: 4rem;
 			padding: 0;
 		}
 
-		.introWork .header {
+		#introWork .header {
 			align-items: center;
 			display: flex;
 			flex-direction: row;

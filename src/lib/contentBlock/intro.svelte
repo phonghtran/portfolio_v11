@@ -2,12 +2,79 @@
 	import { languageConfig } from '../../stores.js';
 
 	import Select from '../components/Select.svelte';
+	import SectionToggle from '../components/SectionToggle.svelte';
+
 	import IntroLogos from '$lib/contentBlock/introLogos.svelte';
 	import IntroAudio from '$lib/contentBlock/introAudio.svelte';
 	import IntroCaseStudies from '$lib/contentBlock/introCaseStudies.svelte';
 	import IntroWork from '$lib/contentBlock/introWork.svelte';
 	import IntroTechDemos from '$lib/contentBlock/introTechDemos.svelte';
 	import IntroSocial from '$lib/contentBlock/introSocial.svelte';
+	import IntroSkills from '$lib/contentBlock/IntroSkills.svelte';
+
+	let toggleSections = [
+		{
+			id: 0,
+			label: 'Introduction',
+			div: 'introLetter',
+			isVisible: true
+		},
+		{
+			id: 1,
+			label: 'Logos',
+			div: 'introLogos',
+			isVisible: true
+		},
+		{
+			id: 2,
+			label: 'Audio-Based Mock Interview',
+			div: 'introAudio',
+			isVisible: false
+		},
+		{
+			id: 3,
+			label: 'Skills Assessment',
+			div: 'introSkills',
+			isVisible: false
+		},
+		{
+			id: 4,
+			label: 'Work Style Compatibility',
+			div: 'introSocial',
+			isVisible: false
+		},
+		{
+			id: 5,
+			label: 'Case Studies',
+			div: 'introCaseStudies',
+			isVisible: true
+		},
+		{
+			id: 6,
+			label: 'Tech Demos',
+			div: 'introTechDemos',
+			isVisible: true
+		},
+		{
+			id: 7,
+			label: 'Recent Work History',
+			div: 'introWork',
+			isVisible: true
+		}
+	];
+
+	function updateToggle(toggleSection) {
+		toggleSections[toggleSection.id] = toggleSection;
+
+		if (toggleSection.isVisible) {
+			setTimeout(() => {
+				const elem = document.getElementById(toggleSection.div);
+				elem.scrollIntoView({
+					behavior: 'smooth'
+				});
+			}, 250);
+		}
+	}
 
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
@@ -23,57 +90,84 @@
 
 <div class="wrapperMaxWidth">
 	<div class="containerMaxWidth">
-		<div class="introCard">
-			<div>
-				<Select />
-			</div>
+		{#if toggleSections[0].isVisible}
+			<div id="introLetter" class="introCard">
+				<div>
+					<Select />
+				</div>
 
-			<div>
-				{#if $languageConfig[0]['value'] === 1}
-					<p class="introLetter">
-						<small>Via ChatGPT:</small>
-						As a seasoned UX Designer, I excel in unraveling complex business challenges through a holistic
-						approach. My expertise lies in conducting immersive workshops, leveraging the power of design
-						thinking, and implementing user experience strategies that resonate deeply with your target
-						audience. I don't just design; I craft solutions that align seamlessly with your business
-						goals. With a keen eye for detail and a passion for perfection, I ensure that every aspect
-						of the user experience is meticulously thought out and executed. Let me be the architect
-						of your digital transformation, where innovation meets functionality, and every interaction
-						becomes a step toward your success. Choose me, and let's redefine the way your customers
-						engage with your brand.
-					</p>
-				{:else if $languageConfig[0]['value'] === 2}
-					<span>
+				<div>
+					{#if $languageConfig[0]['value'] === 1}
 						<p class="introLetter">
-							My priority is always helping you solve business problems with design tools. I'll be
-							your partner from discovery to ideation to execution. I believe my work exists in both
-							Figma and the meeting room.
+							<small>Via ChatGPT:</small>
+							As a seasoned UX Designer, I excel in unraveling complex business challenges through a
+							holistic approach. My expertise lies in conducting immersive workshops, leveraging the
+							power of design thinking, and implementing user experience strategies that resonate deeply
+							with your target audience. I don't just design; I craft solutions that align seamlessly
+							with your business goals. With a keen eye for detail and a passion for perfection, I ensure
+							that every aspect of the user experience is meticulously thought out and executed. Let
+							me be the architect of your digital transformation, where innovation meets functionality,
+							and every interaction becomes a step toward your success. Choose me, and let's redefine
+							the way your customers engage with your brand.
 						</p>
+					{:else if $languageConfig[0]['value'] === 2}
+						<span>
+							<p class="introLetter">
+								My priority is always helping you solve business problems with design tools. I'll be
+								your partner from discovery to ideation to execution. I believe my work exists in
+								both Figma and the meeting room.
+							</p>
+							<p class="introLetter">
+								Ultimately, an idea not well translated to other teams is not an effective idea.
+								Business, product, design, and engineering are all different languages but often
+								have common goals. My skills can lead our teams towards those goals.
+							</p></span
+						>
+					{:else}
 						<p class="introLetter">
-							Ultimately, an idea not well translated to other teams is not an effective idea.
-							Business, product, design, and engineering are all different languages but often have
-							common goals. My skills can lead our teams towards those goals.
-						</p></span
-					>
-				{:else}
-					<p class="introLetter">
-						I make websites for the internet. Yeah, computer stuff. No, that cousin posts her
-						illustrations to Instagram. We don&rsquo;t do the same thing.
-					</p>
-				{/if}
+							I make websites for the internet. Yeah, computer stuff. No, that cousin posts her
+							illustrations to Instagram. We don&rsquo;t do the same thing.
+						</p>
+					{/if}
+				</div>
+				<!-- intro paragraph-->
+
+				<h6>Phong Tran</h6>
+				<span>{careerLength}-year UX designer & occasional coder</span>
 			</div>
-			<!-- intro paragraph-->
+			<!-- introCard -->
+		{/if}
+		<!-- toggle state check -->
 
-			<h6>Phong Tran</h6>
-			<span>{careerLength}-year UX designer & occasional coder</span>
-		</div>
-		<!-- introCard -->
+		{#if toggleSections[1].isVisible}
+			<IntroLogos />
+		{/if}
 
-		<IntroLogos />
-		<IntroSocial />
-		<IntroCaseStudies />
-		<IntroTechDemos />
-		<IntroWork />
+		<SectionToggle {toggleSections} on:update={(e) => updateToggle(e.detail)} />
+
+		{#if toggleSections[2].isVisible}
+			<IntroAudio />
+		{/if}
+
+		{#if toggleSections[3].isVisible}
+			<IntroSkills />
+		{/if}
+
+		{#if toggleSections[4].isVisible}
+			<IntroSocial />
+		{/if}
+
+		{#if toggleSections[5].isVisible}
+			<IntroCaseStudies />
+		{/if}
+
+		{#if toggleSections[6].isVisible}
+			<IntroTechDemos />
+		{/if}
+
+		{#if toggleSections[7].isVisible}
+			<IntroWork />
+		{/if}
 
 		<div class="introCard">
 			<h6>phonghtran llc</h6>

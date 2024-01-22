@@ -77,26 +77,49 @@
 		display: block;
 	}
 
-	.casestudies .casestudy.selected {
+	.casestudies .casestudy:last-child {
+		border-bottom: 0;
+	}
+
+	.casestudies .casestudy.selected,
+	.casestudies .casestudy.selected:hover {
 		background-color: var(--accentColor);
 		color: white;
+	}
+
+	.casestudies .casestudy:hover {
+		background-color: var(--gray1);
+		border-bottom-color: var(--accentColor);
 	}
 
 	.home {
 		display: flex;
 		justify-content: space-between;
 	}
-	.home .casestudy {
+
+	.home .casestudy,
+	.home .casestudy:visited {
 		border: 0;
 		display: inline;
+	}
+
+	.home .casestudy:hover i,
+	.home .btnMobileNav:hover i {
+		color: black;
 	}
 
 	.home .btnMobileNav {
 		border: 0;
 		border-radius: var(--borderRadius);
 		color: var(--accentColor);
+		cursor: pointer;
 		font-size: 1rem;
 		padding: 1rem;
+	}
+
+	.home .btnMobileNav:hover {
+		background-color: var(--gray1);
+		color: black;
 	}
 
 	.home .btnMobileNav.showMenu {
@@ -151,7 +174,7 @@
 			padding: 1rem 1rem;
 		}
 
-		.casestudy:hover {
+		.casestudies .casestudy:hover {
 			background-color: var(--accentColor3);
 		}
 

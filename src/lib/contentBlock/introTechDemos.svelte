@@ -2,7 +2,7 @@
 	import { techDemos } from '../../stores.js';
 </script>
 
-<div class="introTechDemos">
+<div id="introTechDemos">
 	<div class="header">
 		<h3>Tech Demos</h3>
 
@@ -39,7 +39,7 @@
 		margin-top: 0;
 	}
 
-	.introTechDemos {
+	#introTechDemos {
 		margin: 2rem 0;
 		padding: 0 1rem;
 	}
@@ -69,8 +69,8 @@
 	}
 
 	@media (min-width: 600px) {
-		.introTechDemos {
-			margin-top: 0;
+		#introTechDemos {
+			margin-top: 2rem;
 			padding: 0;
 		}
 
