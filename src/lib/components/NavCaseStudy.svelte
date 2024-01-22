@@ -145,6 +145,7 @@
 
 		.home {
 			display: block;
+			padding: 1.125rem 0;
 		}
 		.home .btnMobileNav {
 			display: none;
@@ -184,8 +185,8 @@
 			border-color: white;
 		}
 
-		a,
-		a:visited {
+		.casestudies a,
+		.casestudies a:visited {
 			border: 0;
 			color: black;
 		}
