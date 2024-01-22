@@ -76,6 +76,8 @@
 		}
 	}
 
+	// adding comment
+
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
 	const careerLength = year - 2008;
