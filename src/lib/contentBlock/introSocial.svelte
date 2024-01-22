@@ -15,7 +15,8 @@
 			dotCoors: {
 				x: 0,
 				y: 0
-			}
+			},
+			desc: 'Comfortable using any tools including coding it.'
 		},
 		{
 			id: 1,
@@ -25,7 +26,8 @@
 			dotCoors: {
 				x: 0,
 				y: 0
-			}
+			},
+			desc: 'Can build good protocols and execute adequately.'
 		},
 		{
 			id: 2,
@@ -35,7 +37,8 @@
 			dotCoors: {
 				x: 0,
 				y: 0
-			}
+			},
+			desc: 'Great on being flexible & communicating.'
 		},
 		{
 			id: 3,
@@ -45,7 +48,8 @@
 			dotCoors: {
 				x: 0,
 				y: 0
-			}
+			},
+			desc: 'Perfectly fine given enough time.'
 		},
 
 		{
@@ -56,7 +60,8 @@
 			dotCoors: {
 				x: 0,
 				y: 0
-			}
+			},
+			desc: 'Can integrate design, business & engineering needs.'
 		},
 		{
 			id: 5,
@@ -66,7 +71,8 @@
 			dotCoors: {
 				x: 0,
 				y: 0
-			}
+			},
+			desc: 'Mentorship and can up-manage to orient priorities.'
 		},
 
 		{
@@ -77,7 +83,8 @@
 			dotCoors: {
 				x: 0,
 				y: 0
-			}
+			},
+			desc: 'Scrappy and dirty but gets you there.'
 		}
 	];
 
@@ -111,7 +118,7 @@
 		return d;
 	}
 
-	let prevCoor = '';
+	let wavyPathCmd = 'M ';
 
 	function textArcs() {
 		for (var i = 0; i < svgTextArcs.length; i++) {
@@ -133,15 +140,12 @@
 				(i + 1) * circleSegmentsAngle + coordinateMathOffsets.dotOffset
 			);
 
-			if (i > 1) {
-				wavyPath +=
-					'T ' + svgTextArcs[i]['dotCoors']['x'] + ' ' + svgTextArcs[i]['dotCoors']['y'] + ' ';
-			}
-
-			prevCoor = svgTextArcs[i]['dotCoors'];
+			wavyPathCmd = i > 0 ? 'L ' : 'M ';
+			wavyPath +=
+				wavyPathCmd + svgTextArcs[i]['dotCoors']['x'] + ' ' + svgTextArcs[i]['dotCoors']['y'] + ' ';
 		}
 
-		wavyPath += ' Z';
+		wavyPath += 'Z';
 	}
 
 	onMount(() => {
@@ -149,99 +153,79 @@
 			svgCircles[i] = 4 * i;
 		}
 
-		//Q x1 y1, x y
-		let prevCoor = polarToCartesian(
-			coordinateMathOffsets.x,
-			coordinateMathOffsets.y,
-			svgTextArcs[0]['value'] * 4,
-			coordinateMathOffsets.dotOffset,
-			circleSegmentsAngle + coordinateMathOffsets.dotOffset
-		);
-
-		wavyPath = 'M ' + prevCoor.x + ' ' + prevCoor.y + ', ';
-		wavyPath += 'Q ' + prevCoor.x + ' ' + prevCoor.y + ', ';
-
-		prevCoor = polarToCartesian(
-			coordinateMathOffsets.x,
-			coordinateMathOffsets.y,
-			svgTextArcs[1]['value'] * 4,
-			circleSegmentsAngle + coordinateMathOffsets.dotOffset,
-			2 * circleSegmentsAngle + coordinateMathOffsets.dotOffset
-		);
-
-		wavyPath += prevCoor.x + ' ' + prevCoor.y + ' ';
-
 		textArcs();
 	});
 </script>
 
-<div class="introSocial">
-	<div id="containerSVG">
-		<svg id="svgMain" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-			{#each svgCircles as svgCircle, index}
-				<circle cx="50" cy="50" r={svgCircle} class="svgCircle" />
-			{/each}
-
-			<path id="wavyPath" fill="rgba(100,100,0,0.5" stroke="none" stroke-width="0" d={wavyPath} />
-
-			{#each svgTextArcs as svgTextArc, index}
-				<circle
-					id="svgDot{index}"
-					cx={svgTextArc.dotCoors.x}
-					cy={svgTextArc.dotCoors.y}
-					r="2"
-					class="svgDot"
-				>
-					<!-- <animateMotion
-					dur="10s"
-					repeatCount="indefinite"
-					path=" M 100, 100
-        m 75, 0
-        a 75,75 0 1,0 -150,0
-        a 75,75 0 1,0  150,0"
-				/> -->
-				</circle>
-			{/each}
-
-			{#each svgTextArcs as svgTextArc, index}
-				<path id="arc{index}" fill="none" stroke="none" stroke-width="0" d={svgTextArc.d} />
-			{/each}
-
-			{#each svgTextArcs as svgTextArc, index}
-				<text x="5" y="50" style="stroke: #000000;" text-anchor="middle">
-					<textPath
-						class="svgText"
-						xlink:href="#arc{index}"
-						startOffset="1rem"
-						spacing="auto"
-						lengthAdjust="spacingAndGlyphs">{svgTextArc.label}</textPath
-					>
-				</text>
-			{/each}
-		</svg>
-	</div>
-	<!-- containerSVG -->
+<div id="introSocial">
+	<h3>Work Style Compatibility</h3>
 
 	<blockquote>
 		He is extremely smart, he can listen to a few words of a problem and understanding the situation
 		the user is facing. He can tease out information at a moments notice and can organize those
 		findings into small digestible nuggets that everyone can relate to. He can quickly lay out a
-		vision for the solution and capture buy in. -Recent Manager
+		vision for the solution and capture buy in.&rdquo;<br /><br /> -Recent Manager
 	</blockquote>
 
-	<blockquote>
-		Phong is a great mentor to the PMs. When Phong is at his best, he pushes for big ideas, offers
-		wider perspective, and coaches the team on communication. He also works very quickly when he's
-		focused, which can be extremely helpful. -Colleague
-	</blockquote>
+	<div id="containerSkills">
+		<div id="containerSVG">
+			<svg id="svgMain" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+				{#each svgCircles as svgCircle, index}
+					<circle cx="50" cy="50" r={svgCircle} class="svgCircle" />
+				{/each}
+
+				<path id="wavyPath" stroke="none" stroke-width="0" d={wavyPath} />
+
+				{#each svgTextArcs as svgTextArc, index}
+					<circle
+						id="svgDot{index}"
+						cx={svgTextArc.dotCoors.x}
+						cy={svgTextArc.dotCoors.y}
+						r="2"
+						class="svgDot"
+					>
+					</circle>
+				{/each}
+
+				{#each svgTextArcs as svgTextArc, index}
+					<path id="arc{index}" fill="none" stroke="none" stroke-width="0" d={svgTextArc.d} />
+				{/each}
+
+				{#each svgTextArcs as svgTextArc, index}
+					<text x="5" y="50" style="stroke: #000000;" text-anchor="middle">
+						<textPath
+							class="svgText"
+							xlink:href="#arc{index}"
+							startOffset="1rem"
+							spacing="auto"
+							lengthAdjust="spacingAndGlyphs">{svgTextArc.label}</textPath
+						>
+					</text>
+				{/each}
+			</svg>
+		</div>
+		<!-- containerSVG -->
+
+		<div id="containerSkillsDesc">
+			<h4>Self-Rated Skill Assessment</h4>
+
+			{#each svgTextArcs as svgTextArc, index}
+				<div class="pillboxSkill">
+					<h6>{svgTextArc.label}: {svgTextArc.value}</h6>
+					<p>{svgTextArc.desc}</p>
+				</div>
+			{/each}
+		</div>
+		<!-- containerSkillsDesc -->
+	</div>
+	<!-- containerSkills -->
 
 	<blockquote>
 		Phong encourages me to expand my horizons, potentially grow the team, and take charge of all
 		things visual for the company, including client-facing projects and collaborating with different
 		departments across Obviously. Phong's an outstanding colleague, and he makes me feel like an
-		equal partner in our endeavours. -Colleague
+		equal partner in our endeavours.&rdquo;<br /><br /> -Colleague
 	</blockquote>
-	<h3>Work Style Compatibility</h3>
 
 	<h4>Gallup's StrengthsFinder 2.0</h4>
 	<h5>Your Top 5 Themes</h5>
@@ -273,27 +257,33 @@
 		to find connections between seemingly disparate phenomena.
 	</p>
 
+	<blockquote>
+		Phong is a great mentor to the PMs. When Phong is at his best, he pushes for big ideas, offers
+		wider perspective, and coaches the team on communication. He also works very quickly when he's
+		focused, which can be extremely helpful.&rdquo;<br /><br /> -Colleague
+	</blockquote>
+
 	<h4>DiSC Overview</h4>
 
 	<h6>CS Style</h6>
 
 	<p>
-		Because you have a CS style, Phong, you're probably a reliable person who works conscientiously
-		to perform in a steady and predictable manner. More than anything, you want a sense of security.
-		You appreciate clearly defined expectations, and although you usually maintain a calm exterior,
-		you may worry about unpredictable, uncontrollable events.
+		Because Phong has a CS style, he's a reliable person who works conscientiously to perform in a
+		steady and predictable manner. More than anything, he wants a sense of security. He appreciate
+		clearly defined expectations, and although he usually maintains a calm exterior, he may worry
+		about unpredictable, uncontrollable events.
 	</p>
 	<p>
-		Because you want to build a stable environment for yourself, you may make sure standard systems
-		and procedures are in place. Furthermore, you're probably most comfortable working with those
-		who share your systematic nature.
+		Because Phong wants to build a stable environment, he may look for standard systems and
+		procedures are in place. Furthermore, he's probably most comfortable working with those who
+		share your systematic nature.
 	</p>
 	<p>
-		You have specific expectations for yourself and a desire to do things correctly. Accuracy and
-		precision tend to be important to you, and you sometimes strive for perfection to avoid being
-		criticized. Most likely, you tend to doublecheck your work, so others may be comfortable calling
-		on you to complete projects that require precise care. However, while you tend to produce
-		high-quality results, you may occasionally get bogged down in the specifics.
+		Phong has specific expectations for himself and a desire to do things correctly. Accuracy and
+		precision tend to be important, and he sometimes strives for perfection to avoid being
+		criticized. Most likely, Phong tends to doublecheck his work, so others may be comfortable
+		calling on him to complete projects that require precise care. However, while he tends to
+		produce high-quality results, he may occasionally get bogged down in the specifics.
 	</p>
 </div>
 
@@ -309,13 +299,18 @@
 		}
 	}
 
+	#introSocial {
+		margin: 0 1rem;
+	}
+
 	#containerSVG {
 		clip: auto;
 	}
 	#svgMain {
 		animation: 360s linear infinite rotateGraph;
-		height: 300px;
-		width: 300px;
+	}
+	#wavyPath {
+		fill: var(--accentColor3);
 	}
 	.svgCircle {
 		fill: none;
@@ -332,5 +327,28 @@
 		font-weight: 400;
 		fill: black;
 		stroke-width: 0;
+	}
+
+	.pillboxSkill {
+		background-color: var(--gray0);
+		border-radius: var(--borderRadius);
+		margin: 1rem 0 0;
+		padding: 1rem;
+	}
+
+	.pillboxSkill h6,
+	.pillboxSkill p {
+		margin: 0;
+	}
+
+	h6 {
+		margin-top: 1rem;
+	}
+
+	@media (min-width: 600px) {
+		#containerSVG {
+			margin-left: 25%;
+			width: 50%;
+		}
 	}
 </style>

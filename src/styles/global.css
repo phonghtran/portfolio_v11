@@ -62,7 +62,8 @@ h6 {
 }
 
 p,
-li {
+li,
+blockquote {
     line-height: 1.325rem;
     margin: 1rem 0;
 }
@@ -84,6 +85,22 @@ a:visited {
 a:hover {
     border-color: black;
     color: black;
+}
+
+blockquote {
+
+    margin: 2rem;
+}
+
+blockquote::before {
+    color: var(--accentColor5);
+    font-size: 6rem;
+    font-weight: 700;
+    content: '“';
+    margin-left: -1.5rem;
+    margin-top: 1rem;
+    position: absolute;
+    z-index: -1;
 }
 
 i {
