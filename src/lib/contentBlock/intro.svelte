@@ -10,7 +10,7 @@
 	import IntroWork from '$lib/contentBlock/introWork.svelte';
 	import IntroTechDemos from '$lib/contentBlock/introTechDemos.svelte';
 	import IntroSocial from '$lib/contentBlock/introSocial.svelte';
-	import IntroSkills from '$lib/contentBlock/IntroSkills.svelte';
+	import IntroSkills from '$lib/contentBlock/introSkills.svelte';
 
 	let toggleSections = [
 		{
@@ -75,8 +75,6 @@
 			}, 250);
 		}
 	}
-
-	// adding comment
 
 	const currentDate = new Date();
 	const year = currentDate.getFullYear();
