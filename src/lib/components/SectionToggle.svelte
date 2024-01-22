@@ -7,7 +7,7 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	let showMenu = true;
+	let showMenu = false;
 
 	function toggleSectionDispatch(event, toggleSection) {
 		// const checked = event.srcElement.checked;
