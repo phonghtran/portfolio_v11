@@ -33,21 +33,21 @@
 		</p>
 		<ol>
 			<li>
-				Auditing existing processes. All team members were mapped to flow of tasks as we understood
-				them today. Auditing existing time sinks. Where were our colleagues spending the most time
-				on their day-to-day?
+				Auditing existing processes. All team members were mapped to the flow of tasks as we
+				understood them today. Auditing existing time sinks. Where were our colleagues spending the
+				most time on their day-to-day?
 			</li>
 			<li>
 				Interviewing all job roles. They outlined their day-to-day, their meetings, their worries
-				and anxieties and their goals.
+				and anxieties, and their goals.
 			</li>
 			<li>
-				Taking vendor calls. Any and all AI vendors were vetted to see what services could be
+				Taking vendor calls. Any-and-all AI vendors were vetted to see what services could be
 				leveraged.
 			</li>
 			<li>
 				Competitor audits. What was in their marketing, what did they promise and what could they
-				actually deliver?
+				deliver?
 			</li>
 		</ol>
 
@@ -65,6 +65,12 @@
 			<li>Phase 3: A Smarter "First Pass" with AI & Contractors</li>
 		</ul>
 
+		<p>
+			<img src="../caseStudies/obvEff/statusboard.png" alt="status board of tasks to deadlines" />
+			<small
+				>Retrofitting the old admin UI to display alerts and deadlines automated by the platform.</small
+			>
+		</p>
 		<h3>Phase 1: Breaking the Anxiety Loop</h3>
 
 		<p>
@@ -78,8 +84,8 @@
 			Also, ironically time tracking and status tracking internally became a time suck in itself.
 		</p>
 		<p>
-			So phase 1 was to realize that since everything ultimately has be done within our software, we
-			could easily use heuristics to determine how the campaign was doing tracked against the
+			So phase 1 was to realize that since everything ultimately has to be done within our software,
+			we could easily use heuristics to determine how the campaign was doing and tracked against the
 			timelines. We could even time track automatically because we could determine which clicks
 			happened when and by whom.
 		</p>
@@ -94,13 +100,20 @@
 			built and the number of daily meetings and slack messages to update each other.
 		</p>
 
+		<p>
+			<img src="../caseStudies/obvEff/searchauto.png" alt="mockups of advanced search" />
+			<small
+				>Updating the basic search with automations, sorting by attributes, and batch actions.</small
+			>
+		</p>
+
 		<h3>Phase 2: Automate the Repetition</h3>
 
 		<p>
-			Through interviews, we uncovered many "hacks" our team were doing to accomplish their tasks.
-			An example would be that they often had to do multiple rounds of looking for creators to sign
-			up. Each search could often result in the same people appearing over and over because they
-			match the criteria of each search.
+			Through interviews, we uncovered many "hacks" our team was doing to accomplish their tasks. An
+			example would be that they often had to do multiple rounds of looking for creators to sign up.
+			Each search could often result in the same people appearing over and over because they match
+			the criteria of each search.
 		</p>
 		<p>
 			Our software historically assumed one search was adequate because the client would maintain
@@ -108,9 +121,9 @@
 			creators each time to reach new audiences.
 		</p>
 		<p>
-			So our team was manually "de-duplicating" their search lists through a series of clever tricks
-			of spreadsheet manipulation. This could add up to hours with each round of searching. But
-			that's something that software can do very easily.
+			Our software historically assumed one search was adequate because the client would maintain a
+			more static list of creators they liked to work with. But today, clients want a fresh pool of
+			creators each time to reach new audiences.
 		</p>
 		<p>
 			This and dozens of other automations were implemented to remove all the repetitive tasks that
@@ -128,6 +141,14 @@
 			set up the timelines to better scale the business. This could be applied to the programmed
 			business logic of warnings and notifications to better hone those parameters dynamically over
 			time.
+		</p>
+
+		<p>
+			<img src="../caseStudies/obvEff/checklist.png" alt="mockup of new vetting card" />
+			<small
+				>Quick mockup of new functionality to stakeholders. The key is the central checklist which
+				can receive tasks from humans or any AI automations being run.</small
+			>
 		</p>
 
 		<h3>Phase 3: A Smarter "First Pass" with AI & Contractors</h3>
@@ -158,7 +179,7 @@
 		</p>
 		<p>
 			Very small admittedly but that's the state of AI when we looked into during the summer of
-			2023. I'm sure if we invested in RAGs and federated the data we fed by clients, we could
+			2023. I'm sure if we invested in RAGs and federated the data we were fed by clients, we could
 			formulate more ambitious AI automations.
 		</p>
 

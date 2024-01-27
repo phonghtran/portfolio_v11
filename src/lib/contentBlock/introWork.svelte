@@ -12,8 +12,9 @@
 	<div class="header">
 		<h3>Recent Work History</h3>
 		<p>
-			<a href="https://www.dropbox.com/s/spg5vtdhh66bno9/phonghtran_resume.pdf?dl=0" target="_blank"
-				>Resume/CV</a
+			<a
+				href="https://drive.google.com/file/d/1mV6YmcOtbtGZBgOERzwr5SmDBpGyNkNU/view?usp=sharing"
+				target="_blank">Resume/CV</a
 			>
 		</p>
 	</div>
@@ -75,14 +76,14 @@
 				</p>
 			{:else if $languageConfig[1]['value'] == 1}
 				<p>
-					Obviously is influencer and social media agency (acquired by VMLY&R of WPP in 2022.) When
-					I started as a Lead Designer, this remote-only startup had no design team or consistent
-					design practice. In the ensuing years, I transformed the product and engineering processes
-					to be research and design-led from discovery to launch of nearly every feature. Through
-					workshops and virtual collaboration, I led various teams from ops to marketing to
-					executive on roadmap building and general decision making across the org. Implemented a
-					JIRA based visual QA system for verifying all designs with the Engineering team. Built a
-					request-based workflow for all internal marketing design requests for my team.
+					Obviously is a social media agency (acquired by VMLY&R of WPP in 2022.) When I started as
+					a Lead Designer, this remote-only startup had no design team or consistent design
+					practice. In the ensuing years, I help build a research-led product cycle from discovery
+					to change management. Through workshops and virtual collaboration, I led various teams
+					from ops to marketing to executives on roadmap building and general decision-making across
+					the org. Implemented a JIRA-based visual QA system for verifying all designs with the
+					Engineering team. Built a request-based workflow for all internal marketing design
+					requests for my design team to process and monitor workloads.
 				</p>
 			{:else}
 				<p>
@@ -96,12 +97,13 @@
 
 		{#if $languageConfig[1]['value'] > 0}
 			<ul class="jobKPIList">
-				<li class="jobKPI">Redesign resulted in CSAT scores increasing 10% (8.4 to 9.2).</li>
+				<li class="jobKPI">The redesign resulted in CSAT scores increasing 10% (8.4 to 9.2).</li>
 				<li class="jobKPI">
-					Internal UX re-architecture saved 120+ hours (36% reduction) time spent for the CS team.
+					Internal UX re-architecture saved 120+ hours (36% reduction) of time spent for the CS
+					team.
 				</li>
 				<li class="jobKPI">
-					4.4% increased sign-ups after registration redesign (32.7% to 37.1%).
+					4.4% increased sign-ups after the registration redesign (32.7% to 37.1%).
 				</li>
 				<li class="jobKPI">Organized and facilitated over 15 workshops</li>
 				<li class="jobKPI">
@@ -147,10 +149,10 @@
 			{:else if $languageConfig[1]['value'] == 1}
 				<p>
 					Designit is a global design consultancy with a roster of Fortune 500 companies. My
-					contributions revolved around facilitating Design Thinking processes and workshops, and
+					contributions revolved around facilitating Design Thinking processes and workshops and
 					providing technical expertise and deliverables. Key clients were MasterCard, FedEx, PNC
 					Bank, and GSK. Often they need a blend of design & technology to solve hard problems like
-					transitioning a 40-year old platform to modern cloud solutions with a POV on retraining.
+					transitioning a 40-year-old platform to modern cloud solutions with a POV on retraining.
 					Artifacts and deliverables ranged from front-end code to journey maps to user personas.
 				</p>
 			{:else}
@@ -164,14 +166,14 @@
 		{#if $languageConfig[1]['value'] > 0}
 			<ul class="jobKPIList">
 				<li class="jobKPI">
-					Helping PNC Bank with their high wealth customer segment, they extended my contract 3x to
+					Helping PNC Bank with their high-wealth customer segment, they extended my contract 3x to
 					continue my services.
 				</li>
 				<li class="jobKPI">
 					Learned AngularJS to accelerate live demos for GSK digitization of science papers.
 				</li>
 				<li class="jobKPI">
-					Researched FedEx’s logistics model to map out the mainframe transition to cloud.
+					Researched FedEx’s logistics model to map out the mainframe transition to the cloud.
 				</li>
 			</ul>
 		{/if}

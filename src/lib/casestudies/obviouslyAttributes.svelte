@@ -1,5 +1,18 @@
 <script>
 	import ImageSlider from '../components/ImageSlider.svelte';
+
+	let imagesBeforeAfter = [
+		{
+			before: {
+				src: '../caseStudies/obvAttrib/tracker.png',
+				alt: 'inefficient spreadsheet tracker made by teammates'
+			},
+			after: {
+				src: '../caseStudies/obvAttrib/signupq.png',
+				alt: 'list of attributes in the old UI system'
+			}
+		}
+	];
 </script>
 
 <div class="wrapperMaxWidth wrapperCasestudy">
@@ -35,6 +48,8 @@
 			unacceptable to the business.
 		</p>
 
+		<ImageSlider {imagesBeforeAfter} index="0" />
+
 		<h3>Solution</h3>
 
 		<p>
@@ -49,7 +64,7 @@
 			<li>A name</li>
 			<li>A label that the end user would see</li>
 			<li>
-				The component type (this could be a simple text box or a dropdown or even a media uploader)
+				The component type (this could be a simple text box, a dropdown or even a media uploader)
 			</li>
 			<li>Permissions of who could view or edit this attribute</li>
 			<li>

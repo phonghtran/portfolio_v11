@@ -1,4 +1,7 @@
 <script>
+	export let imagesBeforeAfter;
+	export let index = 0;
+
 	let value = 50;
 
 	function updateImageWidth(event) {
@@ -14,12 +17,15 @@
 
 	<div class="image before" style="clip-path: polygon(0 0, {value}% 0, {value}% 100%, 0% 100%);">
 		<img
-			src="../caseStudies/obviously/beforepic_cropped.png"
-			alt="sample page before the redesign"
+			src={imagesBeforeAfter[index]['before']['src']}
+			alt={imagesBeforeAfter[index]['before']['alt']}
 		/>
 	</div>
 	<div class="image after">
-		<img src="../caseStudies/obviously/after.png" alt="sample page after the redesign" />
+		<img
+			src={imagesBeforeAfter[index]['after']['src']}
+			alt={imagesBeforeAfter[index]['after']['alt']}
+		/>
 	</div>
 
 	<div class="line" style="left: {value}%"></div>

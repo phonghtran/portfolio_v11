@@ -123,6 +123,13 @@
 			<h6>phonghtran llc</h6>
 			<ul class="contactList">
 				<li>
+					<i class="fa-solid fa-file"></i>
+					<a
+						href="https://drive.google.com/file/d/1mV6YmcOtbtGZBgOERzwr5SmDBpGyNkNU/view?usp=sharing"
+						target="_blank">Resume/CV</a
+					>
+				</li>
+				<li>
 					<i class="fa-regular fa-envelope"></i>
 					<a href="mailto:phong@phonghtran.com">phong@phonghtran.com</a>
 				</li>
@@ -159,7 +166,7 @@
 	}
 	.contactList li {
 		list-style: none;
-		margin: 0 0 0.25rem 0;
+		margin: 0 0 0.75rem 0;
 		padding-left: 0;
 	}
 
