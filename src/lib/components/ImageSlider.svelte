@@ -1,12 +1,37 @@
 <script>
+	import { onMount } from 'svelte';
+
 	export let imagesBeforeAfter;
 	export let index = 0;
 
 	let value = 50;
+	let isAnimated = 1;
 
 	function updateImageWidth(event) {
 		value = parseInt(event.target.value);
+
+		isAnimated = 0;
 	}
+
+	function animate() {
+		if (value >= 100 && isAnimated === 1) {
+			isAnimated = -1;
+		}
+
+		if (value <= 0 && isAnimated === -1) {
+			isAnimated = 1;
+		}
+
+		if (isAnimated !== 0) {
+			value += isAnimated * 0.5;
+
+			requestAnimationFrame((t) => animate(t));
+		}
+	}
+
+	onMount(() => {
+		animate();
+	});
 </script>
 
 <div class="wrapperImageSlider">
