@@ -2,10 +2,10 @@
 	import NavTechDemo from '$lib/components/NavTechDemo.svelte';
 
 	// import Portfolio from '$lib/techDemos/portfolio.svelte';
-	import AIMaps from '$lib/techDemos/aiMaps.svelte';
-	import SalesPrototype from '$lib/techDemos/salesPrototype.svelte';
-	import Worldpay from '$lib/techDemos/worldpay.svelte';
-	import MusicTracker from '$lib/techDemos/musicTracker.svelte';
+	import AIMaps from '$lib/techdemos/aiMaps.svelte';
+	import SalesPrototype from '$lib/techdemos/salesPrototype.svelte';
+	import Worldpay from '$lib/techdemos/worldpay.svelte';
+	import MusicTracker from '$lib/techdemos/musicTracker.svelte';
 
 	export let data;
 
