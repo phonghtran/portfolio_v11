@@ -1,8 +1,6 @@
 <script>
 	import NavTechDemo from '$lib/components/NavTechDemo.svelte';
 
-	import { techDemos } from '../../../stores.js';
-
 	// import Portfolio from '$lib/techDemos/portfolio.svelte';
 	import AIMaps from '$lib/techDemos/aiMaps.svelte';
 	import SalesPrototype from '$lib/techDemos/salesPrototype.svelte';

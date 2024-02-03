@@ -302,8 +302,4 @@
 	button.play i {
 		padding: 0.325rem 0 0 0.025rem;
 	}
-
-	video {
-		display: none;
-	}
 </style>

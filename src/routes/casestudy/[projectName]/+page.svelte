@@ -1,12 +1,9 @@
 <script>
 	import NavCaseStudy from '$lib/components/NavCaseStudy.svelte';
 
-	import { caseStudies } from '../../../stores.js';
-
 	import Obviously from '$lib/casestudies/obviously.svelte';
 	import ObviouslyEfficiency from '$lib/casestudies/obviouslyEfficiency.svelte';
 	import ObviouslyAttributes from '$lib/casestudies/obviouslyAttributes.svelte';
-
 	import Worldpay from '$lib/casestudies/worldpay.svelte';
 	import Mastercard from '$lib/casestudies/mastercard.svelte';
 
