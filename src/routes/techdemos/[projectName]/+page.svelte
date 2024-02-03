@@ -3,7 +3,7 @@
 
 	import { techDemos } from '../../../stores.js';
 
-	import Portfolio from '$lib/techDemos/portfolio.svelte';
+	// import Portfolio from '$lib/techDemos/portfolio.svelte';
 	import AIMaps from '$lib/techDemos/aiMaps.svelte';
 	import SalesPrototype from '$lib/techDemos/salesPrototype.svelte';
 	import Worldpay from '$lib/techDemos/worldpay.svelte';
@@ -15,9 +15,7 @@
 </script>
 
 <NavTechDemo {projectName} />
-{#if projectName === 'portfolio'}
-	<Portfolio />
-{:else if projectName === 'aiMaps'}
+{#if projectName === 'aiMaps'}
 	<AIMaps />
 {:else if projectName === 'salesPrototype'}
 	<SalesPrototype />
