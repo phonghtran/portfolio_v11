@@ -30,7 +30,6 @@ export const caseStudies = [
 
     { id: 3, name: 'Obviously #3', label: 'obviouslyEfficiency', url: "/casestudy/obviouslyEfficiency", desc: "Pivoting to efficiency post-merger with AI/ML.", img: "../thumbnails/workshop.png" },
 
-
     { id: 4, name: 'mastercard', label: 'mastercard', url: "/casestudy/mastercard", desc: "Translating business and data engineering into design speak.", img: "../thumbnails/mastercard.png" },
     { id: 5, name: 'Worldpay (FIS)', label: 'worldpay', url: "/casestudy/worldpay", desc: "Using Design Thinking to consolidate duplicate products.", img: "../thumbnails/fis.png" }
 
@@ -39,22 +38,42 @@ export const caseStudies = [
 export const techDemos = [
     {
         id: 1,
-        name: 'Current Portfolio',
-        desc: 'Svelte & Vercel'
+        name: 'AI Yelp + Maps',
+        label: 'aiMaps',
+        url: '/techdemos/aiMaps',
+        img: "../thumbnails/aiMaps1.png",
+        desc: 'Llama2 & Google Maps'
     },
+    // {
+    //     id: 2,
+    //     name: 'Current Portfolio',
+    //     label: 'portfolio',
+    //     url: '/techdemos/portfolio',
+    //     img: "../thumbnails/fis.png",
+    //     desc: 'Svelte & Vercel'
+    // },
     {
-        id: 2,
+        id: 3,
         name: 'Sales Prototype',
+        label: 'salesPrototype',
+        url: '/techdemos/salesPrototype',
+        img: "../thumbnails/fis.png",
         desc: 'React & Firebase'
     },
     {
-        id: 3,
+        id: 4,
         name: 'Music Tracker',
-        desc: 'Vue & PHP'
+        label: 'musicTracker',
+        url: '/techdemos/musicTracker',
+        img: "../thumbnails/fis.png",
+        desc: 'Vue, PHP & Apple Music'
     },
     {
-        id: 4,
-        name: 'Worldpay UI Components',
+        id: 5,
+        name: 'Worldpay UI',
+        label: 'worldpay',
+        url: '/techdemos/worldpay',
+        img: "../thumbnails/fis.png",
         desc: 'Angular & Firebase'
     }
 ]

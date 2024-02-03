@@ -1,99 +1,206 @@
 <script>
-	import { caseStudies } from '../../stores.js';
+	import { techDemos } from '../../stores.js';
 
-	let options = caseStudies; // Array of options for the dropdown
+	export let projectName = '';
+	let options = techDemos; // Array of options for the dropdown
+
+	let showMenu = false;
 </script>
 
-<div class="wrapperNav">
-	<div class="nav">
-		<div class="home">
-			<a class="casestudy" href="/"
-				><i class="fa-solid fa-house"></i> <span class="text">Home</span></a
-			>
-		</div>
+<div class="nav">
+	<div class="home">
+		<a class="casestudy" href="/"
+			><i class="fa-solid fa-house"></i> <span class="text">Home</span></a
+		>
+		<button
+			class="btnMobileNav"
+			class:showMenu
+			on:click={() => {
+				showMenu = showMenu ? false : true;
+			}}
+			><i class="fa-solid" class:fa-add={!showMenu} class:fa-minus={showMenu}></i> Case Studies
+		</button>
+	</div>
 
-		<div class="casestudies">
-			<a class="casestudy selected" href="/techdemos"><span class="text">Tech Demos</span> </a>
-		</div>
+	<div class="casestudies" class:showMenu>
+		{#each options as option, index}
+			{#if option.label === projectName}
+				<a
+					class="casestudy selected"
+					on:click={() => {
+						showMenu = false;
+					}}
+					href={option.url}
+					><span class="text">{option.name}</span>
+				</a>
+			{:else}
+				<a
+					class="casestudy"
+					on:click={() => {
+						showMenu = false;
+					}}
+					href={option.url}
+					><span class="text">{option.name}</span>
+				</a>
+			{/if}
+		{/each}
 	</div>
 </div>
 
-<!-- wrapperNav -->
 <!-- nav -->
 
 <style>
 	.nav {
-		align-items: stretch;
 		background-color: var(--gray0);
-		border-radius: 2rem;
-		display: flex;
-		flex-direction: row;
-		font-size: 0.675rem;
-		justify-content: space-between;
-		margin: 1rem 2rem 2rem;
-
-		padding: 0;
-	}
-
-	.nav > div {
-		padding: 0.5rem 0;
+		border-radius: var(--borderRadius);
+		margin: 1rem;
+		padding: 1rem;
 	}
 	.casestudies {
-		background-color: var(--accentColor5);
-		border-radius: var(--toggleBorderRadius);
+		background: white;
+		border-radius: var(--borderRadius);
+		border: 1px var(--accentColor) solid;
+		display: none;
+		margin-top: 0.5rem;
+		position: absolute;
+		right: 2rem;
+	}
 
-		position: relative;
+	.casestudies.showMenu {
+		display: block;
 	}
 
 	.casestudy {
-		border-radius: var(--toggleBorderRadius);
-
-		padding: 0.5rem 0.5rem;
+		padding: 1rem 1.25rem;
+	}
+	.casestudies .casestudy {
+		display: block;
 	}
 
-	.casestudy:hover {
-		background-color: var(--accentColor3);
+	.casestudies .casestudy:last-child {
+		border-bottom: 0;
 	}
 
-	.casestudy.selected {
+	.casestudies .casestudy.selected,
+	.casestudies .casestudy.selected:hover {
 		background-color: var(--accentColor);
 		color: white;
 	}
 
-	.casestudy.selected:hover .text {
-		border-color: white;
+	.casestudies .casestudy:hover {
+		background-color: var(--gray1);
+		border-bottom-color: var(--accentColor);
 	}
 
-	a,
-	a:visited {
+	.home {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.home .casestudy,
+	.home .casestudy:visited {
 		border: 0;
+		display: inline;
+	}
+
+	.home .casestudy:hover i,
+	.home .btnMobileNav:hover i {
 		color: black;
 	}
 
-	a .text,
-	a:visited .text {
-		border-bottom: 0;
+	.home .btnMobileNav {
+		border: 0;
+		border-radius: var(--borderRadius);
+		color: var(--accentColor);
+		cursor: pointer;
+		font-size: 1rem;
+		padding: 1rem;
 	}
 
-	a:hover .text {
-		border-color: black;
-	}
-	a:hover i {
+	.home .btnMobileNav:hover {
+		background-color: var(--gray1);
 		color: black;
 	}
 
-	@media (min-width: 600px) {
+	.home .btnMobileNav.showMenu {
+		background-color: var(--gray1);
+	}
+
+	i {
+		color: var(--accentColor);
+	}
+
+	@media (min-width: 800px) {
 		.nav {
+			align-items: stretch;
+			border-radius: var(--toggleBorderRadius);
+			display: flex;
+			flex-direction: row;
 			font-size: 1rem;
+			justify-content: space-between;
+			padding: 0;
+
 			margin: 1rem 2rem 2rem;
 		}
 
-		.nav > div {
-			padding: 1rem 0;
+		.home {
+			display: block;
+			padding: 1.125rem 0;
+		}
+		.home .btnMobileNav {
+			display: none;
+		}
+
+		.casestudies {
+			background-color: var(--accentColor5);
+			border: 0;
+			border-radius: var(--toggleBorderRadius);
+			display: block;
+			margin-top: 0;
+			padding: 1.125rem 0;
+			position: relative;
+			right: 0;
+		}
+
+		.casestudies .casestudy {
+			display: inline;
 		}
 
 		.casestudy {
+			border-radius: var(--toggleBorderRadius);
+
 			padding: 1rem 1rem;
+		}
+
+		.casestudies .casestudy:hover {
+			background-color: var(--accentColor3);
+		}
+
+		.casestudy.selected {
+			background-color: var(--accentColor);
+			color: white;
+		}
+
+		.casestudy.selected:hover .text {
+			border-color: white;
+		}
+
+		.casestudies a,
+		.casestudies a:visited {
+			border: 0;
+			color: black;
+		}
+
+		a .text,
+		a:visited .text {
+			border-bottom: 0;
+		}
+
+		a:hover .text {
+			border-color: black;
+		}
+		a:hover i {
+			color: black;
 		}
 	}
 </style>
