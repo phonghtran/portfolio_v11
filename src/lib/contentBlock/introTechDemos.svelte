@@ -18,7 +18,7 @@
 					</div>
 
 					<div>
-						<p class="cta"><a href="/techdemos/{option.label}">View Demo</a></p>
+						<p class="cta"><a href="/techdemos/{option.label}">Read</a></p>
 					</div>
 				</div>
 				<div class="img">

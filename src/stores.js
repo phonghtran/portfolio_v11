@@ -38,7 +38,7 @@ export const caseStudies = [
 export const techDemos = [
     {
         id: 1,
-        name: 'AI Yelp + Maps',
+        name: 'Custom AI Yelp + Maps',
         label: 'aiMaps',
         url: '/techdemos/aiMaps',
         img: "../thumbnails/aiMaps1.png",

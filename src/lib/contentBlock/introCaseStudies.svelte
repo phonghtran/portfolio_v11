@@ -19,7 +19,7 @@
 						<h4>{option.name}</h4>
 						<p>{option.desc}</p>
 					</div>
-					<div class="cta"><a href={option.url}>View Work</a></div>
+					<div class="cta"><a href={option.url}>Read</a></div>
 				</div>
 			</div>
 			<!-- casestudy -->
