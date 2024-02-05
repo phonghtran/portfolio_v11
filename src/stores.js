@@ -186,5 +186,11 @@ export let toggleSections = [
         label: 'Work History',
         div: 'introWork',
         isVisible: true
+    },
+    {
+        id: 8,
+        label: 'Keywords',
+        div: 'introKeywords',
+        isVisible: true
     }
 ];
