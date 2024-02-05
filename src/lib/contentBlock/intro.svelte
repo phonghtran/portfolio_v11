@@ -51,7 +51,7 @@
 	function switchSections(id) {
 		showMenu = true;
 
-		let toggleArray = [0, 1, 5, 6, 7, 8];
+		let toggleArray = [0, 1, 5, 6, 7];
 		if (id === 2) {
 			toggleArray = [3, 4];
 		}
