@@ -7,7 +7,7 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	let showMenu = false;
+	export let showMenu = false;
 
 	function toggleSectionDispatch(event, toggleSection) {
 		// const checked = event.srcElement.checked;
@@ -24,7 +24,7 @@
 			<div id="content">
 				<h6>Content Configuation</h6>
 				{#each toggleSections as toggleSection, index}
-					{#if toggleSection.id !== 0 && toggleSection.id !== 2}
+					{#if toggleSection.id !== 2}
 						<p>
 							<input
 								type="checkbox"
@@ -75,7 +75,7 @@
 	#menu {
 		background-color: var(--gray0);
 		border-radius: var(--borderRadius);
-		margin: 6rem 1rem 0;
+		margin: 2rem 1rem 0;
 		padding: 1rem 2rem;
 	}
 
@@ -151,7 +151,7 @@
 			position: fixed;
 			margin: 0;
 			left: 0;
-			top: 2rem;
+			top: 4rem;
 		}
 
 		#toggleMenu {

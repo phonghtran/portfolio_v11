@@ -3,6 +3,7 @@
 
 	import Select from '../components/Select.svelte';
 	import SectionToggle from '../components/SectionToggle.svelte';
+	import NavIntro from '../components/NavIntro.svelte';
 
 	import IntroLogos from '$lib/contentBlock/introLogos.svelte';
 	import IntroAudio from '$lib/contentBlock/introAudio.svelte';
@@ -11,6 +12,25 @@
 	import IntroTechDemos from '$lib/contentBlock/introTechDemos.svelte';
 	import IntroSocial from '$lib/contentBlock/introSocial.svelte';
 	import IntroSkills from '$lib/contentBlock/introSkills.svelte';
+	import IntroKeywords from '$lib/contentBlock/introKeywords.svelte';
+
+	let showMenu = false;
+
+	const modes = [
+		{
+			id: 1,
+			label: 'The Basics'
+		},
+		{
+			id: 2,
+			label: 'Team Fit'
+		},
+		{
+			id: 3,
+			label: 'Keywords'
+		}
+	];
+	let mode = 1;
 
 	function updateToggle(toggleSection) {
 		toggleSections[toggleSection.id] = toggleSection;
@@ -23,6 +43,37 @@
 					behavior: 'smooth'
 				});
 			}, 250);
+		}
+
+		mode = 0;
+	}
+
+	function switchSections(id) {
+		showMenu = true;
+
+		let toggleArray = [0, 1, 5, 6, 7, 8];
+		if (id === 2) {
+			toggleArray = [3, 4];
+		}
+
+		if (id === 3) {
+			toggleArray = [8];
+		}
+
+		console.log(toggleSections);
+
+		for (var i = 0; i < toggleSections.length; i++) {
+			let section = toggleSections[i];
+			section.isVisible = false;
+
+			for (var j = 0; j < toggleArray.length; j++) {
+				if (section.id === toggleArray[j]) {
+					section.isVisible = true;
+					break;
+				}
+			}
+
+			toggleSections[i] = section;
 		}
 	}
 
@@ -38,6 +89,7 @@
 
 <svelte:window bind:innerWidth bind:outerWidth bind:innerHeight bind:outerHeight />
 
+<NavIntro {modes} {mode} on:update={(e) => switchSections(e.detail)} />
 <div class="wrapperMaxWidth">
 	<div class="containerMaxWidth">
 		{#if toggleSections[0].isVisible}
@@ -49,16 +101,12 @@
 				<div>
 					{#if $languageConfig[0]['value'] === 1}
 						<p class="introLetter">
-							<small>Via ChatGPT:</small>
-							As a seasoned UX Designer, I excel in unraveling complex business challenges through a
-							holistic approach. My expertise lies in conducting immersive workshops, leveraging the
-							power of design thinking, and implementing user experience strategies that resonate deeply
-							with your target audience. I don't just design; I craft solutions that align seamlessly
-							with your business goals. With a keen eye for detail and a passion for perfection, I ensure
-							that every aspect of the user experience is meticulously thought out and executed. Let
-							me be the architect of your digital transformation, where innovation meets functionality,
-							and every interaction becomes a step toward your success. Choose me, and let's redefine
-							the way your customers engage with your brand.
+							I'm a systems-based thinker who solves problems with design and Design Thinking. The
+							majority of my career is working with large enterprise clients helping scale up their
+							SaaS platforms and applications. I believe in collaboration and getting to rapid
+							conclusions with workshops and moderated conversations. I leverage the tools of design
+							(sketching, prototyping, whiteboarding) to translate business needs into UX design and
+							code.
 						</p>
 					{:else if $languageConfig[0]['value'] === 2}
 						<span>
@@ -93,7 +141,7 @@
 			<IntroLogos />
 		{/if}
 
-		<SectionToggle {toggleSections} on:update={(e) => updateToggle(e.detail)} />
+		<SectionToggle {toggleSections} {showMenu} on:update={(e) => updateToggle(e.detail)} />
 
 		{#if toggleSections[2].isVisible}
 			<IntroAudio />
@@ -119,6 +167,10 @@
 			<IntroWork />
 		{/if}
 
+		{#if toggleSections[8].isVisible}
+			<IntroKeywords />
+		{/if}
+
 		<div class="introCard">
 			<h6>phonghtran llc</h6>
 			<ul class="contactList">
@@ -141,6 +193,10 @@
 				<li>
 					<i class="fa-brands fa-instagram"></i>
 					<a href="https://www.instagram.com/phonghtran/" target="_blank">Instagram</a>
+				</li>
+				<li>
+					<i class="fa-brands fa-github"></i>
+					<a href="https://github.com/phonghtran/" target="_blank">Github</a>
 				</li>
 			</ul>
 		</div>
@@ -172,6 +228,10 @@
 
 	.introCard h6 {
 		margin-top: 0;
+	}
+
+	#introLetter {
+		margin-bottom: 6rem;
 	}
 
 	@media (min-width: 600px) {
