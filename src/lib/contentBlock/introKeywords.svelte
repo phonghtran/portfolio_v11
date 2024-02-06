@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import CardKeyword from '../components/CardKeyword.svelte';
 
 	let keywords = [
 		{
@@ -79,9 +80,6 @@
 		}
 	];
 
-	const currentDate = new Date();
-	const year = currentDate.getFullYear();
-
 	const wordColors = [
 		{
 			label: 'Tools',
@@ -156,33 +154,6 @@
 			]
 		}
 	];
-	function colorCode(text) {
-		let words = text.split(' ');
-		let newText = '';
-
-		for (var i = 0; i < words.length; i++) {
-			for (var j = 0; j < wordColors.length; j++) {
-				const isMatch = wordColors[j].words.every((rx) => rx.test(words[i]));
-
-				if (isMatch) {
-					newText += `<span class="keyword ${wordColors[j].class}">` + words[i] + '</span> ';
-				} else {
-					newText += words[i] + ' ';
-				}
-			}
-		}
-
-		return newText;
-	}
-
-	function dateCalc(date) {
-		const duration = year - date;
-		if (duration <= 1) {
-			return '1 year';
-		} else {
-			return duration + ' years';
-		}
-	}
 
 	onMount(() => {
 		for (var i = 0; i < keywords.length; i++) {
@@ -213,19 +184,11 @@
 		{/each}
 	</div>
 	{#each keywords as keyword, index}
-		<div id="section{index}" class="cardKeyword">
-			<h4>{keyword.header}</h4>
-			<small>Practice: {dateCalc(keyword.duration)}</small>
-			<p>{@html keyword.desc}</p>
-		</div>
+		<CardKeyword {keyword} {index} />
 	{/each}
 </div>
 
 <style>
-	small {
-		margin-top: 0.25rem;
-	}
-
 	#legend {
 		display: flex;
 		flex-direction: row;
@@ -243,16 +206,5 @@
 		display: inline-block;
 		height: 1rem;
 		width: 1rem;
-	}
-
-	.cardKeyword {
-		background-color: var(--gray0);
-		border-radius: var(--borderRadius);
-		margin: 1rem 0 2rem;
-		padding: 2rem;
-	}
-
-	h4 {
-		margin-top: 0;
 	}
 </style>
