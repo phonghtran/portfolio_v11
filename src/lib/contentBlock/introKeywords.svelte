@@ -213,7 +213,7 @@
 		{/each}
 	</div>
 	{#each keywords as keyword, index}
-		<div id="section{index}">
+		<div id="section{index}" class="cardKeyword">
 			<h4>{keyword.header}</h4>
 			<small>Practice: {dateCalc(keyword.duration)}</small>
 			<p>{@html keyword.desc}</p>
@@ -230,7 +230,7 @@
 		display: flex;
 		flex-direction: row;
 		gap: 1rem;
-		margin-top: 1rem;
+		margin: 1rem 0 3rem;
 	}
 	.legendItem {
 		display: flex;
@@ -243,5 +243,16 @@
 		display: inline-block;
 		height: 1rem;
 		width: 1rem;
+	}
+
+	.cardKeyword {
+		background-color: var(--gray0);
+		border-radius: var(--borderRadius);
+		margin: 1rem 0 2rem;
+		padding: 2rem;
+	}
+
+	h4 {
+		margin-top: 0;
 	}
 </style>
