@@ -16,6 +16,11 @@
 
 		dispatch('update', toggleSection);
 	}
+
+	function updateShowMenu() {
+		showMenu = !showMenu;
+		dispatch('updateShowMenu', showMenu);
+	}
 </script>
 
 <div id="componentSectionToggle" class:showMenu>
@@ -58,7 +63,7 @@
 	<button
 		id="toggleMenu"
 		on:click={() => {
-			showMenu = !showMenu;
+			updateShowMenu();
 		}}
 	>
 		<i class="fa-solid" class:fa-gear={!showMenu} class:fa-circle-xmark={showMenu}></i>

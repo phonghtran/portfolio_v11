@@ -3,6 +3,11 @@
 
 	let keywords = [
 		{
+			header: 'AI Experimentation',
+			duration: 2023,
+			desc: 'For my recent company, I researched the viability of using AI and ML for automation and efficiency inside of an agency. Where data needs to be federated and separate for each of the clients. Even deeper, it needs to be isolated from campaign to campaign. In parallel, I&rsquo;ve been coding up proof-of-concepts and experiments in my spare time leveraging Hugging Face, Llama2, and RAG principles.'
+		},
+		{
 			header: 'UX Design',
 			duration: 2010,
 			desc: 'Very comfortable in the end-to-end process connecting Product Discovery to Engineering. Can employ sketches, mock-ups, and prototypes to represent concepts and ideas to the team and stakeholders. Figma, Illustrator, Sketch.'
@@ -25,7 +30,7 @@
 		{
 			header: 'Product Design',
 			duration: 2012,
-			desc: 'Often my process bleeds into Product Management as I really insist on starting at the business needs with PMs (and try to get Engineering involved early also.) That allows me to maximize the design&rsquo;s impact from a system&rsquo;s POV and anticipate any UI needs early. '
+			desc: 'Often my process bleeds into Product Management as I really insist on starting at the business needs with PMs (and try to get Engineering involved early also.) That allows me to maximize the design&rsquo;s impact from a system&rsquo;s POV and anticipate any UI needs early. This started at Cornerstone OnDemand and I bring to today with Obviously.'
 		},
 		{
 			header: 'Design Systems',
@@ -55,7 +60,7 @@
 		{
 			header: 'SaaS Enterprise Software Design',
 			duration: 2013,
-			desc: 'Since IBM, I&rsquo;ve become accustomed to large-scale enterprise software. Being able to track sprawling systems and sub-systems with unique feature flags and tech debt. I&rsquo;m familiar with different software philosophies like one monolithic codebase or distributed systems of micro-services. It often has unforeseen consequences on what design can do. '
+			desc: 'Since IBM, I&rsquo;ve become accustomed to large-scale enterprise software. Being able to track sprawling systems and sub-systems with unique feature flags and tech debt. I&rsquo;m familiar with different software philosophies like one monolithic codebase (Cornerstone OnDemand, Obviously) or distributed systems of micro-services (GSK, Mastercard.) It often has unforeseen consequences on what design can do.'
 		},
 		{
 			header: 'Front-End Development',
@@ -70,7 +75,7 @@
 		{
 			header: 'Illustration',
 			duration: 2004,
-			desc: 'This was my college degree and have a fair comfort in sketching and illustration. It lends itself well in a pinch for a marketing asset or logo, but it&rsquo;s not something I stress as a skill. '
+			desc: 'This was my college degree and have a fair comfort in sketching and illustration. It lends itself well in a pinch for a marketing asset or logo, but it&rsquo;s not something I stress as a skill.'
 		}
 	];
 
@@ -103,7 +108,9 @@
 				'PHP',
 				'mySQL',
 				'noSQL',
-				'SQL'
+				'SQL',
+				'Hugging Face',
+				'Llama2'
 			]
 		},
 		{
@@ -115,6 +122,7 @@
 				'sketching',
 				'illustration',
 				'prototypes',
+				'researched',
 				'research',
 				'A/B testing',
 				'heat mapping',
@@ -125,13 +133,27 @@
 				'identity',
 				'accessibility',
 				'Design Sprints',
-				'Design Thinking'
+				'Design Thinking',
+				'RAG',
+				'proof-of-concepts',
+				'live demos'
 			]
 		},
 		{
 			label: 'Clients',
 			color: '#34B844',
-			words: ['IBM', 'FedEx', 'Mastercard', 'GSK', 'PNC Bank', 'Cornerstone OnDemand']
+			words: [
+				'IBM',
+				'FedEx',
+				'Mastercard',
+				'GSK',
+				'PNC Bank',
+				'Cornerstone OnDemand',
+				'Obviously',
+				'Designit',
+				'HRCloud',
+				'DroneIQ'
+			]
 		}
 	];
 	function colorCode(text) {
@@ -151,6 +173,15 @@
 		}
 
 		return newText;
+	}
+
+	function dateCalc(date) {
+		const duration = year - date;
+		if (duration <= 1) {
+			return '1 year';
+		} else {
+			return duration + ' years';
+		}
 	}
 
 	onMount(() => {
@@ -184,7 +215,7 @@
 	{#each keywords as keyword, index}
 		<div id="section{index}">
 			<h4>{keyword.header}</h4>
-			<small>Practice: {year - keyword.duration} years</small>
+			<small>Practice: {dateCalc(keyword.duration)}</small>
 			<p>{@html keyword.desc}</p>
 		</div>
 	{/each}

@@ -191,6 +191,6 @@ export let toggleSections = [
         id: 8,
         label: 'Keywords',
         div: 'introKeywords',
-        isVisible: true
+        isVisible: false
     }
 ];

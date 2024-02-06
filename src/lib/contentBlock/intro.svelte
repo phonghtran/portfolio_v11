@@ -51,30 +51,30 @@
 	function switchSections(id) {
 		showMenu = true;
 
-		let toggleArray = [0, 1, 5, 6, 7];
-		if (id === 2) {
-			toggleArray = [3, 4];
-		}
-
-		if (id === 3) {
-			toggleArray = [8];
-		}
-
-		console.log(toggleSections);
-
-		for (var i = 0; i < toggleSections.length; i++) {
-			let section = toggleSections[i];
-			section.isVisible = false;
-
-			for (var j = 0; j < toggleArray.length; j++) {
-				if (section.id === toggleArray[j]) {
-					section.isVisible = true;
-					break;
-				}
+		setTimeout(() => {
+			let toggleArray = [0, 1, 5, 6, 7];
+			if (id === 2) {
+				toggleArray = [3, 4];
 			}
 
-			toggleSections[i] = section;
-		}
+			if (id === 3) {
+				toggleArray = [8];
+			}
+
+			for (var i = 0; i < toggleSections.length; i++) {
+				let section = toggleSections[i];
+				section.isVisible = false;
+
+				for (var j = 0; j < toggleArray.length; j++) {
+					if (section.id === toggleArray[j]) {
+						section.isVisible = true;
+						break;
+					}
+				}
+
+				toggleSections[i] = section;
+			}
+		}, 250);
 	}
 
 	const currentDate = new Date();
@@ -141,7 +141,14 @@
 			<IntroLogos />
 		{/if}
 
-		<SectionToggle {toggleSections} {showMenu} on:update={(e) => updateToggle(e.detail)} />
+		<SectionToggle
+			{toggleSections}
+			{showMenu}
+			on:update={(e) => updateToggle(e.detail)}
+			on:updateShowMenu={(e) => {
+				showMenu = e.detail;
+			}}
+		/>
 
 		{#if toggleSections[2].isVisible}
 			<IntroAudio />
@@ -208,13 +215,15 @@
 <!-- wrapperMaxWidth -->
 
 <style>
+	#introLetter {
+		border-radius: var(--borderRadius);
+		margin: 1rem 1rem 5rem 1rem;
+	}
+
 	.introCard {
 		background-color: var(--gray0);
 
 		padding: 2rem;
-	}
-	.introLetter {
-		margin: 2rem 0;
 	}
 
 	.contactList {
@@ -230,11 +239,11 @@
 		margin-top: 0;
 	}
 
-	#introLetter {
-		margin-bottom: 6rem;
-	}
-
 	@media (min-width: 600px) {
+		#introLetter {
+			margin-left: 0;
+			margin-right: 0;
+		}
 		.introCard {
 			background-color: var(--gray0);
 			border-radius: var(--borderRadius);
