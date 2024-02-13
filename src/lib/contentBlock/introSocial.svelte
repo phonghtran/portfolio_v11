@@ -12,7 +12,7 @@
 	</blockquote>
 
 	<h4>Gallup's StrengthsFinder 2.0</h4>
-	<h5>Your Top 5 Themes</h5>
+	<h5>Top 5 Themes</h5>
 
 	<h6>Strategic</h6>
 	<p>
