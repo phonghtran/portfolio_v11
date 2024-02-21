@@ -30,7 +30,7 @@
 	</div>
 
 	<div class="jobWrapper">
-		<h4 class="workTitle">Director of Design</h4>
+		<h4 class="workTitle">Director of Design (was Lead Designer)</h4>
 		<span class="workDate">April 2021 - Present</span>{#key $languageConfig[1]['value']}
 			{#if $languageConfig[1]['value'] == 2}
 				<p>
@@ -76,14 +76,11 @@
 				</p>
 			{:else if $languageConfig[1]['value'] == 1}
 				<p>
-					Obviously is a social media agency (acquired by VMLY&R of WPP in 2022.) When I started as
-					a Lead Designer, this remote-only startup had no design team or consistent design
-					practice. In the ensuing years, I help build a research-led product cycle from discovery
-					to change management. Through workshops and virtual collaboration, I led various teams
-					from ops to marketing to executives on roadmap building and general decision-making across
-					the org. Implemented a JIRA-based visual QA system for verifying all designs with the
-					Engineering team. Built a request-based workflow for all internal marketing design
-					requests for my design team to process and monitor workloads.
+					Obviously is a social media agency (acquired by VMLY&R of WPP in 2022.) I built up their
+					design practice end-to-end as their first design hire. From a leadership POV, I mentored
+					PMs and designers and implemented new company-wide processes for efficiency and scaling.
+					Individual contributions include qualitative research, workshop facilitation, user journey
+					mapping, mock-ups, high-fidelity Figma designs, and usability testing.
 				</p>
 			{:else}
 				<p>
@@ -97,18 +94,25 @@
 
 		{#if $languageConfig[1]['value'] > 0}
 			<ul class="jobKPIList">
-				<li class="jobKPI">The redesign resulted in CSAT scores increasing 10% (8.4 to 9.2).</li>
 				<li class="jobKPI">
-					Internal UX re-architecture saved 120+ hours (36% reduction) of time spent for the CS
-					team.
+					Overhauled both of their user-facing portals to streamline the content creation process.
+					CSAT up 10% with redesign.
 				</li>
 				<li class="jobKPI">
-					4.4% increased sign-ups after the registration redesign (32.7% to 37.1%).
+					Internal UX re-architecture saved 120+ hours (36% reduction) of time spent for the team.
 				</li>
-				<li class="jobKPI">Organized and facilitated over 15 workshops</li>
 				<li class="jobKPI">
-					Built a new Design System for all UI, and rebuilt all client-facing marketing assets.
+					Designed a new configuration process that scaled up campaigns 100x without having to
+					rebuild the base technology.
 				</li>
+				<li class="jobKPI">Led the effort to build their first Design System (in Figma.)</li>
+				<li class="jobKPI">
+					Conducted over 30 user interviews and mentored juniors in their research efforts.
+				</li>
+				<li class="jobKPI">Planned and facilitated over 15 workshops (virtual and in-person.)</li>
+				<li class="jobKPI">Implemented Heap Analytics to track workflow patterns.</li>
+				<li class="jobKPI">Created wireframes and prototypes for over 60 features.</li>
+				<li class="jobKPI">4.4% increased sign-ups after form redesign (32.7% to 37.1%).</li>
 			</ul>
 		{/if}
 	</div>
