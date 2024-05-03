@@ -30,7 +30,9 @@
 	</div>
 
 	<div class="jobWrapper">
+		<h6>Fannie Mae</h6>
 		<h4 class="workTitle">Lead Associate - UX</h4>
+
 		<span class="workDate">April 2024 - </span>{#key $languageConfig[1]['value']}
 			{#if $languageConfig[1]['value'] == 2}
 				<p>
@@ -82,7 +84,9 @@
 	<!-- jobWrapper -->
 
 	<div class="jobWrapper">
+		<h6>Obviously</h6>
 		<h4 class="workTitle">Director of Design (was Lead Designer)</h4>
+
 		<span class="workDate">April 2021 - February 2024</span>{#key $languageConfig[1]['value']}
 			{#if $languageConfig[1]['value'] == 2}
 				<p>
@@ -170,7 +174,9 @@
 	</div>
 	<!-- jobWrapper -->
 	<div class="jobWrapper">
+		<h6>Designit</h6>
 		<h4 class="workTitle">Senior Design Technologist</h4>
+
 		<span class="workDate">June 2018 - March 2021</span>{#key $languageConfig[1]['value']}
 			{#if $languageConfig[1]['value'] == 2}
 				<p>
@@ -237,7 +243,9 @@
 	<!-- jobWrapper -->
 
 	<div class="jobWrapper">
+		<h6>Cornerstone OnDemand</h6>
 		<h4 class="workTitle">Senior Product Designer</h4>
+
 		<span class="workDate">November 2015 - January 2018</span>
 
 		{#key $languageConfig[1]['value']}
@@ -317,8 +325,13 @@
 		margin-top: 2rem;
 	}
 
-	h3 {
+	h3,
+	h4 {
 		margin-top: 0;
+	}
+
+	h4 {
+		margin-bottom: 0.25rem;
 	}
 
 	@media (min-width: 600px) {
