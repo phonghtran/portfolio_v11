@@ -30,8 +30,60 @@
 	</div>
 
 	<div class="jobWrapper">
+		<h4 class="workTitle">Lead Associate - UX</h4>
+		<span class="workDate">April 2024 - </span>{#key $languageConfig[1]['value']}
+			{#if $languageConfig[1]['value'] == 2}
+				<p>
+					Fannie Mae is a prominent financial institution that specializes in the mortgage loan
+					industry. With a rich history dating back to 1938, Fannie Mae plays a critical role in the
+					housing market by providing liquidity to mortgage lenders. Its mission is to ensure that
+					Americans have access to affordable housing by facilitating the flow of funds from
+					investors to borrowers. During my tenure at Fannie Mae, I had the privilege of working
+					within the Pricing software teams within Capital Markets. As a UX specialist, I focused on
+					enhancing the user experience for both internal stakeholders and external clients. I
+					collaborated closely with designers, developers, and product managers to create intuitive
+					interfaces that streamlined complex processes related to mortgage pricing and risk
+					assessment.
+				</p>
+
+				<p>
+					Fannie Mae recognized the need for agility and innovation to stay competitive in the
+					ever-evolving financial landscape. To achieve this, the organization aimed to transition
+					from traditional project management methodologies (such as SAFE and Agile) to a more
+					dynamic and responsive approach. Smaller, cross-functional squads were envisioned as the
+					key to driving impactful changes swiftly. As an organizational change coach, I played a
+					pivotal role in this transformation. I worked closely with teams across Product, Design,
+					and Technology to introduce new ceremonies and processes. These changes were designed to
+					foster collaboration, improve communication, and empower teams to make data-driven
+					decisions. By encouraging experimentation and continuous learning, we aimed to break down
+					silos and create a culture of adaptability. The shift toward smaller squads and a more
+					agile mindset yielded positive results. Teams became more responsive to market dynamics,
+					and innovation flourished. Fannie Mae's commitment to providing affordable housing
+					remained unwavering, and I am proud to have contributed to this mission-driven
+					organization's journey. Looking ahead, I anticipate further advancements as Fannie Mae
+					continues to evolve and adapt to meet the needs of borrowers and investors alike.
+				</p>
+			{:else if $languageConfig[1]['value'] == 1}
+				<p>
+					Fannie Mae is a financial institution specializing in the mortgage loan industry. I worked
+					within the Pricing software teams within Capital Markets as both a UX specialist and
+					organizational change coach. Fannie Mae wanted smaller squads that would create more
+					impact with faster pacing. I coached on new ceremonies and processes across Product,
+					Design and Tech to move away from traditional SAFE and Agile.
+				</p>
+			{:else}
+				<p>
+					I worked on UX, UI and research for Pricing software within Fannie Mae's Capital Markets
+					team handling mortgages.
+				</p>
+			{/if}
+		{/key}
+	</div>
+	<!-- jobWrapper -->
+
+	<div class="jobWrapper">
 		<h4 class="workTitle">Director of Design (was Lead Designer)</h4>
-		<span class="workDate">April 2021 - Present</span>{#key $languageConfig[1]['value']}
+		<span class="workDate">April 2021 - February 2024</span>{#key $languageConfig[1]['value']}
 			{#if $languageConfig[1]['value'] == 2}
 				<p>
 					Joining Obviously as a Lead Designer marked the beginning of an extraordinary journey in a
